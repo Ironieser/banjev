@@ -66,7 +66,7 @@ Names like `Yi Li` or `Yu Sun` belong to hundreds of researchers, so a badge nee
 
 **Once an author's real profile is known, other researchers with the same name are left alone.** A profile or author link with a different Scholar ID is not tagged, even if the name matches.
 
-Example: [Dongming Jiang](https://scholar.google.com/citations?user=FZLU_acAAAAJ) (1st author of Jev-Mem). Scholar hasn't indexed Jev-Mem yet, but his profile shows HAGE, MAGMA and other papers with the same co-authors (Y Li, B Li), which confirms the profile.
+For example, a new arXiv paper often isn't on its author's Scholar profile yet. If that profile already has several papers with the same collaborators, it is recognised as the same person. Nobody else who shares the name is affected.
 
 Click any badge to see the evidence, the author's score and author positions. Use "Not this person" to hide a false positive; you can undo it in the popup.
 

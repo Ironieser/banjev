@@ -66,7 +66,7 @@ BanJev **不是**针对 Jev、TypeSafe AI，也不是针对基于 Jev 做东西�
 
 **一旦确认了某位作者的真实主页，其他同名研究者就不会受影响**：Scholar ID 不同的主页或作者链接，即使同名也不会被标记。
 
-例子：[Dongming Jiang](https://scholar.google.com/citations?user=FZLU_acAAAAJ)（Jev-Mem 一作）。Scholar 还没收录 Jev-Mem，但他的主页上有 HAGE、MAGMA 等多篇论文，合作者同样是 Y Li、B Li，据此可以确认这个主页。
+举例来说：一篇新的 arXiv 论文往往还没出现在作者的 Scholar 主页上。如果这个主页上已经有好几篇论文和同一批合作者一起写，就可以认定是同一个人。其他同名的人不受影响。
 
 点击任意标记可以看到证据、这位作者的分数和作者位次。标错了可以点“Not this person”屏蔽，在 popup 里可以撤销。
 
