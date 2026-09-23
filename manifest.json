@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "BanJev",
+  "version": "1.0.0",
+  "description": "Tags authors of Jev bandwagon papers on arXiv and Google Scholar.",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://export.arxiv.org/*",
+    "https://raw.githubusercontent.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://arxiv.org/*",
+        "https://www.arxiv.org/*"
+      ],
+      "js": [
+        "src/lib/core.js",
+        "src/content/common.js",
+        "src/content/arxiv.js"
+      ],
+      "css": [
+        "src/content/badge.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://scholar.google.com/*",
+        "https://scholar.google.com.hk/*",
+        "https://scholar.google.com.sg/*",
+        "https://scholar.google.co.uk/*",
+        "https://scholar.google.de/*",
+        "https://scholar.google.co.jp/*",
+        "https://scholar.google.ca/*",
+        "https://scholar.google.com.au/*",
+        "https://scholar.google.fr/*",
+        "https://scholar.google.co.kr/*",
+        "https://scholar.google.com.tw/*"
+      ],
+      "js": [
+        "src/lib/core.js",
+        "src/content/common.js",
+        "src/content/scholar.js"
+      ],
+      "css": [
+        "src/content/badge.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

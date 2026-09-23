@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BanJev</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <strong>BanJev</strong>
+    <span id="stats" class="muted"></span>
+  </header>
+  <section class="opts">
+    <label><input type="checkbox" id="enabled"> Enabled</label>
+    <label title="Tag people whose full name matches, even without extra evidence (shown as dashed BanJev?)"><input type="checkbox" id="showNameMatches"> Show name-only matches (BanJev?)</label>
+    <label title="Google Scholar abbreviates names (e.g. 'Y Li'); matching these is very noisy"><input type="checkbox" id="abbrevNameMatches"> Match Scholar abbreviated names (noisy)</label>
+  </section>
+  <section class="row">
+    <button id="refresh">Update list now</button>
+    <span id="updated" class="muted"></span>
+  </section>
+  <input id="filter" type="search" placeholder="Filter papers / authors">
+  <ul id="papers"></ul>
+  <details id="fp">
+    <summary>False positives you marked (<span id="fpCount">0</span>)</summary>
+    <ul id="fpList"></ul>
+  </details>
+  <script src="../lib/core.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

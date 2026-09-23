@@ -1,0 +1,132 @@
+{
+  "updatedAt": "2026-09-23T19:08:51.879Z",
+  "source": "arXiv API + awesome-jev README",
+  "papers": [
+    {
+      "id": "2609.26758",
+      "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It",
+      "authors": [
+        "Yu Sun",
+        "Junhao Xu"
+      ],
+      "published": "2026-09-22"
+    },
+    {
+      "id": "2609.26550",
+      "title": "JEV-as-a-Judge: Accept When Confident, Escalate When Unsure",
+      "authors": [
+        "Yubo Li",
+        "Yidi Miao",
+        "Ramayya Krishnan",
+        "Rema Padman"
+      ],
+      "published": "2026-09-22"
+    },
+    {
+      "id": "2609.26532",
+      "title": "REFLEX with Jev for Efficient Selective Control in LLM Agents",
+      "authors": [
+        "Tiantong Wu",
+        "Wei Yang Bryan Lim"
+      ],
+      "published": "2026-09-22"
+    },
+    {
+      "id": "2609.25845",
+      "title": "Visual Jev: Accurate and Efficient Decisions from Shared Visual Context",
+      "authors": [
+        "Guanxu Yu",
+        "Yuhang Yao"
+      ],
+      "published": "2026-09-22"
+    },
+    {
+      "id": "2609.24965",
+      "title": "Jev for Scientific Decisions: Evaluating Semantic Choices and Their Consequences",
+      "authors": [
+        "Boyuan Deng",
+        "Shuyi Fan",
+        "Hongyang Zhang",
+        "Xinhong Xie"
+      ],
+      "published": "2026-09-21"
+    },
+    {
+      "id": "2609.24395",
+      "title": "JEVQA - Video Quality from Metadata, Bitstream, and Pixel Features with a General-Purpose Decision Model",
+      "authors": [
+        "Werner Robitza"
+      ],
+      "published": "2026-09-21"
+    },
+    {
+      "id": "2609.24052",
+      "title": "Calibrated Decisions at Scale: Converting Police Crash Narratives into Probabilistic Crash Variables with a System One Model (Jev)",
+      "authors": [
+        "Amir Rafe",
+        "Subasish Das"
+      ],
+      "published": "2026-09-21"
+    },
+    {
+      "id": "2609.23986",
+      "title": "Jev-Mem: System-One-Controlled Agentic Memory for Efficient AI Agents",
+      "authors": [
+        "Dongming Jiang",
+        "Yi Li",
+        "Bingzhe Li"
+      ],
+      "published": "2026-09-21"
+    },
+    {
+      "id": "2609.23959",
+      "title": "Open-Jev Judgments on CallScreenBench: Calibrated One-Pass Scam Screening with a Small Language Model",
+      "authors": [
+        "Simiao Ren",
+        "Kidus Zewde",
+        "Xingyu Shen",
+        "Yuchen Zhou",
+        "Dennis Ng",
+        "Ankit Raj",
+        "Tommy Duong",
+        "Yuxin Zhang",
+        "Neo Tiangratanakul"
+      ],
+      "published": "2026-09-21"
+    },
+    {
+      "id": "2609.23886",
+      "title": "this-that-model-1.0: A typed decision model that decides in 30 ms, for a millionth of a cent",
+      "authors": [
+        "Zehua Cheng",
+        "Wei Dai",
+        "Jiahao Sun"
+      ],
+      "published": "2026-09-20"
+    },
+    {
+      "id": "2609.23136",
+      "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
+      "authors": [
+        "Delong Li",
+        "Xu Wang",
+        "Haochen Gong",
+        "Rui Lang",
+        "Guangsheng Yu"
+      ],
+      "published": "2026-09-19"
+    },
+    {
+      "id": "2609.22753",
+      "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+      "authors": [
+        "Delong Li",
+        "Xu Wang",
+        "Haochen Gong",
+        "Rui Lang",
+        "Guangsheng Yu"
+      ],
+      "published": "2026-09-19"
+    }
+  ]
+}

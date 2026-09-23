@@ -1,0 +1,21 @@
+:root { --fg:#202124; --muted:#5f6368; --line:#e3e3e3; --bg:#fff; --red:#c62828; --chip:#f1f3f4; }
+@media (prefers-color-scheme: dark) { :root { --fg:#e8eaed; --muted:#9aa0a6; --line:#3c4043; --bg:#202124; --red:#ef5350; --chip:#303134; } }
+body { width: 380px; margin: 0; padding: 12px; font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--fg); background: var(--bg); }
+header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
+header strong { color: var(--red); font-size: 16px; }
+.muted { color: var(--muted); font-size: 12px; }
+.opts label { display: block; margin: 3px 0; }
+.row { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+button { font: inherit; padding: 3px 10px; cursor: pointer; }
+#filter { width: 100%; box-sizing: border-box; padding: 4px 6px; margin-bottom: 6px; }
+ul { list-style: none; margin: 0; padding: 0; }
+#papers { max-height: 300px; overflow: auto; border-top: 1px solid var(--line); }
+#papers li { padding: 6px 0; border-bottom: 1px solid var(--line); }
+#papers li.off { opacity: .45; }
+#papers a { color: inherit; font-weight: 600; text-decoration: none; }
+#papers a:hover { text-decoration: underline; }
+.authors { color: var(--muted); font-size: 12px; margin: 2px 0; }
+.meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+.meta button, #fpList button { font-size: 11px; padding: 0 6px; }
+#fp { margin-top: 8px; }
+#fpList li { display: flex; justify-content: space-between; padding: 2px 0; }
