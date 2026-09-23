@@ -51,7 +51,7 @@ Each listed paper adds points by author position: **1st = 1, 2nd = 0.5, 3rd = 0.
 
 ## How the extension avoids tagging the wrong person
 
-Names like `Yi Li` or `Yu Sun` belong to hundreds of researchers, so a badge needs evidence:
+Names like `Li Hua` or `Sam Smith` belong to hundreds of researchers, so a badge needs evidence:
 
 | Badge | When |
 |---|---|

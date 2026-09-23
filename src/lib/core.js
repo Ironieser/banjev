@@ -20,11 +20,11 @@
     return s.normalize('NFKD').replace(/[̀-ͯ]/g, '');
   }
 
-  // "Yu Sun (孙宇)" -> "yu sun"; "Cristóvão" -> "cristovao"
+  // "Li Hua (李华)" -> "li hua"; "José Núñez" -> "jose nunez"
   function normName(name) {
     if (!name) return '';
     let s = String(name).replace(/\([^)]*\)|（[^）]*）/g, ' ');
-    // "Sun, Yu" -> "Yu Sun"
+    // "Hua, Li" -> "Li Hua"
     const comma = s.split(',');
     if (comma.length === 2 && comma[0].trim() && comma[1].trim() && !/\s/.test(comma[0].trim())) {
       s = comma[1] + ' ' + comma[0];
@@ -34,7 +34,7 @@
     return s.replace(/\s+/g, ' ').trim();
   }
 
-  // Google Scholar abbreviates to "WYB Lim" / "Y Sun". Key = initials + last name.
+  // Google Scholar abbreviates to "SJ Smith" / "L Hua". Key = initials + last name.
   function abbrevKey(name) {
     const n = normName(name);
     if (!n) return '';
@@ -43,7 +43,7 @@
     return (parts.map((p) => p[0]).join('') + ' ' + last).trim();
   }
 
-  // Parse a Scholar abbreviated author "WYB Lim" -> key "wyb lim"
+  // Parse a Scholar abbreviated author "SJ Smith" -> key "sj smith"
   function scholarAbbrevKey(text) {
     const t = stripDiacritics(String(text)).replace(/[^A-Za-z\s\-']/g, ' ').trim();
     const parts = t.split(/\s+/).filter(Boolean);
@@ -248,7 +248,7 @@
         if ((a.abbreviated ? abbrevKey(x) : normName(x)) === key) return index.authors.get(normName(x));
       }
     }
-    // arXiv display names sometimes differ slightly from the API ("Yu Sun" vs "Y. Sun")
+    // arXiv display names sometimes differ slightly from the API ("Li Hua" vs "L. Hua")
     if (!a.abbreviated) return authorOn(index, papers, { name: a.name, abbreviated: true });
     return null;
   }
@@ -348,7 +348,7 @@
     const co = new Set();
     r.papers.forEach((x) => index.byId.get(x.id).authors.forEach((n) => abbrevKey(n) !== own_k && co.add(abbrevKey(n))));
     if (!co.size) return null; // single-author papers: nothing to cross-check
-    // Abbreviations like "Y Li" are common, so require several shared publications and,
+    // Abbreviations like "L Hua" are common, so require several shared publications and,
     // when the listed paper has >= 2 co-authors, at least 2 distinct matching co-authors.
     const matched = new Set();
     const shared = pubs.filter((p) => {
