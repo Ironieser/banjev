@@ -63,10 +63,6 @@ await check('arXiv search "Jev": every listed result tagged', async () => {
   const p = await open('https://arxiv.org/search/?query=Jev&searchtype=all&order=-announced_date_first');
   const n = await p.$$eval('li.arxiv-result', (lis) => lis.filter((li) => li.querySelector('p.title .banjev-paper')).length);
   assert.ok(n >= 12, 'tagged results: ' + n);
-  await p.setViewport({ width: 1100, height: 900 });
-  await p.evaluate(() => scrollTo(0, 0));
-  const box = await (await p.$('ol.breathe-horizontal')).boundingBox();
-  await p.screenshot({ path: new URL('../docs/arxiv.png', import.meta.url).pathname, clip: { x: box.x - 10, y: box.y - 10, width: box.width + 20, height: 620 } });
   await p.close();
 });
 
@@ -155,6 +151,8 @@ await check('popup: shows who is tagged on the current page, not the whole list;
   assert.deepEqual(rows, ['BanJev Delong Li score 2', 'BanJev Xu Wang score 1']);
   assert.equal(await p.$$eval('#papers li', (x) => x.length), 0, 'no full paper list in the popup');
   await p.setViewport({ width: 368, height: 420 });
+  // blur author names in the saved image; the checks above already ran on the real text
+  await p.addStyleTag({ content: '#page .n { filter: blur(5px); }' });
   await p.screenshot({ path: new URL('../docs/popup.png', import.meta.url).pathname });
   await p.click('#refresh');
   await p.waitForFunction(() => !document.querySelector('#refresh').disabled, { timeout: 60000 });

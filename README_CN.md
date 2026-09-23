@@ -88,6 +88,7 @@ npm run test:e2e    # 端到端测试：用 Puppeteer 把插件加载进 Chrome 
 npm run update-data # 重新生成 data/papers.json 和 data/authors.json
 npm run build-site  # 把排行榜页面组装到 build/site/
 npm run package     # 打包成 banjev.zip
+npm run screenshot  # 重新生成 docs/arxiv.png（标题和作者名已模糊）
 python3 scripts/make-icons.py  # 重新生成图标（需要 Pillow）
 ```
 

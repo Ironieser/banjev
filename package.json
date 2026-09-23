@@ -8,7 +8,8 @@
     "test:e2e": "node tests/e2e.mjs",
     "update-data": "node scripts/update-data.mjs",
     "package": "rm -f banjev.zip && zip -r banjev.zip manifest.json icons src data -x '*.DS_Store'",
-    "build-site": "sh scripts/build-site.sh"
+    "build-site": "sh scripts/build-site.sh",
+    "screenshot": "node scripts/screenshot.mjs"
   },
   "devDependencies": {
     "puppeteer": "^25.12.0"

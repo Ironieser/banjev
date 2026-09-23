@@ -88,6 +88,7 @@ npm run test:e2e    # end-to-end: loads the extension into Chrome for Testing wi
 npm run update-data # regenerate data/papers.json and data/authors.json
 npm run build-site  # assemble the ranking page into build/site/
 npm run package     # build banjev.zip
+npm run screenshot  # regenerate docs/arxiv.png (titles and names blurred)
 python3 scripts/make-icons.py  # regenerate icons (needs Pillow)
 ```
 
