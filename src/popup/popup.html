@@ -22,6 +22,20 @@
     <label title="On arXiv, also tag banned names without extra evidence (dashed BanJev?). Google Scholar always requires evidence."><input type="checkbox" id="showNameMatches"> arXiv: show name-only matches (faded logo)</label>
   </section>
 
+  <details id="scoring">
+    <summary>Scoring <span id="scState" class="muted"></span></summary>
+    <p class="muted">Each paper adds (author-position weight) × (weight of the week it was submitted, counted from the model's release). Banned when the total reaches the threshold.</p>
+    <div class="grid">
+      <span>Week 1–4</span>
+      <input id="w1" type="number" min="0" step="0.05"><input id="w2" type="number" min="0" step="0.05"><input id="w3" type="number" min="0" step="0.05"><input id="w4" type="number" min="0" step="0.05">
+      <span>1st–3rd author</span>
+      <input id="p1" type="number" min="0" step="0.05"><input id="p2" type="number" min="0" step="0.05"><input id="p3" type="number" min="0" step="0.05"><span class="muted">then ½ each</span>
+      <span>Ban at ≥</span>
+      <input id="threshold" type="number" min="0.05" step="0.05">
+    </div>
+    <p class="muted">Later than week 4 counts 0. <button id="scReset" type="button" hidden>Reset to default</button></p>
+  </details>
+
   <details id="fp" hidden>
     <summary>People you marked "not this person" (<span id="fpCount">0</span>)</summary>
     <ul id="fpList"></ul>

@@ -54,8 +54,8 @@ await check('abstract page of a listed paper: paper badge + banned authors only'
   const p = await open('https://arxiv.org/abs/2609.26532');
   assert.equal(await p.$$eval('h1.title .banjev-paper', (x) => x.length), 1);
   const b = (await badges(p)).filter((x) => x.level === 'paper' && x.prev);
-  // 1st author scores 1 (banned); 2nd author scores 0.5 (not banned)
-  assert.deepEqual(b.map((x) => x.prev), ['Tiantong Wu']);
+  // week 1: 1st author 1 x 2 = 2, 2nd author 0.5 x 2 = 1, both banned
+  assert.deepEqual(b.map((x) => x.prev), ['Tiantong Wu', 'Wei Yang Bryan Lim']);
   await p.close();
 });
 
@@ -80,7 +80,7 @@ await check('author search for a listed author: name-only tags on their other pa
 });
 
 console.log('Google Scholar (fixtures)');
-await check('search results: listed paper, co-author pair, scores respected, noisy abbreviation skipped', async () => {
+await check('search results: listed paper, co-author group, scores respected, lone abbreviation skipped', async () => {
   const p = await open('https://scholar.google.com/scholar?q=jev', { serve: fixture('scholar-search.html') });
   const r = await p.evaluate(() =>
     ['r1', 'r2', 'r3'].map((id) => ({
@@ -88,8 +88,9 @@ await check('search results: listed paper, co-author pair, scores respected, noi
       authors: [...document.querySelectorAll(`#${id} .gs_a .banjev-badge`)].map((b) => b.previousSibling.textContent.trim() + ':' + b.className.replace(/.*banjev-/, '')),
     }))
   );
-  assert.deepEqual(r[0], { paper: true, authors: ['D Jiang:paper'] });
-  assert.deepEqual(r[1], { paper: false, authors: ['D Li:confirmed', 'X Wang:confirmed'] });
+  // Jev-Mem (week 1): 1st and 2nd authors banned, 3rd (0.25 x 2 = 0.5) not
+  assert.deepEqual(r[0], { paper: true, authors: ['D Jiang:paper', 'Y Li:paper'] });
+  assert.deepEqual(r[1], { paper: false, authors: ['D Li:confirmed', 'X Wang:confirmed', 'H Gong:confirmed'] });
   assert.deepEqual(r[2], { paper: false, authors: [] });
   await p.close();
 });
@@ -106,7 +107,8 @@ await check('profile: verified by listed paper, learned, co-author tagged', asyn
   await p.click('#gsc_prf_in .banjev-badge');
   const pop = await p.$eval('.banjev-pop', (x) => x.textContent);
   assert.match(pop, /JEV-as-a-Judge/);
-  assert.match(pop, /Yubo Li: score 1 = 1st author/);
+  assert.match(pop, /Yubo Li: score 2 \(ban at 1\)/);
+  assert.match(pop, /1st author ×1, week 1 ×2 = 2/);
   await p.evaluate(() => [...document.querySelectorAll('.banjev-pop button')].find((b) => b.textContent === 'Not this person').click());
   await p.waitForFunction(() => !document.querySelector('#gsc_prf_in .banjev-badge'), { timeout: 5000 });
   await p.close();
@@ -147,8 +149,8 @@ await check('popup: shows who is tagged on the current page, not the whole list;
   await p.goto(`chrome-extension://${id}/src/popup/popup.html?tabId=${tabId}`);
   await p.waitForSelector('#page li');
   const rows = await p.$$eval('#page li', (li) => li.map((x) => [...x.children].map((c) => (c.tagName === 'IMG' ? c.alt : c.textContent.trim())).join(' ')));
-  // 2609.22753: Delong Li (1st, score 2), Xu Wang (2nd twice, score 1); others below 1
-  assert.deepEqual(rows, ['BanJev Delong Li score 2', 'BanJev Xu Wang score 1']);
+  // 2609.22753 (week 1): Delong Li 1st twice = 4, Xu Wang 2nd twice = 2, Haochen Gong 3rd twice = 1; Rui Lang 0.5
+  assert.deepEqual(rows, ['BanJev Delong Li score 4', 'BanJev Xu Wang score 2', 'BanJev Haochen Gong score 1']);
   assert.equal(await p.$$eval('#papers li', (x) => x.length), 0, 'no full paper list in the popup');
   await p.setViewport({ width: 368, height: 420 });
   // blur author names in the saved image; the checks above already ran on the real text

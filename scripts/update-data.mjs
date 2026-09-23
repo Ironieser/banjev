@@ -59,7 +59,11 @@ writeFileSync(
   JSON.stringify(
     {
       ...meta,
-      rule: 'author position weights 1, 0.5, 0.25, 0.125, …; banned when total >= 1 (or listed in manual.json banAuthors)',
+      rule:
+        'paper weight = position weight (1st 1, 2nd 0.5, 3rd 0.25, then halving) x time weight (weeks after ' +
+        core.JEV_EPOCH + ': week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0); banned when the total >= 1 (or listed in manual.json banAuthors)',
+      epoch: core.JEV_EPOCH,
+      scoring: core.DEFAULT_SCORING,
       threshold: core.BAN_THRESHOLD,
       authors: authors.map(({ key, ...r }) => {
         const ids = Object.entries(curation.scholarProfiles).filter(([n]) => core.normName(n) === key).flatMap(([, v]) => [].concat(v));

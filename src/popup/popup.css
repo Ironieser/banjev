@@ -24,3 +24,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 #fpList li { display: flex; justify-content: space-between; padding: 2px 0; }
 footer { padding-top: 10px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; display: grid; gap: 4px; }
 button { font: inherit; font-size: 11px; padding: 0 6px; cursor: pointer; }
+#scoring { padding: 8px 0; border-top: 1px solid var(--line); }
+#scoring summary { cursor: pointer; }
+#scoring p { margin: 6px 0; font-size: 12px; }
+#scoring .grid { display: grid; grid-template-columns: 92px repeat(4, 1fr); gap: 4px 6px; align-items: center; font-size: 12px; }
+#scoring input { width: 100%; box-sizing: border-box; font: inherit; padding: 1px 3px; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 3px; }

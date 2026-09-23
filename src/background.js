@@ -6,7 +6,8 @@ const REFRESH_MINUTES = 6 * 60;
 
 const DEFAULT_SETTINGS = {
   enabled: true,
-  showNameMatches: true, // arXiv full-name matches without extra evidence ("BanJev?")
+  showNameMatches: true, // arXiv full-name matches without extra evidence (faded logo)
+  scoring: null, // null = core.DEFAULT_SCORING; see the popup's "Scoring" section
   excludedPapers: [],
   notThem: { names: [], scholarIds: [] },
   confirmedScholarIds: {},

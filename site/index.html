@@ -65,7 +65,7 @@
   .papers { margin: 0; padding: 0; list-style: none; font-size: 13px; }
   .papers li { margin: 2px 0; }
   .papers a { color: var(--fg); }
-  .pos { display: inline-block; min-width: 30px; font-size: 11px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .pos { display: inline-block; min-width: 118px; font-size: 11px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
   .date { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
   .empty { padding: 32px; text-align: center; color: var(--muted); }
   footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
@@ -119,11 +119,13 @@ const I18N = {
   en: {
     tagline: 'Save time reading papers. Save tokens reading papers.',
     rule: '<b>Not about Jev.</b> Jev is where we noticed the pattern: within days of a model going viral, a batch of papers named after it appears on arXiv. A badge means "rushed a paper out to ride the trend", which is a reading-priority signal, not a judgment of Jev or of any single paper.<br><br>Papers: arXiv submissions since <b>2026-09-17</b> (the day Jev went viral) that mention Jev, plus <a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">manual curation</a>. ' +
-      'Score: each paper adds <b>1</b> for 1st author, <b>0.5</b> for 2nd, <b>0.25</b> for 3rd, halving after that. Authors with a score of <b>≥ 1</b> are banned. Updated every 6 hours.',
+      'Score: each paper adds <b>author-position weight × time weight</b>. Position: 1st <b>1</b>, 2nd <b>0.5</b>, 3rd <b>0.25</b>, halving after that. ' +
+      'Time (weeks after the release to the arXiv submission): week 1 <b>×2</b>, week 2 <b>×1</b>, week 3 <b>×0.5</b>, week 4 <b>×0.25</b>, later <b>×0</b>, since about a month is a normal research pace. ' +
+      'Authors with a total of <b>≥ 1</b> are banned. Updated every 6 hours. <a href="https://github.com/Ironieser/banjev#why-time-decay">Why time decay?</a>',
     banned: 'banned authors', authors: 'authors in total', papers: 'papers', updated: 'last updated',
     tabBanned: 'Banned', tabAll: 'All authors', tabPapers: 'Papers', search: 'Search author or paper…',
-    rank: '#', author: 'Author', score: 'Score', paperList: 'Papers (author position · date)', latest: 'Latest',
-    title: 'Title', authorsCol: 'Authors', date: 'Submitted', none: 'No results',
+    rank: '#', author: 'Author', score: 'Score', paperList: 'Papers (position · week · points)', latest: 'Latest',
+    title: 'Title', authorsCol: 'Authors', date: 'Submitted', week: 'Week', none: 'No results',
     scholar: 'Scholar', arxiv: 'arXiv', forced: 'manual', allowed: 'exempt', ban: 'BAN',
     footer: 'The badge means "published a Jev-titled paper after Jev went viral". It is a reading filter, not a judgment of any individual paper. ' +
       'Wrong person or wrong paper? <a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">Open a PR against manual.json</a>. · <a href="https://github.com/Ironieser/banjev">Chrome extension &amp; source</a>',
@@ -131,11 +133,13 @@ const I18N = {
   zh: {
     tagline: '节约读论文时间，节约读论文的 token。',
     rule: '<b>这不是针对 Jev。</b>Jev 只是我们观察到这种现象的地方：一个模型爆火后没几天，arXiv 上就冒出一批以它命名的论文。标记的意思是“赶着发论文蹭热点”，是阅读优先级信号，不评价 Jev，也不评价任何一篇具体论文。<br><br>论文来源：2026-09-17（Jev 爆火之日）之后提交到 arXiv、提到 Jev 的论文，加上<a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">人工维护名单</a>。' +
-      '计分：每篇论文一作记 <b>1</b>，二作记 <b>0.5</b>，三作记 <b>0.25</b>，之后依次减半。总分 <b>≥ 1</b> 即 ban。每 6 小时自动更新。',
+      '计分：每篇论文记 <b>作者位次权重 × 时间权重</b>。位次：一作 <b>1</b>，二作 <b>0.5</b>，三作 <b>0.25</b>，之后依次减半。' +
+      '时间（从模型发布到论文提交 arXiv 隔了几周）：第 1 周 <b>×2</b>，第 2 周 <b>×1</b>，第 3 周 <b>×0.5</b>，第 4 周 <b>×0.25</b>，之后 <b>×0</b>，因为一个月左右是正常的研究节奏。' +
+      '总分 <b>≥ 1</b> 即 ban。每 6 小时自动更新。<a href="https://github.com/Ironieser/banjev/blob/main/README_CN.md#为什么要按时间衰减">为什么按时间衰减？</a>',
     banned: '被 ban 作者', authors: '作者总数', papers: '论文数', updated: '最后更新',
     tabBanned: '已 ban', tabAll: '全部作者', tabPapers: '论文', search: '搜索作者或论文…',
-    rank: '#', author: '作者', score: '分数', paperList: '论文（作者位次 · 日期）', latest: '最近',
-    title: '标题', authorsCol: '作者', date: '提交日期', none: '没有结果',
+    rank: '#', author: '作者', score: '分数', paperList: '论文（位次 · 第几周 · 得分）', latest: '最近',
+    title: '标题', authorsCol: '作者', date: '提交日期', week: '第几周', none: '没有结果',
     scholar: 'Scholar', arxiv: 'arXiv', forced: '人工', allowed: '豁免', ban: 'BAN',
     footer: '标记只表示“此人在 Jev 爆火后发表过以 Jev 为题的论文”，是阅读过滤器，不评价具体论文。' +
       '标错了人或论文？<a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">给 manual.json 提 PR</a>。 · <a href="https://github.com/Ironieser/banjev">Chrome 插件与源码</a>',
@@ -145,9 +149,12 @@ const I18N = {
 let lang = (() => { try { return localStorage.getItem('banjev-lang'); } catch (e) { return null; } })()
   || ((navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en');
 let tab = 'banned';
+let epoch = '2026-09-17';
+const weekOf = (d) => Math.max(0, Math.floor((Date.parse(d) - Date.parse(epoch)) / 86400000 / 7)) + 1;
 let data = null;
 const t = (k) => I18N[lang][k];
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const wk = (n) => (lang === 'zh' ? `第${n}周` : `wk ${n}`);
 const ord = (n) => lang === 'zh' ? n + '作' : n + (n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th');
 const fmt = (n) => String(Math.round(n * 1000) / 1000);
 
@@ -176,7 +183,7 @@ function authorRows(list, q) {
         <td class="rank num">${rank}</td>
         <td class="name">${esc(a.name)} ${tags}<span class="sub">${a.papers.length} × ${lang === 'zh' ? '论文' : (a.papers.length > 1 ? 'papers' : 'paper')} · ${esc(a.latest)}</span><span class="links">${scholar}<a href="https://arxiv.org/search/?searchtype=author&query=${q}" target="_blank" rel="noopener">${t('arxiv')}</a></span></td>
         <td class="num"><div class="score"><b>${fmt(a.score)}</b><span class="bar"><i style="width:${Math.min(100, (a.score / max) * 100)}%"></i></span></div></td>
-        <td class="hide-sm"><ul class="papers">${a.papers.map((p) => `<li><span class="pos">${ord(p.position)}</span><a href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener">${esc(p.title)}</a> <span class="date">${esc(p.published)}</span></li>`).join('')}</ul></td>
+        <td class="hide-sm"><ul class="papers">${a.papers.map((p) => `<li><span class="pos">${ord(p.position)} · ${wk(p.week)} · +${fmt(p.weight)}</span> <a href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener">${esc(p.title)}</a> <span class="date">${esc(p.published)}</span></li>`).join('')}</ul></td>
         <td class="hide-sm date">${esc(a.latest)}</td>
       </tr>`;
     }).join('') + '</tbody></table>';
@@ -186,10 +193,10 @@ function paperRows(q) {
   const banned = new Set(data.authors.filter((a) => a.banned).map((a) => a.name));
   const rows = data.papers.filter((p) => !q || (p.title + ' ' + p.authors.join(' ')).toLowerCase().includes(q));
   if (!rows.length) return `<div class="empty">${t('none')}</div>`;
-  return `<table><thead><tr><th>${t('title')}</th><th class="hide-sm">${t('authorsCol')}</th><th>${t('date')}</th></tr></thead><tbody>` +
+  return `<table><thead><tr><th>${t('title')}</th><th class="hide-sm">${t('authorsCol')}</th><th>${t('date')}</th><th>${t('week')}</th></tr></thead><tbody>` +
     rows.map((p) => `<tr><td><a href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener">${esc(p.title)}</a><div class="date">arXiv:${esc(p.id)}</div></td>
       <td class="hide-sm" style="font-size:13px">${p.authors.map((a) => banned.has(a) ? `<b style="color:var(--red)">${esc(a)}</b>` : esc(a)).join(', ')}</td>
-      <td class="date">${esc(p.published)}</td></tr>`).join('') + '</tbody></table>';
+      <td class="date">${esc(p.published)}</td><td class="date">${weekOf(p.published) > 4 ? '–' : weekOf(p.published)}</td></tr>`).join('') + '</tbody></table>';
 }
 
 function render() {
@@ -213,6 +220,7 @@ const hq = new URLSearchParams(location.hash.slice(1)).get('q');
 if (hq) { document.getElementById('q').value = hq; tab = 'all'; }
 Promise.all([fetch('data/authors.json').then((r) => r.json()), fetch('data/papers.json').then((r) => r.json())]).then(([a, p]) => {
   data = { authors: a.authors, papers: p.papers, updatedAt: a.updatedAt };
+  if (a.epoch) epoch = a.epoch;
   document.getElementById('s-banned').textContent = a.authors.filter((x) => x.banned).length;
   document.getElementById('s-authors').textContent = a.authors.length;
   document.getElementById('s-papers').textContent = p.papers.length;

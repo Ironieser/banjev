@@ -47,7 +47,38 @@ A [GitHub Action](.github/workflows/update.yml) runs every 6 hours and on every 
 
 ## Who gets banned
 
-Each listed paper adds points by author position: **1st = 1, 2nd = 0.5, 3rd = 0.25**, halving after that (0.125, …). An author with a **total of ≥ 1** is banned. That means every first author is banned, a second author is banned after two papers, and so on. `banAuthors` / `allowAuthors` in `manual.json` override the score.
+Each listed paper adds **author-position weight × time weight** to each of its authors:
+
+| Author position | 1st | 2nd | 3rd | 4th, 5th, … |
+|---|---|---|---|---|
+| Weight | 1 | 0.5 | 0.25 | halving (0.125, …) |
+
+| Submitted to arXiv, counted from the model's release | Week 1 | Week 2 | Week 3 | Week 4 | Later |
+|---|---|---|---|---|---|
+| Weight | ×2 | ×1 | ×0.5 | ×0.25 | ×0 |
+
+An author with a **total of ≥ 1** is banned. Examples:
+- a week-1 first author: 1 × 2 = 2, banned;
+- a week-1 second author: 0.5 × 2 = 1, banned;
+- a week-3 first author: 1 × 0.5 = 0.5, not banned unless they have more papers.
+
+Papers submitted more than 4 weeks after the release count 0 and get no badge: about a month is a normal research pace. `banAuthors` / `allowAuthors` in `manual.json` override the score.
+
+**You can change all of this**: the week weights, the position weights and the threshold are editable under "Scoring" in the extension popup. Your settings affect only your own browser. The repository and the ranking page use the defaults above.
+
+### Why time decay?
+
+Real work, meaning experiments, baselines, ablations and writing, takes time. The faster a paper about a brand-new model appears, the less of that work it can contain. There is some related evidence:
+
+- COVID-19 papers were accepted in a median of **13 days**, against 110 days for matched controls, and scored **lower on methodological quality** in every study design examined. — Jung et al., *Methodological quality of COVID-19 clinical research*, Nature Communications 12:943 (2021), [doi:10.1038/s41467-021-21220-5](https://doi.org/10.1038/s41467-021-21220-5)
+- The conclusions of **17.2%** of COVID-19 preprints changed by the time they were published in a journal, against **7.2%** of other preprints. Event-driven preprints get revised more. — Brierley et al., *Tracking changes between preprint posting and journal publication during a pandemic*, PLOS Biology (2022), [doi:10.1371/journal.pbio.3001285](https://doi.org/10.1371/journal.pbio.3001285)
+- In protein-interaction research, findings on more popular topics were **less reliable**. — Pfeiffer & Hoffmann, *Large-Scale Assessment of the Effect of Popularity on the Reliability of Research*, PLoS ONE 4(6):e5996 (2009), [doi:10.1371/journal.pone.0005996](https://doi.org/10.1371/journal.pone.0005996)
+- In the first seven months after ChatGPT's release, only **36.8%** of 533 indexed ChatGPT publications were empirical studies. — Farhat et al., *The scholarly footprint of ChatGPT*, Frontiers in AI 6:1270749 (2023), [doi:10.3389/frai.2023.1270749](https://doi.org/10.3389/frai.2023.1270749)
+- On the ML side, Lipton & Steinhardt point to "misaligned incentives between scholarship and short-term measures of success". — *Troubling Trends in Machine Learning Scholarship*, [arXiv:1807.03341](https://arxiv.org/abs/1807.03341) (2018)
+
+Two caveats:
+- There is also counter-evidence. Across all COVID-19 papers, Sevryugina & Dicks found a median review time of 66 days and no evidence that speed compromised integrity. They found that the fastest early papers mostly benefited from an "early bird" attention effect. — *Learned Publishing* (2022), [doi:10.1002/leap.1483](https://doi.org/10.1002/leap.1483)
+- **We know of no study that measures paper quality against days since an AI model's release.** The evidence above comes from other fields and settings. The week 1 to 4 schedule, and treating about a month as normal, are **heuristics, not a fitted curve**. That's why they are editable.
 
 ## How the extension avoids tagging the wrong person
 
@@ -105,7 +136,7 @@ v0.0.1 has the basics. Planned next (PRs welcome):
 - [ ] **Filtering with Jev**: ask Jev a `Noul` ("Is this paper mainly riding the launch hype rather than answering a research question?") per candidate paper, and use the probability to filter keyword hits and cut false positives
 - [ ] **Better author identity**: use ORCID / Semantic Scholar / DBLP author IDs where available, and discover Scholar profiles automatically instead of by hand
 - [ ] **More sites**: Semantic Scholar, OpenReview, Hugging Face Papers, alphaXiv
-- [ ] **Configurable scoring**: let users choose the position weights and the ban threshold
+- [x] **Configurable scoring**: time decay, position weights and threshold are editable in the popup
 - [ ] **Chrome Web Store release** (and Firefox)
 
 ## License

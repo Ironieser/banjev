@@ -52,7 +52,8 @@ function renderPage(sum) {
 function render() {
   const s = state.settings;
   for (const k of ['enabled', 'showNameMatches']) $(k).checked = !!s[k];
-  const banned = BanJev.scoreAuthors(state.papers, state.curation).filter((a) => a.banned).length;
+  const banned = BanJev.scoreAuthors(state.papers, state.curation, s.scoring).filter((a) => a.banned).length;
+  renderScoring(BanJev.scoringOf(s.scoring), !!s.scoring);
   $('stats').textContent = `${banned} banned · ${state.papers.length} papers`;
   $('updated').textContent = state.lastError ? 'update failed' : 'updated ' + new Date(state.updatedAt).toLocaleDateString();
   $('updated').title = state.lastError || new Date(state.updatedAt).toLocaleString();
@@ -70,12 +71,36 @@ function render() {
   }
 }
 
+const SC_FIELDS = [
+  ['w1', 'weekWeights', 0], ['w2', 'weekWeights', 1], ['w3', 'weekWeights', 2], ['w4', 'weekWeights', 3],
+  ['p1', 'positionWeights', 0], ['p2', 'positionWeights', 1], ['p3', 'positionWeights', 2],
+];
+
+function renderScoring(sc, custom) {
+  for (const [id, key, i] of SC_FIELDS) if (document.activeElement !== $(id)) $(id).value = sc[key][i];
+  if (document.activeElement !== $('threshold')) $('threshold').value = sc.threshold;
+  $('scReset').hidden = !custom;
+  $('scState').textContent = custom ? '(custom)' : '(default)';
+}
+
+function readScoring() {
+  const sc = { weekWeights: [], positionWeights: [], threshold: Number($('threshold').value) };
+  for (const [id, key, i] of SC_FIELDS) sc[key][i] = Number($(id).value);
+  const ok = [...sc.weekWeights, ...sc.positionWeights].every((x) => Number.isFinite(x) && x >= 0) && sc.threshold > 0;
+  return ok ? sc : null;
+}
+
 async function save(patch) {
   state.settings = await send({ type: 'setSettings', patch });
   render();
   setTimeout(async () => renderPage(await pageSummary()), 400); // page re-tags after a settings change
 }
 
+document.querySelectorAll('#scoring input').forEach((i) => (i.onchange = () => {
+  const sc = readScoring();
+  if (sc) save({ scoring: sc });
+}));
+$('scReset').onclick = () => save({ scoring: null });
 for (const k of ['enabled', 'showNameMatches']) $(k).onchange = (e) => save({ [k]: e.target.checked });
 $('refresh').onclick = async () => {
   $('refresh').disabled = true;

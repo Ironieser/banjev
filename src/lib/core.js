@@ -125,39 +125,84 @@
 
   // ---------- scoring ----------
 
-  // Author-position weight: 1st = 1, 2nd = 0.5, 3rd = 0.25, then keeps halving.
-  const BAN_THRESHOLD = 1;
-  function positionWeight(pos) {
-    return Math.pow(0.5, pos - 1);
+  /*
+   * paper weight = position weight x time weight; an author is banned when the sum >= threshold.
+   *  - position: 1st 1, 2nd 0.5, 3rd 0.25, then keeps halving.
+   *  - time: weeks between the model's release (JEV_EPOCH) and the arXiv submission:
+   *    week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0 (about a month is a normal pace).
+   * Users can override any of these in the extension (settings.scoring).
+   */
+  const DEFAULT_SCORING = {
+    positionWeights: [1, 0.5, 0.25],
+    weekWeights: [2, 1, 0.5, 0.25],
+    threshold: 1,
+  };
+  const BAN_THRESHOLD = DEFAULT_SCORING.threshold;
+  const DAY = 86400000;
+
+  function scoringOf(custom) {
+    const c = custom || {};
+    const nums = (a, d) => (Array.isArray(a) && a.length && a.every((x) => typeof x === 'number' && x >= 0) ? a : d);
+    return {
+      positionWeights: nums(c.positionWeights, DEFAULT_SCORING.positionWeights),
+      weekWeights: nums(c.weekWeights, DEFAULT_SCORING.weekWeights),
+      threshold: typeof c.threshold === 'number' && c.threshold > 0 ? c.threshold : DEFAULT_SCORING.threshold,
+    };
   }
+
+  function positionWeight(pos, scoring) {
+    const w = scoringOf(scoring).positionWeights;
+    if (pos <= w.length) return w[pos - 1];
+    return w[w.length - 1] * Math.pow(0.5, pos - w.length);
+  }
+
+  // 1-based week after the model release; papers dated before it (manual additions) count as week 1.
+  function weekOf(published) {
+    if (!published) return 1;
+    const days = Math.floor((Date.parse(published) - Date.parse(JEV_EPOCH)) / DAY);
+    return Math.max(0, Math.floor(days / 7)) + 1;
+  }
+
+  function timeWeight(published, scoring) {
+    const w = scoringOf(scoring).weekWeights;
+    return w[weekOf(published) - 1] || 0;
+  }
+
+  const round = (n) => Math.round(n * 1000) / 1000;
 
   /*
    * Aggregate authors over the listed papers.
    * curation: { banAuthors: [name], allowAuthors: [name] } maintained in data/manual.json
    * Returns records sorted by score desc, then latest paper desc:
-   *   { key, name, score, banned, forced, allowed, latest, papers: [{ id, title, published, position }] }
+   *   { key, name, score, banned, forced, allowed, latest,
+   *     papers: [{ id, title, published, position, week, weight }] }
+   * Papers whose time weight is 0 (submitted after the decay window) are ignored.
    */
-  function scoreAuthors(papers, curation) {
+  function scoreAuthors(papers, curation, scoring) {
     curation = curation || {};
+    const sc = scoringOf(scoring);
     const forced = new Set((curation.banAuthors || []).map(normName));
     const allowed = new Set((curation.allowAuthors || []).map(normName));
     const m = new Map();
     for (const p of papers) {
+      const tw = timeWeight(p.published, sc);
+      if (!tw) continue;
       p.authors.forEach((a, i) => {
         const key = normName(a);
         if (!key) return;
         if (!m.has(key)) m.set(key, { key, name: a, score: 0, papers: [] });
         const r = m.get(key);
         if (r.papers.some((x) => x.id === p.id)) return;
-        r.score += positionWeight(i + 1);
-        r.papers.push({ id: p.id, title: p.title, published: p.published, position: i + 1 });
+        const weight = round(positionWeight(i + 1, sc) * tw);
+        r.score += weight;
+        r.papers.push({ id: p.id, title: p.title, published: p.published, position: i + 1, week: weekOf(p.published), weight });
       });
     }
     for (const r of m.values()) {
-      r.score = Math.round(r.score * 1000) / 1000;
+      r.score = round(r.score);
       r.forced = forced.has(r.key);
       r.allowed = allowed.has(r.key);
-      r.banned = !r.allowed && (r.forced || r.score >= BAN_THRESHOLD);
+      r.banned = !r.allowed && (r.forced || r.score >= sc.threshold);
       r.papers.sort((a, b) => (b.published || '').localeCompare(a.published || ''));
       r.latest = r.papers[0] ? r.papers[0].published : '';
     }
@@ -178,7 +223,9 @@
     settings = settings || {};
     curation = curation || {};
     const excluded = new Set(settings.excludedPapers || []);
-    const live = papers.filter((p) => !excluded.has(p.id));
+    const scoring = scoringOf(settings.scoring);
+    // papers outside the time window carry no weight and are not tagged
+    const live = papers.filter((p) => !excluded.has(p.id) && timeWeight(p.published, scoring) > 0);
     const byId = new Map();
     const byTitle = new Map();
     for (const p of live) {
@@ -187,7 +234,7 @@
     }
     const authors = new Map(); // normName -> score record
     const byAbbrev = new Map(); // abbrevKey -> [normName]
-    for (const r of scoreAuthors(live, curation)) {
+    for (const r of scoreAuthors(live, curation, scoring)) {
       authors.set(r.key, r);
       const k = abbrevKey(r.name);
       if (!byAbbrev.has(k)) byAbbrev.set(k, []);
@@ -209,6 +256,7 @@
     const notThem = settings.notThem || {};
     return {
       papers: live,
+      scoring,
       byId,
       byTitle,
       authors,
@@ -386,6 +434,10 @@
     classifyProfile,
     scoreAuthors,
     positionWeight,
+    timeWeight,
+    weekOf,
+    scoringOf,
+    DEFAULT_SCORING,
     BAN_THRESHOLD,
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;

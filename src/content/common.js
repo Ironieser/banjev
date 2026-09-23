@@ -102,14 +102,21 @@
     pop.append(el('div', { class: 'banjev-pop-head' }, head));
     const r = result.author;
     if (r) {
-      const parts = r.papers.map((x) => ordinal(x.position));
+      const sc = index.scoring;
       pop.append(
-        el('div', { class: 'banjev-pop-score' }, `${r.name}: score ${fmt(r.score)}` + (r.forced ? ' (manually banned)' : ` = ${parts.join(' + ')} author`))
+        el(
+          'div',
+          { class: 'banjev-pop-score' },
+          `${r.name}: score ${fmt(r.score)} (ban at ${fmt(sc.threshold)})` + (r.forced ? ', manually banned' : '')
+        )
       );
     }
     const ul = el('ul');
     for (const p of result.papers) {
-      const pos = r ? (r.papers.find((x) => x.id === p.id) || {}).position : 0;
+      const mine = r && r.papers.find((x) => x.id === p.id);
+      const formula = mine
+        ? `${ordinal(mine.position)} author ×${fmt(core.positionWeight(mine.position, index.scoring))}, week ${mine.week} ×${fmt(core.timeWeight(mine.published, index.scoring))} = ${fmt(mine.weight)}`
+        : `week ${core.weekOf(p.published)}`;
       const authors = p.authors.map((a) => {
         const rec = index.authors.get(core.normName(a));
         return a + (rec && rec.banned ? ' ⛔' : '');
@@ -119,7 +126,8 @@
           'li',
           {},
           el('a', { href: 'https://arxiv.org/abs/' + p.id, target: '_blank', rel: 'noopener' }, p.title),
-          el('div', { class: 'banjev-pop-meta' }, [p.id, p.published, pos ? ordinal(pos) + ' author' : '', authors.join(', ')].filter(Boolean).join(' · '))
+          el('div', { class: 'banjev-pop-meta' }, [p.id, p.published, formula].join(' · ')),
+          el('div', { class: 'banjev-pop-meta' }, authors.join(', '))
         )
       );
     }

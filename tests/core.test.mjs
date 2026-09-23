@@ -36,55 +36,84 @@ test('parseArxivAtom + filter', () => {
   assert.deepEqual(core.filterPapers(ps).map((p) => p.id), ['2609.11111']);
 });
 
-test('scoring: 1st = 1, 2nd = 0.5, 3rd = 0.25, banned at >= 1', () => {
-  assert.deepEqual([1, 2, 3, 4].map(core.positionWeight), [1, 0.5, 0.25, 0.125]);
-  const ps = [
-    { id: 'a', title: 'A', published: '2026-09-20', authors: ['Ann One', 'Bob Two', 'Cat Three'] },
-    { id: 'b', title: 'B', published: '2026-09-21', authors: ['Dan', 'Bob Two', 'Cat Three'] },
-    { id: 'c', title: 'C', published: '2026-09-22', authors: ['Eve', 'Fay', 'Cat Three'] },
-    { id: 'd', title: 'D', published: '2026-09-22', authors: ['Gus', 'Hal', 'Ivy', 'Cat Three'] },
-  ];
-  const s = Object.fromEntries(core.scoreAuthors(ps, { banAuthors: ['Fay'], allowAuthors: ['Ann One'] }).map((r) => [r.name, r]));
-  assert.equal(s['Bob Two'].score, 1);
-  assert.equal(s['Bob Two'].banned, true);
-  assert.equal(s['Cat Three'].score, 0.875);
-  assert.equal(s['Cat Three'].banned, false);
-  assert.equal(s['Fay'].banned, true, 'force-banned');
-  assert.equal(s['Ann One'].banned, false, 'allow-listed');
-  assert.deepEqual(s['Bob Two'].papers.map((p) => [p.id, p.position]), [['b', 2], ['a', 2]]);
-  const ranked = core.scoreAuthors(ps).map((r) => r.name);
-  assert.deepEqual(ranked.slice(0, 3), ['Eve', 'Gus', 'Bob Two'], 'ties: newest paper first, then name');
+test('position weights: 1, 0.5, 0.25, then halving', () => {
+  assert.deepEqual([1, 2, 3, 4, 5].map((p) => core.positionWeight(p)), [1, 0.5, 0.25, 0.125, 0.0625]);
 });
 
-test('real data: Delong Li (1st x2) and Xu Wang (2nd x2) are banned, Junhao Xu (2nd x1) is not', () => {
+test('time weights: week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0', () => {
+  const d = (n) => new Date(Date.parse(core.JEV_EPOCH) + n * 86400000).toISOString().slice(0, 10);
+  assert.deepEqual([0, 6, 7, 13, 14, 21, 27, 28, 60].map((n) => core.weekOf(d(n))), [1, 1, 2, 2, 3, 4, 4, 5, 9]);
+  assert.deepEqual([0, 6, 7, 14, 21, 28].map((n) => core.timeWeight(d(n))), [2, 2, 1, 0.5, 0.25, 0]);
+  assert.equal(core.weekOf('2026-01-01'), 1, 'manual additions dated before the release count as week 1');
+});
+
+test('score = position x time; banned at >= 1; papers after week 4 ignored', () => {
+  const ps = [
+    { id: 'a', title: 'A', published: '2026-09-19', authors: ['Li Hua', 'Sam Smith', 'Ann Lee'] }, // week 1
+    { id: 'b', title: 'B', published: '2026-09-26', authors: ['Ann Lee', 'Bo Chen'] }, // week 2
+    { id: 'c', title: 'C', published: '2026-10-05', authors: ['Cy Park'] }, // week 3
+    { id: 'd', title: 'D', published: '2026-10-30', authors: ['Dee Wu'] }, // week 7
+  ];
+  const s = Object.fromEntries(core.scoreAuthors(ps, { banAuthors: ['Cy Park'], allowAuthors: ['Li Hua'] }).map((r) => [r.name, r]));
+  assert.equal(s['Sam Smith'].score, 1); // 2nd, week 1: 0.5 x 2
+  assert.ok(s['Sam Smith'].banned);
+  assert.equal(s['Ann Lee'].score, 1.5); // 3rd week 1 (0.5) + 1st week 2 (1)
+  assert.equal(s['Bo Chen'].score, 0.5);
+  assert.equal(s['Bo Chen'].banned, false);
+  assert.equal(s['Cy Park'].score, 0.5);
+  assert.ok(s['Cy Park'].banned, 'force-banned');
+  assert.equal(s['Li Hua'].banned, false, 'allow-listed');
+  assert.equal(s['Dee Wu'], undefined, 'week 7: no weight');
+  assert.deepEqual(s['Ann Lee'].papers.map((p) => [p.id, p.position, p.week, p.weight]), [['b', 1, 2, 1], ['a', 3, 1, 0.5]]);
+});
+
+test('user-defined scoring', () => {
+  const ps = [{ id: 'a', title: 'A', published: '2026-10-05', authors: ['Li Hua', 'Sam Smith'] }]; // week 3
+  const def = Object.fromEntries(core.scoreAuthors(ps).map((r) => [r.name, r]));
+  assert.equal(def['Li Hua'].banned, false); // 1 x 0.5
+  const strict = { weekWeights: [4, 4, 4, 4], positionWeights: [1, 1, 1], threshold: 2 };
+  const s = Object.fromEntries(core.scoreAuthors(ps, {}, strict).map((r) => [r.name, r]));
+  assert.equal(s['Sam Smith'].score, 4);
+  assert.ok(s['Sam Smith'].banned);
+  assert.deepEqual(core.scoringOf({ threshold: -1, weekWeights: ['x'] }), core.DEFAULT_SCORING, 'invalid values fall back');
+  // the index uses the user's scoring too
+  const idx2 = core.buildIndex(ps, { scoring: { weekWeights: [2, 1, 0], threshold: 1 } });
+  assert.equal(idx2.papers.length, 0, 'week 3 has weight 0 under this scoring: not tagged');
+});
+
+test('real data (all week 1): 1st and 2nd authors banned, 3rd only with two papers', () => {
   const s = Object.fromEntries(core.scoreAuthors(papers).map((r) => [r.name, r]));
-  assert.equal(s['Delong Li'].score, 2);
-  assert.equal(s['Xu Wang'].score, 1);
-  assert.ok(s['Xu Wang'].banned);
-  assert.equal(s['Junhao Xu'].banned, false);
+  assert.equal(s['Delong Li'].score, 4);
+  assert.equal(s['Xu Wang'].score, 2);
+  assert.equal(s['Junhao Xu'].score, 1);
+  assert.ok(s['Junhao Xu'].banned);
+  assert.equal(s['Haochen Gong'].score, 1); // 3rd twice
+  assert.ok(s['Haochen Gong'].banned);
+  assert.equal(s['Hongyang Zhang'].score, 0.5);
+  assert.equal(s['Hongyang Zhang'].banned, false);
 });
 
 test('listed paper: only its banned authors are tagged', () => {
-  const r = core.classifyAuthors(idx(), { id: '2609.26758' }, [{ name: 'Yu Sun' }, { name: 'Junhao Xu' }]);
+  const r = core.classifyAuthors(idx(), { id: '2609.24965' }, [{ name: 'Boyuan Deng' }, { name: 'Hongyang Zhang' }]);
   assert.deepEqual(r.map((x) => x && x.level), ['paper', null]);
-  assert.equal(r[0].author.score, 1);
-  const byTitle = core.classifyAuthors(idx(), { title: 'Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option…' }, [
-    { name: 'Y Sun', abbreviated: true },
-    { name: 'J Xu', abbreviated: true },
+  assert.equal(r[0].author.score, 2);
+  const byTitle = core.classifyAuthors(idx(), { title: 'Jev for Scientific Decisions: Evaluating Semantic Choices and Their…' }, [
+    { name: 'B Deng', abbreviated: true },
+    { name: 'H Zhang', abbreviated: true },
   ]);
   assert.deepEqual(byTitle.map((x) => x && x.level), ['paper', null]);
 });
 
 test('other paper: co-authors together => confirmed, lone name => name-only, unbanned => nothing', () => {
   const r = core.classifyAuthors(idx(), { id: '2501.00001' }, [{ name: 'Yu Sun' }, { name: 'Junhao Xu' }, { name: 'Somebody Else' }]);
-  assert.deepEqual(r.map((x) => x && x.level), ['confirmed', null, null]);
-  const lone = core.classifyAuthors(idx(), { id: '2501.00002' }, [{ name: 'Werner Robitza' }, { name: 'Yi Li' }]);
+  assert.deepEqual(r.map((x) => x && x.level), ['confirmed', 'confirmed', null]);
+  const lone = core.classifyAuthors(idx(), { id: '2501.00002' }, [{ name: 'Werner Robitza' }, { name: 'Bingzhe Li' }]);
   assert.equal(lone[0].level, 'name');
-  assert.equal(lone[1], null, 'Yi Li is 2nd author once: 0.5, not banned');
+  assert.equal(lone[1], null, 'Bingzhe Li is 3rd author once: 0.5, not banned');
 });
 
 test('manual curation from the repo', () => {
-  assert.equal(core.classifyAuthors(idx({}, { banAuthors: ['Yi Li'] }), {}, [{ name: 'Yi Li' }])[0].level, 'name');
+  assert.equal(core.classifyAuthors(idx({}, { banAuthors: ['Bingzhe Li'] }), {}, [{ name: 'Bingzhe Li' }])[0].level, 'name');
   assert.equal(core.classifyAuthors(idx({}, { allowAuthors: ['Werner Robitza'] }), {}, [{ name: 'Werner Robitza' }])[0], null);
 });
 
@@ -92,8 +121,8 @@ test('Scholar: never by name alone; co-author evidence or known profile only', (
   const sch = { site: 'scholar' };
   assert.equal(core.classifyAuthors(idx(), {}, [{ name: 'D Li', abbreviated: true }], sch)[0], null);
   assert.equal(core.classifyAuthors(idx(), {}, [{ name: 'Amir Rafe', scholarId: 'x' }], sch)[0], null, 'full name alone is not enough on Scholar');
-  const pair = core.classifyAuthors(idx(), {}, [{ name: 'D Li', abbreviated: true }, { name: 'X Wang', abbreviated: true }, { name: 'H Gong', abbreviated: true }], sch);
-  assert.deepEqual(pair.map((x) => x && x.level), ['confirmed', 'confirmed', null]);
+  const pair = core.classifyAuthors(idx(), {}, [{ name: 'D Li', abbreviated: true }, { name: 'X Wang', abbreviated: true }, { name: 'R Lang', abbreviated: true }], sch);
+  assert.deepEqual(pair.map((x) => x && x.level), ['confirmed', 'confirmed', null], 'Rui Lang: 4th twice = 0.5');
   const cur = { scholarProfiles: { 'Dongming Jiang': 'FZLU_acAAAAJ' } };
   const known = core.classifyAuthors(idx({}, cur), {}, [{ name: 'D Jiang', abbreviated: true, scholarId: 'FZLU_acAAAAJ' }], sch);
   assert.equal(known[0].level, 'confirmed');
