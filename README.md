@@ -1,3 +1,5 @@
+<img src="docs/logo.png" width="96" alt="BanJev logo">
+
 # BanJev
 
 **节约读论文时间，节约读论文的 token。**
@@ -55,6 +57,7 @@ npm run test:e2e    # 端到端测试：用 Puppeteer 把插件加载进 Chrome 
                     # 在真实 arXiv 页面和 Scholar 夹具页面上检查标记
 npm run update-data # 从 arXiv 重新生成 data/papers.json
 npm run package     # 打包成 banjev.zip
+python3 scripts/make-icons.py  # 重新生成图标（需要 Pillow）
 ```
 
 ### 声明
@@ -109,6 +112,7 @@ npm run test:e2e    # end-to-end: loads the extension into Chrome for Testing wi
                     # badges on live arXiv pages and on Scholar fixture pages
 npm run update-data # regenerate data/papers.json from arXiv
 npm run package     # build banjev.zip
+python3 scripts/make-icons.py  # regenerate icons (needs Pillow)
 ```
 
 ### Disclaimer
