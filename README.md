@@ -95,6 +95,18 @@ python3 scripts/make-icons.py  # regenerate icons (needs Pillow)
 
 A badge only means "this person published a Jev-titled paper after Jev went viral". It is a reading filter, not a judgment of any individual paper's content.
 
+## Roadmap
+
+v0.0.1 has the basics. Planned next (PRs welcome):
+
+- [ ] **More hype keywords**: configure several trend waves (keyword + start date) instead of one hard-coded "Jev" search, so the same pipeline can follow the next viral model
+- [ ] **Easier author and paper submissions**: an issue form that turns "add this paper / this author / this Scholar profile" into a `manual.json` PR automatically
+- [ ] **Filtering with Jev**: ask Jev a `Noul` ("Is this paper mainly riding the launch hype rather than answering a research question?") per candidate paper, and use the probability to filter keyword hits and cut false positives
+- [ ] **Better author identity**: use ORCID / Semantic Scholar / DBLP author IDs where available, and discover Scholar profiles automatically instead of by hand
+- [ ] **More sites**: Semantic Scholar, OpenReview, Hugging Face Papers, alphaXiv
+- [ ] **Configurable scoring**: let users choose the position weights and the ban threshold
+- [ ] **Chrome Web Store release** (and Firefox)
+
 ## License
 
 [Apache License 2.0](LICENSE)

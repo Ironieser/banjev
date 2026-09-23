@@ -95,6 +95,18 @@ python3 scripts/make-icons.py  # 重新生成图标（需要 Pillow）
 
 标记只表示“此人在 Jev 爆火后发表过以 Jev 为题的论文”，是一个阅读过滤器，不评价具体论文的内容。
 
+## 路线图
+
+v0.0.1 只有基础功能。接下来计划做这些（欢迎 PR）：
+
+- [ ] **更多热点关键词**：支持配置多波热点（关键词 + 起始日期），不再只写死一个 “Jev” 搜索，下一个爆火的模型也能用同一套流程追踪
+- [ ] **更方便地提交作者和论文**：提供一个 issue 表单，把“添加这篇论文 / 这位作者 / 这个 Scholar 主页”自动转成修改 `manual.json` 的 PR
+- [ ] **用 Jev 过滤**：对每篇候选论文问 Jev 一个 `Noul`（“这篇论文主要是在蹭发布热度，而不是回答一个研究问题吗？”），用得到的概率筛选关键词命中的论文，减少误判
+- [ ] **更准的作者身份识别**：有 ORCID / Semantic Scholar / DBLP 作者 ID 的就用这些 ID，自动发现 Scholar 主页，不再靠手工登记
+- [ ] **支持更多网站**：Semantic Scholar、OpenReview、Hugging Face Papers、alphaXiv
+- [ ] **计分规则可配置**：让用户自己选择位次权重和 ban 的阈值
+- [ ] **上架 Chrome 应用商店**（以及 Firefox）
+
 ## 许可证
 
 [Apache License 2.0](LICENSE)
