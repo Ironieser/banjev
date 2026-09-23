@@ -36,7 +36,7 @@ function renderPage(sum) {
       el(
         'li',
         {},
-        el('span', { className: 'chip ' + (solid ? 'solid' : 'dash'), textContent: solid ? 'BanJev' : 'BanJev?' }),
+        el('img', { className: 'chip' + (solid ? '' : ' dash'), src: '../../icons/48.png', alt: solid ? 'BanJev' : 'BanJev (name match only)', title: solid ? 'BanJev' : 'Name match only' }),
         el('span', { className: 'n' }, el('a', { href: RANKING + '#q=' + encodeURIComponent(a.name), target: '_blank', textContent: a.name })),
         el('span', { className: 's', textContent: 'score ' + a.score })
       )

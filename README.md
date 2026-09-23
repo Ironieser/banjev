@@ -8,7 +8,7 @@ English · [中文](README_CN.md) · [Ranking page](https://ironieser.github.io/
 
 ![arXiv search with BanJev badges](docs/arxiv.png)
 
-BanJev is a Chrome extension (Manifest V3) that puts a `BanJev` badge on **hype-chasing papers** and their authors on **arXiv** and **Google Scholar**, so you can deprioritize them when you triage what to read, or what to feed an LLM.
+BanJev is a Chrome extension (Manifest V3) that puts the BanJev logo <img src="icons/16.png" width="14" alt="logo"> as a small badge on **hype-chasing papers** and their authors on **arXiv** and **Google Scholar**, so you can deprioritize them when you triage what to read, or what to feed an LLM.
 
 ## Why "BanJev"? This is not about Jev
 
@@ -55,9 +55,9 @@ Names like `Li Hua` or `Sam Smith` belong to hundreds of researchers, so a badge
 
 | Badge | When |
 |---|---|
-| <kbd>BanJev</kbd> solid on a paper | The paper is on the list (matched by arXiv ID or exact title) |
-| <kbd>BanJev</kbd> solid on an author | A banned author with identity evidence: (1) they are on the listed paper shown; (2) ≥ 2 co-authors of the same listed paper appear together; (3) a known Scholar profile (from `scholarProfiles`, or verified earlier in your browser) |
-| <kbd>BanJev?</kbd> dashed | **arXiv only**: the full name matches a banned author, with no further evidence. Can be turned off in the popup |
+| <img src="icons/16.png" width="14" alt="logo"> before a paper title | The paper is on the list (matched by arXiv ID or exact title) |
+| <img src="icons/16.png" width="14" alt="logo"> after an author name | A banned author with identity evidence: (1) they are on the listed paper shown; (2) ≥ 2 co-authors of the same listed paper appear together; (3) a known Scholar profile (from `scholarProfiles`, or verified earlier in your browser) |
+| Faded <img src="icons/16.png" width="14" alt="logo"> with a dashed outline | **arXiv only**: the full name matches a banned author, with no further evidence. Can be turned off in the popup |
 
 **Google Scholar never tags by name alone.** A Scholar profile is tagged only if:
 - it is listed in `scholarProfiles`, or

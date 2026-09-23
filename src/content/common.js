@@ -10,7 +10,16 @@
   const found = { authors: new Map(), papers: new Map() };
   const RANK = { name: 0, confirmed: 1, paper: 2 };
 
-  const LABEL = { paper: 'BanJev', confirmed: 'BanJev', name: 'BanJev?' };
+  const LABEL = { paper: 'BanJev', confirmed: 'BanJev', name: 'BanJev (name match only)' };
+  // The extension logo (slashed J in a prohibition sign), inline so no web-accessible resources are needed.
+  const ICON =
+    '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">' +
+    '<rect width="100" height="100" rx="22" fill="#c62828"/>' +
+    '<circle cx="50" cy="50" r="37" fill="none" stroke="#fff" stroke-width="9"/>' +
+    '<text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="60" fill="#fff">J</text>' +
+    '<line x1="26" y1="26" x2="74" y2="74" stroke="#c62828" stroke-width="18"/>' +
+    '<line x1="26" y1="26" x2="74" y2="74" stroke="#fff" stroke-width="9"/>' +
+    '</svg>';
   const WHY = {
     paper: 'This paper is on the Jev bandwagon list.',
     confirmed: 'Identity verified: ',
@@ -45,7 +54,8 @@
     }
     const b = document.createElement('span');
     b.className = 'banjev-badge banjev-' + result.level;
-    b.textContent = LABEL[result.level];
+    b.innerHTML = ICON;
+    b.setAttribute('aria-label', LABEL[result.level]);
     b.setAttribute('data-banjev', '');
     b.setAttribute('role', 'button');
     b.tabIndex = 0;

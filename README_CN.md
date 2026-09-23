@@ -8,7 +8,7 @@
 
 ![带 BanJev 标记的 arXiv 搜索结果](docs/arxiv.png)
 
-BanJev 是一个 Chrome 插件（Manifest V3）。它在 **arXiv** 和 **Google Scholar** 上给**蹭热点的论文**及其作者打上 `BanJev` 标记。这样你在挑选要读的论文、或者要喂给大模型的论文时，可以把它们往后排。
+BanJev 是一个 Chrome 插件（Manifest V3）。它在 **arXiv** 和 **Google Scholar** 上给**蹭热点的论文**及其作者打上 BanJev 的 logo 小图标 <img src="icons/16.png" width="14" alt="logo">。这样你在挑选要读的论文、或者要喂给大模型的论文时，可以把它们往后排。
 
 ## 为什么叫 BanJev？这不是针对 Jev
 
@@ -55,9 +55,9 @@ BanJev **不是**针对 Jev、TypeSafe AI，也不是针对基于 Jev 做东西�
 
 | 标记 | 什么时候出现 |
 |---|---|
-| 论文上的实心 <kbd>BanJev</kbd> | 论文本身在名单里（按 arXiv ID 或标题完全匹配） |
-| 作者旁的实心 <kbd>BanJev</kbd> | 被 ban 的作者，并且有身份证据：① 当前显示的就是名单论文，他是作者之一；② 同一篇名单论文的 ≥ 2 位作者一起出现；③ 已知的 Scholar 主页（来自 `scholarProfiles`，或之前在你的浏览器里验证过） |
-| 虚线 <kbd>BanJev?</kbd> | **仅限 arXiv**：全名和某位被 ban 的作者一样，但没有其他证据。可以在 popup 里关闭 |
+| 论文标题前的 <img src="icons/16.png" width="14" alt="logo"> | 论文本身在名单里（按 arXiv ID 或标题完全匹配） |
+| 作者名后的 <img src="icons/16.png" width="14" alt="logo"> | 被 ban 的作者，并且有身份证据：① 当前显示的就是名单论文，他是作者之一；② 同一篇名单论文的 ≥ 2 位作者一起出现；③ 已知的 Scholar 主页（来自 `scholarProfiles`，或之前在你的浏览器里验证过） |
+| 半透明、带虚线框的 <img src="icons/16.png" width="14" alt="logo"> | **仅限 arXiv**：全名和某位被 ban 的作者一样，但没有其他证据。可以在 popup 里关闭 |
 
 **Google Scholar 上绝不只凭名字打标记。** Scholar 主页只有满足下面任意一条才会被标记：
 - 在 `scholarProfiles` 里；

@@ -1,19 +1,21 @@
 .banjev-badge {
   display: inline-block;
-  margin: 0 4px;
-  padding: 0 6px;
+  width: 15px;
+  height: 15px;
+  margin: 0 3px;
+  padding: 0;
   border-radius: 4px;
-  font: 700 11px/17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  letter-spacing: 0.02em;
-  vertical-align: 1px;
+  vertical-align: -2px;
+  line-height: 0;
   cursor: pointer;
-  white-space: nowrap;
   text-decoration: none !important;
   user-select: none;
 }
-.banjev-paper, .banjev-confirmed { background: #c62828; color: #fff; border: 1px solid #c62828; }
-.banjev-name { background: #fff4f4; color: #c62828; border: 1px dashed #c62828; }
-.banjev-badge:focus-visible { outline: 2px solid #1a73e8; outline-offset: 1px; }
+.banjev-badge svg { display: block; width: 100%; height: 100%; }
+/* name-only match (arXiv): same logo, faded with a dashed outline */
+.banjev-name { opacity: 0.5; outline: 1px dashed #c62828; outline-offset: 1px; }
+.banjev-name:hover { opacity: 0.85; }
+.banjev-badge:focus-visible { outline: 2px solid #1a73e8; outline-offset: 1px; opacity: 1; }
 .banjev-pop {
   position: absolute;
   z-index: 2147483647;
