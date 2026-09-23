@@ -20,7 +20,7 @@
 
   async function load() {
     state = await send({ type: 'getState' });
-    index = core.buildIndex(state.papers || [], state.settings);
+    index = core.buildIndex(state.papers || [], state.settings, state.curation);
   }
 
   ui.index = () => index;
@@ -31,7 +31,6 @@
   // ctx: { name, scholarId } used by the "not this person" / "confirm" buttons
   ui.badge = function (result, ctx) {
     if (!result) return null;
-    if (result.level === 'name' && !state.settings.showNameMatches) return null;
     const b = document.createElement('span');
     b.className = 'banjev-badge banjev-' + result.level;
     b.textContent = LABEL[result.level];
@@ -39,7 +38,8 @@
     b.setAttribute('role', 'button');
     b.tabIndex = 0;
     const titles = result.papers.map((p) => '• ' + p.title).join('\n');
-    b.title = WHY[result.level] + (result.level === 'confirmed' ? result.reason : '') + '\n' + titles;
+    const who = result.author ? result.author.name + ' · score ' + fmt(result.author.score) + '\n' : '';
+    b.title = who + WHY[result.level] + (result.level === 'confirmed' ? result.reason : '') + '\n' + titles;
     const open = (e) => {
       e.preventDefault();
       e.stopPropagation();
@@ -61,6 +61,9 @@
     return n;
   }
 
+  const fmt = (n) => String(Math.round(n * 1000) / 1000);
+  const ordinal = (n) => n + (n % 10 === 1 && n % 100 !== 11 ? 'st' : n % 10 === 2 && n % 100 !== 12 ? 'nd' : n % 10 === 3 && n % 100 !== 13 ? 'rd' : 'th');
+
   function closePopover() {
     document.querySelectorAll('.banjev-pop').forEach((p) => p.remove());
   }
@@ -72,17 +75,29 @@
       result.level === 'paper'
         ? 'Jev bandwagon paper'
         : result.level === 'confirmed'
-          ? 'Author of a Jev bandwagon paper (' + result.reason + ')'
-          : 'Possible author of a Jev bandwagon paper (' + result.reason + '). This could be someone else with the same name.';
+          ? 'Banned author (' + result.reason + ')'
+          : 'Possibly a banned author (' + result.reason + '). This could be someone else with the same name.';
     pop.append(el('div', { class: 'banjev-pop-head' }, head));
+    const r = result.author;
+    if (r) {
+      const parts = r.papers.map((x) => ordinal(x.position));
+      pop.append(
+        el('div', { class: 'banjev-pop-score' }, `${r.name}: score ${fmt(r.score)}` + (r.forced ? ' (manually banned)' : ` = ${parts.join(' + ')} author`))
+      );
+    }
     const ul = el('ul');
     for (const p of result.papers) {
+      const pos = r ? (r.papers.find((x) => x.id === p.id) || {}).position : 0;
+      const authors = p.authors.map((a) => {
+        const rec = index.authors.get(core.normName(a));
+        return a + (rec && rec.banned ? ' ⛔' : '');
+      });
       ul.append(
         el(
           'li',
           {},
           el('a', { href: 'https://arxiv.org/abs/' + p.id, target: '_blank', rel: 'noopener' }, p.title),
-          el('div', { class: 'banjev-pop-meta' }, p.id + ' · ' + (p.published || '') + ' · ' + p.authors.join(', '))
+          el('div', { class: 'banjev-pop-meta' }, [p.id, p.published, pos ? ordinal(pos) + ' author' : '', authors.join(', ')].filter(Boolean).join(' · '))
         )
       );
     }
@@ -96,19 +111,11 @@
       };
       actions.append(no);
     }
-    if (result.level === 'name' && ctx.scholarId) {
-      const yes = el('button', { type: 'button' }, 'Confirm it is them');
-      yes.onclick = async () => {
-        await send({ type: 'confirmProfile', scholarId: ctx.scholarId, paperIds: result.papers.map((p) => p.id) });
-        closePopover();
-      };
-      actions.append(yes);
-    }
     if (actions.childNodes.length) pop.append(actions);
     document.body.append(pop);
-    const r = anchor.getBoundingClientRect();
-    pop.style.top = window.scrollY + r.bottom + 6 + 'px';
-    pop.style.left = Math.max(8, Math.min(window.scrollX + r.left, window.scrollX + document.documentElement.clientWidth - pop.offsetWidth - 8)) + 'px';
+    const rect = anchor.getBoundingClientRect();
+    pop.style.top = window.scrollY + rect.bottom + 6 + 'px';
+    pop.style.left = Math.max(8, Math.min(window.scrollX + rect.left, window.scrollX + document.documentElement.clientWidth - pop.offsetWidth - 8)) + 'px';
   }
 
   document.addEventListener('click', (e) => !e.target.closest('.banjev-pop') && closePopover());
@@ -143,7 +150,7 @@
       t = setTimeout(run, 250);
     }).observe(document.body, { childList: true, subtree: true });
     chrome.storage.onChanged.addListener(async (changes, area) => {
-      if (area !== 'local' || !(changes.settings || changes.papers)) return;
+      if (area !== 'local' || !(changes.settings || changes.papers || changes.curation)) return;
       await load();
       clear();
       run();

@@ -1,13 +1,14 @@
 {
   "name": "banjev",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "节约读论文时间，节约读论文的 token / Save time and tokens reading papers",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "node tests/e2e.mjs",
     "update-data": "node scripts/update-data.mjs",
-    "package": "rm -f banjev.zip && zip -r banjev.zip manifest.json icons src data -x '*.DS_Store'"
+    "package": "rm -f banjev.zip && zip -r banjev.zip manifest.json icons src data -x '*.DS_Store'",
+    "build-site": "sh scripts/build-site.sh"
   },
   "devDependencies": {
     "puppeteer": "^25.12.0"

@@ -58,7 +58,6 @@
 
   function scanResults() {
     const index = ui.index();
-    const settings = ui.settings();
     document.querySelectorAll('.gs_r .gs_ri:not([data-banjev-done]), .gs_ri:not([data-banjev-done])').forEach((ri) => {
       ri.setAttribute('data-banjev-done', '');
       const rt = ri.querySelector('.gs_rt');
@@ -72,7 +71,7 @@
       if (!gsA) return;
       const els = authorEls(gsA);
       const authors = els.map((e) => ({ name: e.textContent, abbreviated: true, scholarId: e.tagName === 'A' ? userId(e.href) : null }));
-      const res = core.classifyAuthors(index, paper, authors, settings);
+      const res = core.classifyAuthors(index, paper, authors, { site: 'scholar' });
       els.forEach((e, i) => {
         const b = ui.badge(res[i], { name: e.textContent.trim(), scholarId: authors[i].scholarId });
         if (b) e.after(b);
@@ -86,13 +85,16 @@
     if (!nameEl || !id) return;
     const index = ui.index();
     const rows = [...document.querySelectorAll('#gsc_a_b .gsc_a_tr')];
-    const titles = rows.map((r) => (r.querySelector('.gsc_a_at') || {}).textContent || '');
+    const pubs = rows.map((r) => ({
+      title: (r.querySelector('.gsc_a_at') || {}).textContent || '',
+      authors: ((r.querySelector('.gs_gray') || {}).textContent || '').split(',').map((x) => x.trim()).filter((x) => x && x !== '...'),
+    }));
 
     // Publication rows that are listed papers
     rows.forEach((r, i) => {
       if (r.hasAttribute('data-banjev-done')) return;
       r.setAttribute('data-banjev-done', '');
-      const listed = core.findPaper(index, { title: titles[i] });
+      const listed = core.findPaper(index, { title: pubs[i].title });
       const at = r.querySelector('.gsc_a_at');
       if (listed && at) {
         const b = ui.paperBadge(listed);
@@ -103,10 +105,8 @@
     // The profile owner (re-evaluated when "Show more" loads further rows)
     if (!nameEl.dataset.banjevName) nameEl.dataset.banjevName = nameEl.textContent.trim();
     const name = nameEl.dataset.banjevName;
-    const res = core.classifyProfile(index, { scholarId: id, name, pubTitles: titles });
-    if (res && res.learn && !(index.confirmedScholar[id] || []).length) {
-      ui.send({ type: 'learnProfile', scholarId: id, paperIds: res.learn });
-    }
+    const res = core.classifyProfile(index, { scholarId: id, name, pubs });
+    if (res && res.learn && !index.scholarToKey.has(id)) ui.send({ type: 'learnProfile', scholarId: id, key: res.learn });
     const prev = nameEl.querySelector('.banjev-badge');
     if (prev && prev.dataset.level === (res && res.level)) return;
     if (prev) prev.remove();
@@ -125,7 +125,7 @@
       .forEach((a) => {
         a.setAttribute('data-banjev-done', '');
         const author = { name: a.textContent, scholarId: userId(a.href) };
-        const [res] = core.classifyAuthors(index, null, [author], ui.settings());
+        const [res] = core.classifyAuthors(index, null, [author], { site: 'scholar' });
         const b = ui.badge(res, author);
         if (b) a.after(b);
       });

@@ -14,8 +14,6 @@
     encodeURIComponent('(ti:Jev OR abs:Jev) AND submittedDate:[202609170000 TO 209912312359]') +
     '&sortBy=submittedDate&sortOrder=descending&max_results=500';
 
-  const AWESOME_README = 'https://raw.githubusercontent.com/yibie/awesome-jev/main/README.md';
-
   // ---------- normalization ----------
 
   function stripDiacritics(s) {
@@ -105,7 +103,7 @@
     return papers;
   }
 
-  // arXiv IDs linked from the awesome-jev README (none today, but the list may grow).
+  // arXiv IDs linked from a Markdown file (used on the vendored awesome-jev snapshot).
   function extractArxivIds(markdown) {
     const ids = new Set();
     const re = /arxiv\.org\/(?:abs|pdf|html)\/(\d{4}\.\d{4,5})/gi;
@@ -125,46 +123,101 @@
     return [...byId.values()].sort((a, b) => (b.published || '').localeCompare(a.published || '') || b.id.localeCompare(a.id));
   }
 
+  // ---------- scoring ----------
+
+  // Author-position weight: 1st = 1, 2nd = 0.5, 3rd = 0.25, then keeps halving.
+  const BAN_THRESHOLD = 1;
+  function positionWeight(pos) {
+    return Math.pow(0.5, pos - 1);
+  }
+
+  /*
+   * Aggregate authors over the listed papers.
+   * curation: { banAuthors: [name], allowAuthors: [name] } maintained in data/manual.json
+   * Returns records sorted by score desc, then latest paper desc:
+   *   { key, name, score, banned, forced, allowed, latest, papers: [{ id, title, published, position }] }
+   */
+  function scoreAuthors(papers, curation) {
+    curation = curation || {};
+    const forced = new Set((curation.banAuthors || []).map(normName));
+    const allowed = new Set((curation.allowAuthors || []).map(normName));
+    const m = new Map();
+    for (const p of papers) {
+      p.authors.forEach((a, i) => {
+        const key = normName(a);
+        if (!key) return;
+        if (!m.has(key)) m.set(key, { key, name: a, score: 0, papers: [] });
+        const r = m.get(key);
+        if (r.papers.some((x) => x.id === p.id)) return;
+        r.score += positionWeight(i + 1);
+        r.papers.push({ id: p.id, title: p.title, published: p.published, position: i + 1 });
+      });
+    }
+    for (const r of m.values()) {
+      r.score = Math.round(r.score * 1000) / 1000;
+      r.forced = forced.has(r.key);
+      r.allowed = allowed.has(r.key);
+      r.banned = !r.allowed && (r.forced || r.score >= BAN_THRESHOLD);
+      r.papers.sort((a, b) => (b.published || '').localeCompare(a.published || ''));
+      r.latest = r.papers[0] ? r.papers[0].published : '';
+    }
+    return [...m.values()].sort((a, b) => b.score - a.score || (b.latest || '').localeCompare(a.latest || '') || a.name.localeCompare(b.name));
+  }
+
   // ---------- index + matching ----------
 
   /*
-   * settings: {
-   *   excludedPapers: [arxivId],        // user says "this paper isn't really a Jev paper"
+   * settings (per-user, extension storage): {
+   *   excludedPapers: [arxivId],                         // "this isn't really a Jev paper"
    *   notThem: { names: [normName], scholarIds: [id] },  // false positives
-   *   confirmedScholarIds: { id: [arxivId] },            // learned or user-pinned profiles
+   *   confirmedScholarIds: { id: normName },             // profiles verified in this browser
    * }
+   * curation (repo, data/manual.json): { banAuthors, allowAuthors, scholarProfiles: { name: id | [id] } }
    */
-  function buildIndex(papers, settings) {
+  function buildIndex(papers, settings, curation) {
     settings = settings || {};
+    curation = curation || {};
     const excluded = new Set(settings.excludedPapers || []);
     const live = papers.filter((p) => !excluded.has(p.id));
     const byId = new Map();
     const byTitle = new Map();
-    const byName = new Map(); // normName -> [paper]
-    const byAbbrev = new Map(); // abbrevKey -> [paper]
     for (const p of live) {
       byId.set(p.id, p);
       byTitle.set(normTitle(p.title), p);
-      for (const a of p.authors) {
-        const n = normName(a);
-        if (!n) continue;
-        if (!byName.has(n)) byName.set(n, []);
-        byName.get(n).push(p);
-        const k = abbrevKey(a);
-        if (!byAbbrev.has(k)) byAbbrev.set(k, []);
-        byAbbrev.get(k).push(p);
-      }
+    }
+    const authors = new Map(); // normName -> score record
+    const byAbbrev = new Map(); // abbrevKey -> [normName]
+    for (const r of scoreAuthors(live, curation)) {
+      authors.set(r.key, r);
+      const k = abbrevKey(r.name);
+      if (!byAbbrev.has(k)) byAbbrev.set(k, []);
+      byAbbrev.get(k).push(r.key);
+    }
+    // Known Scholar profiles: curated in the repo, or verified in this browser.
+    const scholarToKey = new Map();
+    for (const [name, ids] of Object.entries(curation.scholarProfiles || {})) {
+      [].concat(ids).forEach((id) => scholarToKey.set(id, normName(name)));
+    }
+    for (const [id, key] of Object.entries(settings.confirmedScholarIds || {})) {
+      if (typeof key === 'string' && !scholarToKey.has(id)) scholarToKey.set(id, key);
+    }
+    const knownIds = new Map(); // normName -> Set(scholarId)
+    for (const [id, key] of scholarToKey) {
+      if (!knownIds.has(key)) knownIds.set(key, new Set());
+      knownIds.get(key).add(id);
     }
     const notThem = settings.notThem || {};
     return {
       papers: live,
       byId,
       byTitle,
-      byName,
+      authors,
       byAbbrev,
+      scholarToKey,
+      knownIds,
+      bannedCount: [...authors.values()].filter((r) => r.banned).length,
       notThemNames: new Set(notThem.names || []),
       notThemScholar: new Set(notThem.scholarIds || []),
-      confirmedScholar: settings.confirmedScholarIds || {},
     };
   }
 
@@ -180,68 +233,133 @@
     return null;
   }
 
+  // Author records a displayed name could refer to.
+  function candidates(index, a) {
+    if (a.abbreviated) return (index.byAbbrev.get(scholarAbbrevKey(a.name)) || []).map((k) => index.authors.get(k));
+    const r = index.authors.get(normName(a.name));
+    return r ? [r] : [];
+  }
+
+  // The author of one of `papers` that a displayed name refers to (full or abbreviated).
+  function authorOn(index, papers, a) {
+    const key = a.abbreviated ? scholarAbbrevKey(a.name) : normName(a.name);
+    for (const p of papers) {
+      for (const x of p.authors) {
+        if ((a.abbreviated ? abbrevKey(x) : normName(x)) === key) return index.authors.get(normName(x));
+      }
+    }
+    // arXiv display names sometimes differ slightly from the API ("Yu Sun" vs "Y. Sun")
+    if (!a.abbreviated) return authorOn(index, papers, { name: a.name, abbreviated: true });
+    return null;
+  }
+
+  // A Scholar profile that is known to belong to someone else with the same name.
+  function otherPerson(index, r, scholarId) {
+    if (!scholarId) return false;
+    const owner = index.scholarToKey.get(scholarId);
+    if (owner) return owner !== r.key;
+    const known = index.knownIds.get(r.key);
+    return !!(known && known.size && !known.has(scholarId));
+  }
+
+  function hit(level, r, index, reason) {
+    return { level, author: r, papers: r.papers.map((x) => index.byId.get(x.id)).filter(Boolean), reason };
+  }
+
   /*
    * Classify every author on one paper-like item (an arXiv entry, a Scholar result).
    * authors: [{ name, abbreviated?: bool, scholarId?: string }]
    * paper:   { id?, title? }
-   * Returns one result per author: null or
-   *   { level: 'paper' | 'confirmed' | 'name', papers: [listed paper], reason }
-   *  - paper:     this item IS a listed Jev paper, so every author on it is an author of it.
-   *  - confirmed: strong identity evidence (known Scholar profile, or >= 2 co-authors
-   *               of the same listed paper appear together here).
-   *  - name:      the name alone matches; could be a different person with the same name.
+   * opts:    { site: 'arxiv' | 'scholar', showNameMatches }
+   * Only banned authors (score >= 1 or force-banned) are tagged. Returns per author null or
+   *   { level: 'paper' | 'confirmed' | 'name', author: record, papers: [listed paper], reason }
+   *  - paper:     this item IS a listed Jev paper and the author is on it.
+   *  - confirmed: identity evidence: a known Scholar profile, or >= 2 co-authors of the
+   *               same listed paper appear together here.
+   *  - name:      the full name alone matches (arXiv only; never on Scholar).
    */
   function classifyAuthors(index, paper, authors, opts) {
     opts = opts || {};
+    const scholar = opts.site === 'scholar';
     const listed = paper ? findPaper(index, paper) : null;
-    const hits = authors.map((a) => {
-      if (a.scholarId && index.notThemScholar.has(a.scholarId)) return { skip: true };
-      const n = normName(a.name);
-      const cands = a.abbreviated ? index.byAbbrev.get(scholarAbbrevKey(a.name)) : index.byName.get(n);
-      return { cands: cands || [], n };
-    });
+    const skip = authors.map((a) => !!(a.scholarId && index.notThemScholar.has(a.scholarId)));
+    const cands = authors.map((a, i) => (skip[i] ? [] : candidates(index, a).filter((r) => !otherPerson(index, r, a.scholarId))));
 
-    // Co-author evidence: which listed papers have >= 2 distinct authors on this item?
+    // Co-author evidence: listed papers with >= 2 distinct displayed authors on them.
     const count = new Map();
-    hits.forEach((h) => {
-      if (h.skip) return;
-      new Set(h.cands.map((p) => p.id)).forEach((pid) => count.set(pid, (count.get(pid) || 0) + 1));
+    cands.forEach((cs) => {
+      const ids = new Set();
+      cs.forEach((r) => r.papers.forEach((x) => ids.add(x.id)));
+      ids.forEach((id) => count.set(id, (count.get(id) || 0) + 1));
     });
 
     return authors.map((a, i) => {
-      const h = hits[i];
-      if (h.skip) return null;
+      if (skip[i]) return null;
       if (listed) {
-        return { level: 'paper', papers: [listed], reason: 'author of listed paper' };
+        const r = authorOn(index, [listed], a);
+        return r && r.banned ? hit('paper', r, index, 'author of this paper') : null;
       }
-      if (a.scholarId && index.confirmedScholar[a.scholarId]) {
-        const ps = index.confirmedScholar[a.scholarId].map((id) => index.byId.get(id)).filter(Boolean);
-        if (ps.length) return { level: 'confirmed', papers: ps, reason: 'Scholar profile verified' };
+      const owner = a.scholarId && index.scholarToKey.get(a.scholarId);
+      if (owner) {
+        const r = index.authors.get(owner);
+        return r && r.banned ? hit('confirmed', r, index, 'known Scholar profile') : null;
       }
-      if (!h.cands.length) return null;
-      if (!a.abbreviated && index.notThemNames.has(h.n)) return null;
-      const coauth = h.cands.filter((p) => count.get(p.id) >= 2);
-      if (coauth.length) return { level: 'confirmed', papers: uniq(coauth), reason: 'co-authors of a listed paper appear together' };
-      if (a.abbreviated && !opts.abbrevNameMatches) return null;
-      return { level: 'name', papers: uniq(h.cands), reason: a.abbreviated ? 'abbreviated name match' : 'full name match' };
+      if (!a.abbreviated && index.notThemNames.has(normName(a.name))) return null;
+      const banned = cands[i].filter((r) => r.banned);
+      if (!banned.length) return null;
+      const co = banned.find((r) => r.papers.some((x) => count.get(x.id) >= 2));
+      if (co) return hit('confirmed', co, index, 'co-authors of a listed paper appear together');
+      if (scholar || a.abbreviated || opts.showNameMatches === false) return null;
+      return hit('name', banned[0], index, 'full name match');
     });
   }
 
-  // Scholar profile page: verified if its publication list contains a listed paper.
-  function classifyProfile(index, { scholarId, name, pubTitles }) {
+  /*
+   * Scholar profile page. pubs: [{ title, authors: [abbreviated name] }]
+   * Confirmed only with evidence (never by name alone):
+   *  - the profile is known (curated in the repo or verified earlier), or
+   *  - a listed paper appears in its publication list, or
+   *  - >= 2 of its publications share co-authors with the owner's listed paper(s)
+   *    (Scholar can take weeks to index a new arXiv paper).
+   * A same-name profile is never tagged once the author's real profile is known.
+   */
+  const COAUTHOR_PUBS = 2;
+  function classifyProfile(index, { scholarId, name, pubs }) {
     if (scholarId && index.notThemScholar.has(scholarId)) return null;
-    if (scholarId && index.confirmedScholar[scholarId]) {
-      const ps = index.confirmedScholar[scholarId].map((id) => index.byId.get(id)).filter(Boolean);
-      if (ps.length) return { level: 'confirmed', papers: ps, reason: 'Scholar profile verified' };
+    pubs = pubs || [];
+    const owner = scholarId && index.scholarToKey.get(scholarId);
+    if (owner) {
+      const r = index.authors.get(owner);
+      return r && r.banned ? hit('confirmed', r, index, 'known Scholar profile') : null;
     }
-    const n = normName(name);
-    const own = uniq((pubTitles || []).map((t) => findPaper(index, { title: t })).filter(Boolean));
-    const nameCands = index.byName.get(n) || [];
+    const a = { name };
+    const own = uniq(pubs.map((p) => findPaper(index, { title: p.title })).filter(Boolean));
     // A listed paper on the profile is proof only if the profile owner's name is on it.
-    const proof = own.filter((p) => p.authors.some((x) => normName(x) === n || abbrevKey(x) === abbrevKey(name)));
-    if (proof.length) return { level: 'confirmed', papers: proof, reason: 'profile lists a Jev paper', learn: proof.map((p) => p.id) };
-    if (index.notThemNames.has(n)) return null;
-    if (nameCands.length) return { level: 'name', papers: uniq(nameCands), reason: 'full name match' };
+    const proof = own.filter((p) => authorOn(index, [p], a));
+    if (proof.length) {
+      const r = authorOn(index, proof, a);
+      if (otherPerson(index, r, scholarId)) return null;
+      return r.banned ? { ...hit('confirmed', r, index, 'profile lists a Jev paper'), learn: r.key } : null;
+    }
+    const r = index.authors.get(normName(name));
+    if (!r || !r.banned || otherPerson(index, r, scholarId)) return null;
+    // co-author network: abbreviated keys of r's co-authors on listed papers
+    const own_k = abbrevKey(r.name);
+    const co = new Set();
+    r.papers.forEach((x) => index.byId.get(x.id).authors.forEach((n) => abbrevKey(n) !== own_k && co.add(abbrevKey(n))));
+    if (!co.size) return null; // single-author papers: nothing to cross-check
+    // Abbreviations like "Y Li" are common, so require several shared publications and,
+    // when the listed paper has >= 2 co-authors, at least 2 distinct matching co-authors.
+    const matched = new Set();
+    const shared = pubs.filter((p) => {
+      const hits = (p.authors || []).map(scholarAbbrevKey).filter((k) => co.has(k));
+      hits.forEach((k) => matched.add(k));
+      return hits.length > 0;
+    });
+    const enough = co.size >= 2 ? shared.length >= COAUTHOR_PUBS && matched.size >= 2 : shared.length >= COAUTHOR_PUBS + 1;
+    if (enough) {
+      return { ...hit('confirmed', r, index, `${shared.length} publications with co-authors ${[...matched].join(', ')}`), learn: r.key };
+    }
     return null;
   }
 
@@ -250,20 +368,9 @@
     return ps.filter((p) => (seen.has(p.id) ? false : seen.add(p.id)));
   }
 
-  function authorList(papers) {
-    const m = new Map();
-    for (const p of papers) for (const a of p.authors) {
-      const n = normName(a);
-      if (!m.has(n)) m.set(n, { name: a, papers: [] });
-      m.get(n).papers.push(p.id);
-    }
-    return [...m.values()].sort((a, b) => a.name.localeCompare(b.name));
-  }
-
   const api = {
     JEV_EPOCH,
     ARXIV_QUERY,
-    AWESOME_README,
     normName,
     abbrevKey,
     scholarAbbrevKey,
@@ -277,7 +384,9 @@
     findPaper,
     classifyAuthors,
     classifyProfile,
-    authorList,
+    scoreAuthors,
+    positionWeight,
+    BAN_THRESHOLD,
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.BanJev = api;

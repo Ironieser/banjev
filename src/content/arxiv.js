@@ -47,7 +47,7 @@
       // classify against the full author list of the entry (co-author evidence),
       // including links already processed in an earlier pass
       const all = [...e.root.querySelectorAll('a[href*="searchtype=author"]')];
-      const res = core.classifyAuthors(index, paper, all.map((a) => ({ name: a.textContent })), ui.settings());
+      const res = core.classifyAuthors(index, paper, all.map((a) => ({ name: a.textContent })), { site: 'arxiv', showNameMatches: ui.settings().showNameMatches });
       all.forEach((a, i) => {
         if (a.hasAttribute('data-banjev-done')) return;
         a.setAttribute('data-banjev-done', '');

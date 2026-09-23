@@ -6,46 +6,44 @@ const REFRESH_MINUTES = 6 * 60;
 
 const DEFAULT_SETTINGS = {
   enabled: true,
-  showNameMatches: true, // full-name matches without extra evidence ("BanJev?")
-  abbrevNameMatches: false, // Scholar "Y Sun"-style matches: very noisy, off by default
+  showNameMatches: true, // arXiv full-name matches without extra evidence ("BanJev?")
   excludedPapers: [],
   notThem: { names: [], scholarIds: [] },
   confirmedScholarIds: {},
 };
 
+const REPO = 'Ironieser/banjev';
+const DATA_URL = `https://raw.githubusercontent.com/${REPO}/main/data/papers.json`;
+
 async function getState() {
-  const s = await chrome.storage.local.get(['papers', 'updatedAt', 'lastError', 'settings']);
-  if (!s.papers) {
+  const s = await chrome.storage.local.get(['papers', 'curation', 'updatedAt', 'lastError', 'settings']);
+  if (!s.papers || !s.curation) {
     const snap = await (await fetch(chrome.runtime.getURL('data/papers.json'))).json();
-    s.papers = snap.papers;
-    s.updatedAt = snap.updatedAt;
-    await chrome.storage.local.set({ papers: s.papers, updatedAt: s.updatedAt });
+    Object.assign(s, fromSnapshot(snap));
+    await chrome.storage.local.set({ papers: s.papers, curation: s.curation, updatedAt: s.updatedAt });
   }
   s.settings = { ...DEFAULT_SETTINGS, ...(s.settings || {}) };
   return s;
 }
 
+function fromSnapshot(snap) {
+  return {
+    papers: snap.papers,
+    curation: { banAuthors: snap.banAuthors || [], allowAuthors: snap.allowAuthors || [], scholarProfiles: snap.scholarProfiles || {} },
+    updatedAt: snap.updatedAt,
+  };
+}
+
+// The repo's data/papers.json is the curated source of truth: a GitHub Action
+// refreshes it from arXiv every 6 hours and applies data/manual.json.
 async function refresh() {
-  const state = await getState();
   try {
-    const res = await fetch(core.ARXIV_QUERY);
-    if (!res.ok) throw new Error('arXiv HTTP ' + res.status);
-    const searched = core.parseArxivAtom(await res.text());
-    let linked = [];
-    try {
-      const md = await (await fetch(core.AWESOME_README)).text();
-      const ids = core.extractArxivIds(md);
-      if (ids.length) {
-        const r = await fetch('https://export.arxiv.org/api/query?max_results=500&id_list=' + ids.join(','));
-        linked = core.parseArxivAtom(await r.text());
-      }
-    } catch (e) {
-      /* README is a secondary source; ignore failures */
-    }
-    // Merge with what we had so a flaky/partial API response never shrinks the list.
-    const papers = core.filterPapers(core.mergePapers(state.papers, searched, linked));
-    await chrome.storage.local.set({ papers, updatedAt: new Date().toISOString(), lastError: null });
-    return { ok: true, count: papers.length };
+    const res = await fetch(DATA_URL, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('GitHub HTTP ' + res.status);
+    const snap = await res.json();
+    if (!Array.isArray(snap.papers) || !snap.papers.length) throw new Error('empty list');
+    await chrome.storage.local.set({ ...fromSnapshot(snap), lastError: null, checkedAt: new Date().toISOString() });
+    return { ok: true, count: snap.papers.length };
   } catch (e) {
     await chrome.storage.local.set({ lastError: String(e.message || e) });
     return { ok: false, error: String(e.message || e) };
@@ -81,16 +79,9 @@ chrome.runtime.onMessage.addListener((msg, _sender, reply) => {
         return getState();
       case 'refresh':
         return refresh();
-      case 'learnProfile': // Scholar profile verified by a listed paper on it
+      case 'learnProfile': // Scholar profile verified by evidence on the profile page
         return updateSettings((s) => {
-          const cur = new Set(s.confirmedScholarIds[msg.scholarId] || []);
-          msg.paperIds.forEach((id) => cur.add(id));
-          s.confirmedScholarIds[msg.scholarId] = [...cur];
-        });
-      case 'confirmProfile': // user: "yes, this is the same person"
-        return updateSettings((s) => {
-          s.confirmedScholarIds[msg.scholarId] = msg.paperIds;
-          s.notThem.scholarIds = s.notThem.scholarIds.filter((x) => x !== msg.scholarId);
+          s.confirmedScholarIds[msg.scholarId] = msg.key;
         });
       case 'notThem': // user: false positive
         return updateSettings((s) => {

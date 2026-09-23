@@ -1,0 +1,142 @@
+[
+ {
+  "title": "V-Mem: Modality-Routed Retrieval for Long-Term Multimodal Agentic Memory",
+  "authors": [
+   "D Kang",
+   "D Jiang",
+   "Y Li",
+   "G Li",
+   "B Li"
+  ]
+ },
+ {
+  "title": "Learning where to embed: Noise-aware positional embedding for query retrieval in small-object detection",
+  "authors": [
+   "Y Zeng",
+   "Z Yu",
+   "D Jiang",
+   "W Zhang",
+   "Y Hong",
+   "Z Hu",
+   "J Luo",
+   "K Cui"
+  ]
+ },
+ {
+  "title": "DarkForest: Less Talk, Higher Accuracy for Multi-Agent LLMs",
+  "authors": [
+   "Y Li",
+   "S Wei",
+   "D Jiang",
+   "Z Guo",
+   "Q Li",
+   "B Li"
+  ]
+ },
+ {
+  "title": "HAGE: Harnessing Agentic Memory via RL-Driven Weighted Graph Evolution",
+  "authors": [
+   "D Jiang",
+   "Y Li",
+   "G Li",
+   "Q Li",
+   "B Li"
+  ]
+ },
+ {
+  "title": "PDEAgent-Bench: A multi-metric, multi-library benchmark for PDE solver generation",
+  "authors": [
+   "Z Hang",
+   "Y Yashengjiang",
+   "J Li",
+   "H Dong",
+   "Y Wei",
+   "Z Hao",
+   "J Ma",
+   "S Bai",
+   "H Kai"
+  ]
+ },
+ {
+  "title": "MambaDATG: Domain-Adaptive Tri-Plane-Gated Pre-training for 3D Abdominal Segmentation",
+  "authors": [
+   "Y Shen",
+   "D Jiang",
+   "Z Liang",
+   "Y Wei",
+   "W Yang",
+   "X Sun",
+   "Z Huang",
+   "S Wang"
+  ]
+ },
+ {
+  "title": "From Fluid Dynamics to Chip Design: PDE Foundation Model Address Data Bottleneck in 3D-ICs Thermal Simulation",
+  "authors": [
+   "Z Huang",
+   "X HaiYang",
+   "D Jiang",
+   "Y Wei",
+   "H Wang",
+   "W Yang",
+   "Y Zhang"
+  ]
+ },
+ {
+  "title": "Anatomy of agentic memory: Taxonomy and empirical analysis of evaluation and system limitations",
+  "authors": [
+   "D Jiang",
+   "Y Li",
+   "S Wei",
+   "J Yang",
+   "A Kishore",
+   "A Zhao",
+   "D Kang",
+   "X Hu",
+   "F Chen"
+  ]
+ },
+ {
+  "title": "CEMG: Collaborative-Enhanced Multimodal Generative Recommendation",
+  "authors": [
+   "Y Lin",
+   "H Chen",
+   "X Chen",
+   "S Wang",
+   "I Xu",
+   "D Jiang"
+  ]
+ },
+ {
+  "title": "Adaptive Debiasing Tsallis Entropy for Test-Time Adaptation",
+  "authors": [
+   "X Wu",
+   "D Jiang",
+   "F Yu",
+   "Y Tian",
+   "J Tang",
+   "QG Chen",
+   "Y Yang",
+   "J Lu"
+  ]
+ },
+ {
+  "title": "MAGMA: A Multi-Graph based Agentic Memory Architecture for AI Agents",
+  "authors": [
+   "D Jiang",
+   "Y Li",
+   "G Li",
+   "B Li"
+  ]
+ },
+ {
+  "title": "Scalable Disk-Based Approximate Nearest Neighbor Search with Page-Aligned Graph",
+  "authors": [
+   "D Kang",
+   "D Jiang",
+   "H Yang",
+   "H Liu",
+   "B Li"
+  ]
+ }
+]

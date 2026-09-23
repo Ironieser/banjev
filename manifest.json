@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "BanJev",
-  "version": "1.0.0",
-  "description": "Tags authors of Jev bandwagon papers on arXiv and Google Scholar.",
+  "version": "0.0.1",
+  "description": "Save time and tokens reading papers: tags Jev bandwagon papers and their authors on arXiv and Google Scholar.",
   "icons": {
     "16": "icons/16.png",
     "48": "icons/48.png",

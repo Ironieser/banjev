@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BanJev Ranking</title>
+<meta name="description" content="Authors of Jev bandwagon papers on arXiv, ranked by author-position-weighted paper count.">
+<link rel="icon" href="logo.png">
+<style>
+  :root {
+    --bg: #fbfaf9; --panel: #ffffff; --fg: #1d1c1a; --muted: #6b6760; --line: #e8e5e0;
+    --red: #c62828; --red-soft: #fdecec; --bar: #e9e6e1; --link: #1d4ed8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #151413; --panel: #1d1c1a; --fg: #ecebe8; --muted: #9b968e; --line: #2e2c29;
+      --red: #ef5350; --red-soft: #3a1d1d; --bar: #2e2c29; --link: #8ab4f8; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { display: flex; gap: 16px; align-items: center; }
+  header img { width: 52px; height: 52px; }
+  h1 { margin: 0; font-size: 26px; letter-spacing: -0.01em; }
+  .tagline { margin: 2px 0 0; color: var(--muted); }
+  .lang { margin-left: auto; align-self: flex-start; white-space: nowrap; }
+  .lang button { font: inherit; font-size: 13px; background: none; border: 1px solid var(--line); color: var(--muted);
+    padding: 3px 10px; cursor: pointer; }
+  .lang button:first-child { border-radius: 6px 0 0 6px; } .lang button:last-child { border-radius: 0 6px 6px 0; border-left: 0; }
+  .lang button[aria-pressed="true"] { color: var(--fg); background: var(--panel); }
+  .rule { margin: 24px 0 16px; padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; color: var(--muted); font-size: 14px; }
+  .rule b { color: var(--fg); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+  .stat .n { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stat .l { color: var(--muted); font-size: 13px; }
+  .stat.red .n { color: var(--red); }
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
+  .tabs { display: flex; gap: 4px; }
+  .tabs button { font: inherit; font-size: 14px; padding: 6px 12px; border: 1px solid var(--line); background: var(--panel);
+    color: var(--muted); border-radius: 8px; cursor: pointer; }
+  .tabs button[aria-selected="true"] { color: var(--fg); border-color: var(--fg); }
+  input[type=search] { flex: 1; min-width: 180px; font: inherit; font-size: 14px; padding: 6px 10px; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--panel); color: var(--fg); }
+  table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .rank { color: var(--muted); width: 1%; }
+  .name { font-weight: 600; white-space: nowrap; }
+  .sub { display: none; font-size: 12px; font-weight: 400; color: var(--muted); }
+  .rule a { color: var(--link); }
+  .name a { color: inherit; text-decoration: none; } .name a:hover { text-decoration: underline; }
+  .links { display: block; font-size: 12px; font-weight: 400; margin-top: 2px; }
+  .links a { color: var(--link); margin-right: 8px; text-decoration: none; }
+  .score { display: flex; align-items: center; gap: 8px; min-width: 120px; }
+  .bar { flex: 1; height: 6px; background: var(--bar); border-radius: 3px; overflow: hidden; max-width: 90px; }
+  .bar i { display: block; height: 100%; background: var(--muted); }
+  .banned .bar i { background: var(--red); }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 0 6px; border-radius: 4px; line-height: 17px; }
+  .tag.ban { background: var(--red); color: #fff; }
+  .tag.forced { background: var(--red-soft); color: var(--red); border: 1px dashed var(--red); }
+  .tag.allowed { background: var(--bar); color: var(--muted); }
+  .papers { margin: 0; padding: 0; list-style: none; font-size: 13px; }
+  .papers li { margin: 2px 0; }
+  .papers a { color: var(--fg); }
+  .pos { display: inline-block; min-width: 30px; font-size: 11px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .date { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .empty { padding: 32px; text-align: center; color: var(--muted); }
+  footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
+  footer a { color: var(--link); }
+  @media (max-width: 720px) {
+    .hide-sm { display: none; }
+    th, td { padding: 8px; }
+    .score { min-width: 0; } .bar { display: none; }
+    .sub { display: block; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="logo.png" alt="">
+    <div>
+      <h1>BanJev</h1>
+      <p class="tagline" data-i18n="tagline"></p>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en">EN</button><button data-lang="zh">中文</button>
+    </div>
+  </header>
+
+  <div class="rule" data-i18n-html="rule"></div>
+
+  <div class="stats">
+    <div class="stat red"><div class="n" id="s-banned">–</div><div class="l" data-i18n="banned"></div></div>
+    <div class="stat"><div class="n" id="s-authors">–</div><div class="l" data-i18n="authors"></div></div>
+    <div class="stat"><div class="n" id="s-papers">–</div><div class="l" data-i18n="papers"></div></div>
+    <div class="stat"><div class="n" id="s-updated" style="font-size:16px;padding-top:8px">–</div><div class="l" data-i18n="updated"></div></div>
+  </div>
+
+  <div class="controls">
+    <div class="tabs" role="tablist">
+      <button role="tab" data-tab="banned" aria-selected="true" data-i18n="tabBanned"></button>
+      <button role="tab" data-tab="all" data-i18n="tabAll"></button>
+      <button role="tab" data-tab="papers" data-i18n="tabPapers"></button>
+    </div>
+    <input type="search" id="q" data-i18n-ph="search">
+  </div>
+
+  <div id="table"></div>
+
+  <footer data-i18n-html="footer"></footer>
+</div>
+
+<script>
+const I18N = {
+  en: {
+    tagline: 'Save time reading papers. Save tokens reading papers.',
+    rule: '<b>Not about Jev.</b> Jev is where we noticed the pattern: within days of a model going viral, a batch of papers named after it appears on arXiv. A badge means "rushed a paper out to ride the trend", which is a reading-priority signal, not a judgment of Jev or of any single paper.<br><br>Papers: arXiv submissions since <b>2026-09-17</b> (the day Jev went viral) that mention Jev, plus <a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">manual curation</a>. ' +
+      'Score: each paper adds <b>1</b> for 1st author, <b>0.5</b> for 2nd, <b>0.25</b> for 3rd, halving after that. Authors with a score of <b>≥ 1</b> are banned. Updated every 6 hours.',
+    banned: 'banned authors', authors: 'authors in total', papers: 'papers', updated: 'last updated',
+    tabBanned: 'Banned', tabAll: 'All authors', tabPapers: 'Papers', search: 'Search author or paper…',
+    rank: '#', author: 'Author', score: 'Score', paperList: 'Papers (author position · date)', latest: 'Latest',
+    title: 'Title', authorsCol: 'Authors', date: 'Submitted', none: 'No results',
+    scholar: 'Scholar', arxiv: 'arXiv', forced: 'manual', allowed: 'exempt', ban: 'BAN',
+    footer: 'The badge means "published a Jev-titled paper after Jev went viral". It is a reading filter, not a judgment of any individual paper. ' +
+      'Wrong person or wrong paper? <a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">Open a PR against manual.json</a>. · <a href="https://github.com/Ironieser/banjev">Chrome extension &amp; source</a>',
+  },
+  zh: {
+    tagline: '节约读论文时间，节约读论文的 token。',
+    rule: '<b>这不是针对 Jev。</b>Jev 只是我们观察到这种现象的地方：一个模型爆火后没几天，arXiv 上就冒出一批以它命名的论文。标记的意思是“赶着发论文蹭热点”，是阅读优先级信号，不评价 Jev，也不评价任何一篇具体论文。<br><br>论文来源：2026-09-17（Jev 爆火之日）之后提交到 arXiv、提到 Jev 的论文，加上<a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">人工维护名单</a>。' +
+      '计分：每篇论文一作记 <b>1</b>，二作记 <b>0.5</b>，三作记 <b>0.25</b>，之后依次减半。总分 <b>≥ 1</b> 即 ban。每 6 小时自动更新。',
+    banned: '被 ban 作者', authors: '作者总数', papers: '论文数', updated: '最后更新',
+    tabBanned: '已 ban', tabAll: '全部作者', tabPapers: '论文', search: '搜索作者或论文…',
+    rank: '#', author: '作者', score: '分数', paperList: '论文（作者位次 · 日期）', latest: '最近',
+    title: '标题', authorsCol: '作者', date: '提交日期', none: '没有结果',
+    scholar: 'Scholar', arxiv: 'arXiv', forced: '人工', allowed: '豁免', ban: 'BAN',
+    footer: '标记只表示“此人在 Jev 爆火后发表过以 Jev 为题的论文”，是阅读过滤器，不评价具体论文。' +
+      '标错了人或论文？<a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">给 manual.json 提 PR</a>。 · <a href="https://github.com/Ironieser/banjev">Chrome 插件与源码</a>',
+  },
+};
+
+let lang = (() => { try { return localStorage.getItem('banjev-lang'); } catch (e) { return null; } })()
+  || ((navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en');
+let tab = 'banned';
+let data = null;
+const t = (k) => I18N[lang][k];
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const ord = (n) => lang === 'zh' ? n + '作' : n + (n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th');
+const fmt = (n) => String(Math.round(n * 1000) / 1000);
+
+function applyLang() {
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach((e) => (e.textContent = t(e.dataset.i18n)));
+  document.querySelectorAll('[data-i18n-html]').forEach((e) => (e.innerHTML = t(e.dataset.i18nHtml)));
+  document.querySelectorAll('[data-i18n-ph]').forEach((e) => (e.placeholder = t(e.dataset.i18nPh)));
+  document.querySelectorAll('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  if (data) render();
+}
+
+function authorRows(list, q) {
+  const max = Math.max(1, ...list.map((a) => a.score));
+  const rows = list
+    .map((a, i) => ({ a, rank: i + 1 }))
+    .filter(({ a }) => !q || (a.name + ' ' + a.papers.map((p) => p.title).join(' ')).toLowerCase().includes(q));
+  if (!rows.length) return `<div class="empty">${t('none')}</div>`;
+  return `<table><thead><tr><th class="rank">${t('rank')}</th><th>${t('author')}</th><th>${t('score')}</th>
+    <th class="hide-sm">${t('paperList')}</th><th class="hide-sm">${t('latest')}</th></tr></thead><tbody>` +
+    rows.map(({ a, rank }) => {
+      const q = encodeURIComponent(a.name);
+      const scholar = (a.scholarProfiles || []).map((id) => `<a href="https://scholar.google.com/citations?user=${encodeURIComponent(id)}" target="_blank" rel="noopener">${t('scholar')}</a>`).join('');
+      const tags = (a.banned ? `<span class="tag ban">${t('ban')}</span> ` : '') + (a.forced ? `<span class="tag forced">${t('forced')}</span> ` : '') + (a.allowed ? `<span class="tag allowed">${t('allowed')}</span> ` : '');
+      return `<tr class="${a.banned ? 'banned' : ''}">
+        <td class="rank num">${rank}</td>
+        <td class="name">${esc(a.name)} ${tags}<span class="sub">${a.papers.length} × ${lang === 'zh' ? '论文' : (a.papers.length > 1 ? 'papers' : 'paper')} · ${esc(a.latest)}</span><span class="links">${scholar}<a href="https://arxiv.org/search/?searchtype=author&query=${q}" target="_blank" rel="noopener">${t('arxiv')}</a></span></td>
+        <td class="num"><div class="score"><b>${fmt(a.score)}</b><span class="bar"><i style="width:${Math.min(100, (a.score / max) * 100)}%"></i></span></div></td>
+        <td class="hide-sm"><ul class="papers">${a.papers.map((p) => `<li><span class="pos">${ord(p.position)}</span><a href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener">${esc(p.title)}</a> <span class="date">${esc(p.published)}</span></li>`).join('')}</ul></td>
+        <td class="hide-sm date">${esc(a.latest)}</td>
+      </tr>`;
+    }).join('') + '</tbody></table>';
+}
+
+function paperRows(q) {
+  const banned = new Set(data.authors.filter((a) => a.banned).map((a) => a.name));
+  const rows = data.papers.filter((p) => !q || (p.title + ' ' + p.authors.join(' ')).toLowerCase().includes(q));
+  if (!rows.length) return `<div class="empty">${t('none')}</div>`;
+  return `<table><thead><tr><th>${t('title')}</th><th class="hide-sm">${t('authorsCol')}</th><th>${t('date')}</th></tr></thead><tbody>` +
+    rows.map((p) => `<tr><td><a href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener">${esc(p.title)}</a><div class="date">arXiv:${esc(p.id)}</div></td>
+      <td class="hide-sm" style="font-size:13px">${p.authors.map((a) => banned.has(a) ? `<b style="color:var(--red)">${esc(a)}</b>` : esc(a)).join(', ')}</td>
+      <td class="date">${esc(p.published)}</td></tr>`).join('') + '</tbody></table>';
+}
+
+function render() {
+  const q = document.getElementById('q').value.trim().toLowerCase();
+  const el = document.getElementById('table');
+  if (tab === 'papers') el.innerHTML = paperRows(q);
+  else el.innerHTML = authorRows(tab === 'banned' ? data.authors.filter((a) => a.banned) : data.authors, q);
+  document.querySelectorAll('[data-tab]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
+}
+
+document.querySelectorAll('.lang button').forEach((b) => (b.onclick = () => {
+  lang = b.dataset.lang;
+  try { localStorage.setItem('banjev-lang', lang); } catch (e) {}
+  applyLang();
+}));
+document.querySelectorAll('[data-tab]').forEach((b) => (b.onclick = () => { tab = b.dataset.tab; render(); }));
+document.getElementById('q').oninput = render;
+
+applyLang();
+Promise.all([fetch('data/authors.json').then((r) => r.json()), fetch('data/papers.json').then((r) => r.json())]).then(([a, p]) => {
+  data = { authors: a.authors, papers: p.papers, updatedAt: a.updatedAt };
+  document.getElementById('s-banned').textContent = a.authors.filter((x) => x.banned).length;
+  document.getElementById('s-authors').textContent = a.authors.length;
+  document.getElementById('s-papers').textContent = p.papers.length;
+  document.getElementById('s-updated').textContent = new Date(a.updatedAt).toLocaleString();
+  render();
+}).catch((e) => { document.getElementById('table').innerHTML = `<div class="empty">Failed to load data: ${esc(e.message)}</div>`; });
+</script>
+</body>
+</html>

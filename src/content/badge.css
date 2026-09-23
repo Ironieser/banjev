@@ -28,6 +28,7 @@
   text-align: left;
 }
 .banjev-pop-head { font-weight: 600; margin-bottom: 6px; }
+.banjev-pop-score { margin-bottom: 6px; color: #c62828; font-weight: 600; }
 .banjev-pop ul { margin: 0; padding-left: 16px; max-height: 240px; overflow: auto; }
 .banjev-pop li { margin: 4px 0; }
 .banjev-pop a { color: #1a0dab; }

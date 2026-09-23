@@ -1,0 +1,15 @@
+{
+  "_readme": "Hand-maintained curation, applied on top of the automatic arXiv search. Edit via pull request. addPapers: arXiv IDs (or full {id,title,authors,published,url} for non-arXiv papers) to include. excludePapers: papers matched by the search that are not really Jev papers. banAuthors: always ban. allowAuthors: never ban. scholarProfiles: author name -> Google Scholar user ID(s); on Scholar only these profiles get tagged for that author, and same-name researchers are left alone.",
+  "addPapers": [],
+  "excludePapers": [
+    {
+      "id": "2606.22807",
+      "reason": "Submitted before Jev existed; matched the search by coincidence"
+    }
+  ],
+  "banAuthors": [],
+  "allowAuthors": [],
+  "scholarProfiles": {
+    "Dongming Jiang": "FZLU_acAAAAJ"
+  }
+}

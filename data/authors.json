@@ -1,0 +1,633 @@
+{
+  "updatedAt": "2026-09-23T19:27:15.969Z",
+  "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
+  "rule": "author position weights 1, 0.5, 0.25, 0.125, …; banned when total >= 1 (or listed in manual.json banAuthors)",
+  "threshold": 1,
+  "authors": [
+    {
+      "name": "Delong Li",
+      "score": 2,
+      "papers": [
+        {
+          "id": "2609.23136",
+          "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
+          "published": "2026-09-19",
+          "position": 1
+        },
+        {
+          "id": "2609.22753",
+          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+          "published": "2026-09-19",
+          "position": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-19"
+    },
+    {
+      "name": "Guanxu Yu",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.25845",
+          "title": "Visual Jev: Accurate and Efficient Decisions from Shared Visual Context",
+          "published": "2026-09-22",
+          "position": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-22"
+    },
+    {
+      "name": "Tiantong Wu",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.26532",
+          "title": "REFLEX with Jev for Efficient Selective Control in LLM Agents",
+          "published": "2026-09-22",
+          "position": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-22"
+    },
+    {
+      "name": "Yu Sun",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.26758",
+          "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It",
+          "published": "2026-09-22",
+          "position": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-22"
+    },
+    {
+      "name": "Yubo Li",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.26550",
+          "title": "JEV-as-a-Judge: Accept When Confident, Escalate When Unsure",
+          "published": "2026-09-22",
+          "position": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-22"
+    },
+    {
+      "name": "Amir Rafe",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.24052",
+          "title": "Calibrated Decisions at Scale: Converting Police Crash Narratives into Probabilistic Crash Variables with a System One Model (Jev)",
+          "published": "2026-09-21",
+          "position": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Boyuan Deng",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.24965",
+          "title": "Jev for Scientific Decisions: Evaluating Semantic Choices and Their Consequences",
+          "published": "2026-09-21",
+          "position": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Dongming Jiang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.23986",
+          "title": "Jev-Mem: System-One-Controlled Agentic Memory for Efficient AI Agents",
+          "published": "2026-09-21",
+          "position": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-21",
+      "scholarProfiles": [
+        "FZLU_acAAAAJ"
+      ]
+    },
+    {
+      "name": "Simiao Ren",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.23959",
+          "title": "Open-Jev Judgments on CallScreenBench: Calibrated One-Pass Scam Screening with a Small Language Model",
+          "published": "2026-09-21",
+          "position": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Werner Robitza",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.24395",
+          "title": "JEVQA - Video Quality from Metadata, Bitstream, and Pixel Features with a General-Purpose Decision Model",
+          "published": "2026-09-21",
+          "position": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Zehua Cheng",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.23886",
+          "title": "this-that-model-1.0: A typed decision model that decides in 30 ms, for a millionth of a cent",
+          "published": "2026-09-20",
+          "position": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-20"
+    },
+    {
+      "name": "Xu Wang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.23136",
+          "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
+          "published": "2026-09-19",
+          "position": 2
+        },
+        {
+          "id": "2609.22753",
+          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+          "published": "2026-09-19",
+          "position": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-19"
+    },
+    {
+      "name": "Junhao Xu",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.26758",
+          "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It",
+          "published": "2026-09-22",
+          "position": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-22"
+    },
+    {
+      "name": "Wei Yang Bryan Lim",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.26532",
+          "title": "REFLEX with Jev for Efficient Selective Control in LLM Agents",
+          "published": "2026-09-22",
+          "position": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-22"
+    },
+    {
+      "name": "Yidi Miao",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.26550",
+          "title": "JEV-as-a-Judge: Accept When Confident, Escalate When Unsure",
+          "published": "2026-09-22",
+          "position": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-22"
+    },
+    {
+      "name": "Yuhang Yao",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.25845",
+          "title": "Visual Jev: Accurate and Efficient Decisions from Shared Visual Context",
+          "published": "2026-09-22",
+          "position": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-22"
+    },
+    {
+      "name": "Kidus Zewde",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.23959",
+          "title": "Open-Jev Judgments on CallScreenBench: Calibrated One-Pass Scam Screening with a Small Language Model",
+          "published": "2026-09-21",
+          "position": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Shuyi Fan",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.24965",
+          "title": "Jev for Scientific Decisions: Evaluating Semantic Choices and Their Consequences",
+          "published": "2026-09-21",
+          "position": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Subasish Das",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.24052",
+          "title": "Calibrated Decisions at Scale: Converting Police Crash Narratives into Probabilistic Crash Variables with a System One Model (Jev)",
+          "published": "2026-09-21",
+          "position": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Yi Li",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.23986",
+          "title": "Jev-Mem: System-One-Controlled Agentic Memory for Efficient AI Agents",
+          "published": "2026-09-21",
+          "position": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Wei Dai",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.23886",
+          "title": "this-that-model-1.0: A typed decision model that decides in 30 ms, for a millionth of a cent",
+          "published": "2026-09-20",
+          "position": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-20"
+    },
+    {
+      "name": "Haochen Gong",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.23136",
+          "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
+          "published": "2026-09-19",
+          "position": 3
+        },
+        {
+          "id": "2609.22753",
+          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+          "published": "2026-09-19",
+          "position": 3
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-19"
+    },
+    {
+      "name": "Ramayya Krishnan",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.26550",
+          "title": "JEV-as-a-Judge: Accept When Confident, Escalate When Unsure",
+          "published": "2026-09-22",
+          "position": 3
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-22"
+    },
+    {
+      "name": "Bingzhe Li",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.23986",
+          "title": "Jev-Mem: System-One-Controlled Agentic Memory for Efficient AI Agents",
+          "published": "2026-09-21",
+          "position": 3
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Hongyang Zhang",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.24965",
+          "title": "Jev for Scientific Decisions: Evaluating Semantic Choices and Their Consequences",
+          "published": "2026-09-21",
+          "position": 3
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Xingyu Shen",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.23959",
+          "title": "Open-Jev Judgments on CallScreenBench: Calibrated One-Pass Scam Screening with a Small Language Model",
+          "published": "2026-09-21",
+          "position": 3
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Jiahao Sun",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.23886",
+          "title": "this-that-model-1.0: A typed decision model that decides in 30 ms, for a millionth of a cent",
+          "published": "2026-09-20",
+          "position": 3
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-20"
+    },
+    {
+      "name": "Rui Lang",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.23136",
+          "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
+          "published": "2026-09-19",
+          "position": 4
+        },
+        {
+          "id": "2609.22753",
+          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+          "published": "2026-09-19",
+          "position": 4
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-19"
+    },
+    {
+      "name": "Rema Padman",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.26550",
+          "title": "JEV-as-a-Judge: Accept When Confident, Escalate When Unsure",
+          "published": "2026-09-22",
+          "position": 4
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-22"
+    },
+    {
+      "name": "Xinhong Xie",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.24965",
+          "title": "Jev for Scientific Decisions: Evaluating Semantic Choices and Their Consequences",
+          "published": "2026-09-21",
+          "position": 4
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Yuchen Zhou",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.23959",
+          "title": "Open-Jev Judgments on CallScreenBench: Calibrated One-Pass Scam Screening with a Small Language Model",
+          "published": "2026-09-21",
+          "position": 4
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Guangsheng Yu",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.23136",
+          "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
+          "published": "2026-09-19",
+          "position": 5
+        },
+        {
+          "id": "2609.22753",
+          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+          "published": "2026-09-19",
+          "position": 5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-19"
+    },
+    {
+      "name": "Dennis Ng",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.23959",
+          "title": "Open-Jev Judgments on CallScreenBench: Calibrated One-Pass Scam Screening with a Small Language Model",
+          "published": "2026-09-21",
+          "position": 5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Ankit Raj",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.23959",
+          "title": "Open-Jev Judgments on CallScreenBench: Calibrated One-Pass Scam Screening with a Small Language Model",
+          "published": "2026-09-21",
+          "position": 6
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Tommy Duong",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2609.23959",
+          "title": "Open-Jev Judgments on CallScreenBench: Calibrated One-Pass Scam Screening with a Small Language Model",
+          "published": "2026-09-21",
+          "position": 7
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Yuxin Zhang",
+      "score": 0.008,
+      "papers": [
+        {
+          "id": "2609.23959",
+          "title": "Open-Jev Judgments on CallScreenBench: Calibrated One-Pass Scam Screening with a Small Language Model",
+          "published": "2026-09-21",
+          "position": 8
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    },
+    {
+      "name": "Neo Tiangratanakul",
+      "score": 0.004,
+      "papers": [
+        {
+          "id": "2609.23959",
+          "title": "Open-Jev Judgments on CallScreenBench: Calibrated One-Pass Scam Screening with a Small Language Model",
+          "published": "2026-09-21",
+          "position": 9
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-21"
+    }
+  ]
+}

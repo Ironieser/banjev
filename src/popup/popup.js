@@ -5,10 +5,11 @@ let state;
 
 function render() {
   const s = state.settings;
-  for (const k of ['enabled', 'showNameMatches', 'abbrevNameMatches']) $(k).checked = !!s[k];
+  for (const k of ['enabled', 'showNameMatches']) $(k).checked = !!s[k];
   const excluded = new Set(s.excludedPapers);
   const live = state.papers.filter((p) => !excluded.has(p.id));
-  $('stats').textContent = `${live.length} papers · ${BanJev.authorList(live).length} authors`;
+  const banned = BanJev.scoreAuthors(live, state.curation).filter((a) => a.banned).length;
+  $('stats').textContent = `${live.length} papers · ${banned} banned authors`;
   $('updated').textContent = state.lastError
     ? 'Update failed: ' + state.lastError
     : 'Updated ' + new Date(state.updatedAt).toLocaleString();
@@ -60,7 +61,7 @@ async function save(patch) {
   render();
 }
 
-for (const k of ['enabled', 'showNameMatches', 'abbrevNameMatches']) $(k).onchange = (e) => save({ [k]: e.target.checked });
+for (const k of ['enabled', 'showNameMatches']) $(k).onchange = (e) => save({ [k]: e.target.checked });
 $('filter').oninput = render;
 $('refresh').onclick = async () => {
   $('refresh').disabled = true;

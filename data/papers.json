@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-23T19:08:51.879Z",
-  "source": "arXiv API + awesome-jev README",
+  "updatedAt": "2026-09-23T19:27:15.969Z",
+  "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "papers": [
     {
       "id": "2609.26758",
@@ -128,5 +128,10 @@
       ],
       "published": "2026-09-19"
     }
-  ]
+  ],
+  "banAuthors": [],
+  "allowAuthors": [],
+  "scholarProfiles": {
+    "Dongming Jiang": "FZLU_acAAAAJ"
+  }
 }

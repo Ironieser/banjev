@@ -1,0 +1,60 @@
+name: update-list
+# Refresh the paper/author list from arXiv, apply data/manual.json, commit the
+# result and publish the ranking page to GitHub Pages.
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - data/manual.json
+      - site/**
+      - scripts/**
+      - src/lib/core.js
+      - docs/logo.png
+      - .github/workflows/update.yml
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update-list
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Unit tests
+        run: npm test
+      - name: Update list
+        run: node scripts/update-data.mjs
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- data/; then
+            echo "no changes"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/
+            git commit -m "data: update list ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push
+          fi
+      - name: Build site
+        run: sh scripts/build-site.sh
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/site
+      - id: deploy
+        uses: actions/deploy-pages@v4

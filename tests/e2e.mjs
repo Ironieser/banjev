@@ -50,11 +50,12 @@ const badges = (page) =>
   );
 
 console.log('arXiv (live)');
-await check('abstract page of a listed paper: paper badge + all authors', async () => {
+await check('abstract page of a listed paper: paper badge + banned authors only', async () => {
   const p = await open('https://arxiv.org/abs/2609.26532');
   assert.equal(await p.$$eval('h1.title .banjev-paper', (x) => x.length), 1);
   const b = (await badges(p)).filter((x) => x.level === 'paper' && x.prev);
-  assert.deepEqual(b.map((x) => x.prev), ['Tiantong Wu', 'Wei Yang Bryan Lim']);
+  // 1st author scores 1 (banned); 2nd author scores 0.5 (not banned)
+  assert.deepEqual(b.map((x) => x.prev), ['Tiantong Wu']);
   await p.close();
 });
 
@@ -83,7 +84,7 @@ await check('author search for a listed author: name-only tags on their other pa
 });
 
 console.log('Google Scholar (fixtures)');
-await check('search results: listed paper, co-author pair, noisy abbreviation skipped', async () => {
+await check('search results: listed paper, co-author pair, scores respected, noisy abbreviation skipped', async () => {
   const p = await open('https://scholar.google.com/scholar?q=jev', { serve: fixture('scholar-search.html') });
   const r = await p.evaluate(() =>
     ['r1', 'r2', 'r3'].map((id) => ({
@@ -91,25 +92,40 @@ await check('search results: listed paper, co-author pair, noisy abbreviation sk
       authors: [...document.querySelectorAll(`#${id} .gs_a .banjev-badge`)].map((b) => b.previousSibling.textContent.trim() + ':' + b.className.replace(/.*banjev-/, '')),
     }))
   );
-  assert.deepEqual(r[0], { paper: true, authors: ['D Jiang:paper', 'Y Li:paper', 'B Li:paper'] });
-  assert.deepEqual(r[1], { paper: false, authors: ['D Li:confirmed', 'X Wang:confirmed', 'H Gong:confirmed'] });
+  assert.deepEqual(r[0], { paper: true, authors: ['D Jiang:paper'] });
+  assert.deepEqual(r[1], { paper: false, authors: ['D Li:confirmed', 'X Wang:confirmed'] });
   assert.deepEqual(r[2], { paper: false, authors: [] });
   await p.close();
 });
 
 await check('profile: verified by listed paper, learned, co-author tagged', async () => {
-  const url = 'https://scholar.google.com/citations?user=REMAPADMAAAJ&hl=en';
+  const url = 'https://scholar.google.com/citations?user=YUBOLI000AAJ&hl=en';
   const p = await open(url, { serve: fixture('scholar-profile.html') });
   assert.equal(await p.$eval('#gsc_prf_in .banjev-badge', (b) => b.className), 'banjev-badge banjev-confirmed');
   assert.equal(await p.$$eval('#gsc_a_b .banjev-paper', (x) => x.length), 1);
   const co = await p.$$eval('#gsc_rsb_co .banjev-badge', (bs) => bs.map((b) => b.previousSibling.textContent + ':' + b.className.replace(/.*banjev-/, '')));
-  assert.deepEqual(co, ['Ramayya Krishnan:name']);
+  // Rema Padman is 4th author (0.125): not banned. Amir Rafe is banned but a name alone never counts on Scholar.
+  assert.deepEqual(co, []);
   // popover shows evidence and "Not this person" hides the badge
   await p.click('#gsc_prf_in .banjev-badge');
-  assert.match(await p.$eval('.banjev-pop', (x) => x.textContent), /JEV-as-a-Judge/);
+  const pop = await p.$eval('.banjev-pop', (x) => x.textContent);
+  assert.match(pop, /JEV-as-a-Judge/);
+  assert.match(pop, /Yubo Li: score 1 = 1st author/);
   await p.evaluate(() => [...document.querySelectorAll('.banjev-pop button')].find((b) => b.textContent === 'Not this person').click());
   await p.waitForFunction(() => !document.querySelector('#gsc_prf_in .banjev-badge'), { timeout: 5000 });
   await p.close();
+});
+
+await check('real profile (Dongming Jiang, FZLU_acAAAAJ): confirmed; same-name profile elsewhere: untouched', async () => {
+  const html = fixture('scholar-profile-jiang.html');
+  const p = await open('https://scholar.google.com/citations?hl=en&user=FZLU_acAAAAJ', { serve: html });
+  assert.equal(await p.$eval('#gsc_prf_in .banjev-badge', (b) => b.className), 'banjev-badge banjev-confirmed');
+  await p.click('#gsc_prf_in .banjev-badge');
+  assert.match(await p.$eval('.banjev-pop', (x) => x.textContent), /Jev-Mem/);
+  await p.close();
+  const q = await open('https://scholar.google.com/citations?hl=en&user=SAMENAME0AAJ', { serve: html });
+  assert.equal(await q.$$eval('#gsc_prf_in .banjev-badge', (x) => x.length), 0);
+  await q.close();
 });
 
 console.log('Popup');
