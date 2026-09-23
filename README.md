@@ -94,3 +94,7 @@ python3 scripts/make-icons.py  # regenerate icons (needs Pillow)
 ## Disclaimer
 
 A badge only means "this person published a Jev-titled paper after Jev went viral". It is a reading filter, not a judgment of any individual paper's content.
+
+## License
+
+[Apache License 2.0](LICENSE)

@@ -94,3 +94,7 @@ python3 scripts/make-icons.py  # 重新生成图标（需要 Pillow）
 ## 声明
 
 标记只表示“此人在 Jev 爆火后发表过以 Jev 为题的论文”，是一个阅读过滤器，不评价具体论文的内容。
+
+## 许可证
+
+[Apache License 2.0](LICENSE)
