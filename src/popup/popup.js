@@ -1,71 +1,85 @@
 /* global BanJev */
 const $ = (id) => document.getElementById(id);
 const send = (msg) => new Promise((r) => chrome.runtime.sendMessage(msg, r));
+const RANKING = 'https://ironieser.github.io/banjev/';
+const MAX = 8;
 let state;
+
+function el(tag, attrs, ...kids) {
+  const n = Object.assign(document.createElement(tag), attrs || {});
+  n.append(...kids);
+  return n;
+}
+
+async function pageSummary() {
+  try {
+    const forced = Number(new URLSearchParams(location.search).get('tabId')); // used by tests
+    const id = forced || (await chrome.tabs.query({ active: true, currentWindow: true }))[0].id;
+    return await chrome.tabs.sendMessage(id, { type: 'pageSummary' });
+  } catch (e) {
+    return null; // no content script here: not arXiv / Scholar
+  }
+}
+
+function renderPage(sum) {
+  const box = $('page');
+  box.textContent = '';
+  box.className = 'muted';
+  if (!sum) return box.append('Open an arXiv or Google Scholar page to see tagged authors here.');
+  if (!sum.enabled) return box.append('BanJev is turned off.');
+  if (!sum.authors.length && !sum.papers.length) return box.append('Nothing tagged on this page.');
+  box.className = '';
+  const ul = el('ul');
+  for (const a of sum.authors.slice(0, MAX)) {
+    const solid = a.level !== 'name';
+    ul.append(
+      el(
+        'li',
+        {},
+        el('span', { className: 'chip ' + (solid ? 'solid' : 'dash'), textContent: solid ? 'BanJev' : 'BanJev?' }),
+        el('span', { className: 'n' }, el('a', { href: RANKING + '#q=' + encodeURIComponent(a.name), target: '_blank', textContent: a.name })),
+        el('span', { className: 's', textContent: 'score ' + a.score })
+      )
+    );
+  }
+  box.append(ul);
+  const extra = [];
+  if (sum.authors.length > MAX) extra.push(`+${sum.authors.length - MAX} more authors`);
+  if (sum.papers.length) extra.push(`${sum.papers.length} listed paper${sum.papers.length > 1 ? 's' : ''} on this page`);
+  if (extra.length) box.append(el('div', { className: 'more muted', textContent: extra.join(' · ') }));
+}
 
 function render() {
   const s = state.settings;
   for (const k of ['enabled', 'showNameMatches']) $(k).checked = !!s[k];
-  const excluded = new Set(s.excludedPapers);
-  const live = state.papers.filter((p) => !excluded.has(p.id));
-  const banned = BanJev.scoreAuthors(live, state.curation).filter((a) => a.banned).length;
-  $('stats').textContent = `${live.length} papers · ${banned} banned authors`;
-  $('updated').textContent = state.lastError
-    ? 'Update failed: ' + state.lastError
-    : 'Updated ' + new Date(state.updatedAt).toLocaleString();
+  const banned = BanJev.scoreAuthors(state.papers, state.curation).filter((a) => a.banned).length;
+  $('stats').textContent = `${banned} banned · ${state.papers.length} papers`;
+  $('updated').textContent = state.lastError ? 'update failed' : 'updated ' + new Date(state.updatedAt).toLocaleDateString();
+  $('updated').title = state.lastError || new Date(state.updatedAt).toLocaleString();
 
-  const q = $('filter').value.trim().toLowerCase();
-  const ul = $('papers');
-  ul.textContent = '';
-  for (const p of state.papers) {
-    if (q && !(p.title + ' ' + p.authors.join(' ')).toLowerCase().includes(q)) continue;
-    const li = document.createElement('li');
-    if (excluded.has(p.id)) li.className = 'off';
-    const a = Object.assign(document.createElement('a'), { href: 'https://arxiv.org/abs/' + p.id, target: '_blank', textContent: p.title });
-    const au = Object.assign(document.createElement('div'), { className: 'authors', textContent: p.authors.join(', ') });
-    const meta = document.createElement('div');
-    meta.className = 'meta';
-    const btn = Object.assign(document.createElement('button'), {
-      textContent: excluded.has(p.id) ? 'Include' : 'Exclude',
-      title: 'Exclude a paper that is not really a Jev paper',
-    });
-    btn.onclick = () => {
-      const set = new Set(s.excludedPapers);
-      set.has(p.id) ? set.delete(p.id) : set.add(p.id);
-      save({ excludedPapers: [...set] });
-    };
-    meta.append(`${p.id} · ${p.published}`, btn);
-    li.append(a, au, meta);
-    ul.append(li);
-  }
-
+  const items = [...s.notThem.names.map((v) => ['name', v]), ...s.notThem.scholarIds.map((v) => ['scholarId', v])];
+  $('fp').hidden = !items.length;
+  $('fpCount').textContent = items.length;
   const fp = $('fpList');
   fp.textContent = '';
-  const items = [...s.notThem.names.map((n) => ['name', n]), ...s.notThem.scholarIds.map((id) => ['scholarId', id])];
-  $('fpCount').textContent = items.length;
   for (const [kind, v] of items) {
-    const li = document.createElement('li');
-    li.append(kind === 'name' ? v : 'Scholar profile ' + v);
-    const b = Object.assign(document.createElement('button'), { textContent: 'Undo' });
-    b.onclick = () => {
-      const notThem = { names: s.notThem.names.filter((x) => x !== v), scholarIds: s.notThem.scholarIds.filter((x) => x !== v) };
-      save({ notThem });
-    };
-    li.append(b);
-    fp.append(li);
+    const undo = el('button', { textContent: 'Undo' });
+    undo.onclick = () =>
+      save({ notThem: { names: s.notThem.names.filter((x) => x !== v), scholarIds: s.notThem.scholarIds.filter((x) => x !== v) } });
+    fp.append(el('li', {}, kind === 'name' ? v : 'Scholar profile ' + v, undo));
   }
 }
 
 async function save(patch) {
   state.settings = await send({ type: 'setSettings', patch });
   render();
+  setTimeout(async () => renderPage(await pageSummary()), 400); // page re-tags after a settings change
 }
 
 for (const k of ['enabled', 'showNameMatches']) $(k).onchange = (e) => save({ [k]: e.target.checked });
-$('filter').oninput = render;
 $('refresh').onclick = async () => {
   $('refresh').disabled = true;
-  $('updated').textContent = 'Updating…';
+  $('updated').textContent = 'updating…';
   await send({ type: 'refresh' });
   state = await send({ type: 'getState' });
   $('refresh').disabled = false;
@@ -75,4 +89,5 @@ $('refresh').onclick = async () => {
 (async () => {
   state = await send({ type: 'getState' });
   render();
+  renderPage(await pageSummary());
 })();

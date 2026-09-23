@@ -70,6 +70,8 @@ BanJev **不是**针对 Jev、TypeSafe AI，也不是针对基于 Jev 做东西�
 
 点击任意标记可以看到证据、这位作者的分数和作者位次。标错了可以点“Not this person”屏蔽，在 popup 里可以撤销。
 
+点击工具栏图标弹出的 popup 显示**当前页面**上被标记的作者（带分数）、开关和更新状态。完整名单请看[排行榜页面](https://ironieser.github.io/banjev/)。
+
 ## 安装
 
 1. 下载本仓库（`git clone` 或 Download ZIP）

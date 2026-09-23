@@ -209,6 +209,8 @@ document.querySelectorAll('[data-tab]').forEach((b) => (b.onclick = () => { tab 
 document.getElementById('q').oninput = render;
 
 applyLang();
+const hq = new URLSearchParams(location.hash.slice(1)).get('q');
+if (hq) { document.getElementById('q').value = hq; tab = 'all'; }
 Promise.all([fetch('data/authors.json').then((r) => r.json()), fetch('data/papers.json').then((r) => r.json())]).then(([a, p]) => {
   data = { authors: a.authors, papers: p.papers, updatedAt: a.updatedAt };
   document.getElementById('s-banned').textContent = a.authors.filter((x) => x.banned).length;

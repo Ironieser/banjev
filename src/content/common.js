@@ -6,6 +6,9 @@
   let state = null;
   let index = null;
   let scanFn = null;
+  // What is tagged on this page, for the toolbar popup.
+  const found = { authors: new Map(), papers: new Map() };
+  const RANK = { name: 0, confirmed: 1, paper: 2 };
 
   const LABEL = { paper: 'BanJev', confirmed: 'BanJev', name: 'BanJev?' };
   const WHY = {
@@ -31,6 +34,15 @@
   // ctx: { name, scholarId } used by the "not this person" / "confirm" buttons
   ui.badge = function (result, ctx) {
     if (!result) return null;
+    const r = result.author;
+    if (r) {
+      const prev = found.authors.get(r.key);
+      if (!prev || RANK[result.level] > RANK[prev.level]) {
+        found.authors.set(r.key, { name: r.name, score: r.score, level: result.level, papers: r.papers.length });
+      }
+    } else if (result.level === 'paper') {
+      result.papers.forEach((p) => found.papers.set(p.id, { id: p.id, title: p.title }));
+    }
     const b = document.createElement('span');
     b.className = 'banjev-badge banjev-' + result.level;
     b.textContent = LABEL[result.level];
@@ -118,11 +130,19 @@
     pop.style.left = Math.max(8, Math.min(window.scrollX + rect.left, window.scrollX + document.documentElement.clientWidth - pop.offsetWidth - 8)) + 'px';
   }
 
+  chrome.runtime.onMessage.addListener((msg, _sender, reply) => {
+    if (msg.type !== 'pageSummary') return;
+    const authors = [...found.authors.values()].sort((a, b) => RANK[b.level] - RANK[a.level] || b.score - a.score || a.name.localeCompare(b.name));
+    reply({ enabled: !!(state && state.settings.enabled), authors, papers: [...found.papers.values()] });
+  });
+
   document.addEventListener('click', (e) => !e.target.closest('.banjev-pop') && closePopover());
   document.addEventListener('keydown', (e) => e.key === 'Escape' && closePopover());
 
   function clear() {
     closePopover();
+    found.authors.clear();
+    found.papers.clear();
     document.querySelectorAll('.banjev-badge').forEach((b) => b.remove());
     document.querySelectorAll('[data-banjev-done]').forEach((n) => n.removeAttribute('data-banjev-done'));
     document.documentElement.removeAttribute('data-banjev-ready');

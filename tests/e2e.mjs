@@ -129,19 +129,39 @@ await check('real profile (Dongming Jiang, FZLU_acAAAAJ): confirmed; same-name p
 });
 
 console.log('Popup');
-await check('popup lists papers and can refresh from arXiv', async () => {
+await check('popup: shows who is tagged on the current page, not the whole list; refresh works', async () => {
   const sw = await browser.waitForTarget((t) => t.type() === 'service_worker');
   const id = new URL(sw.url()).host;
+  const arxiv = await open('https://arxiv.org/abs/2609.22753');
   const p = await browser.newPage();
   await p.goto(`chrome-extension://${id}/src/popup/popup.html`);
-  await p.waitForSelector('#papers li');
-  assert.ok((await p.$$eval('#papers li', (x) => x.length)) >= 12);
+  // not an arXiv/Scholar tab: explains itself
+  await p.waitForFunction(() => !/Loading/.test(document.querySelector('#page').textContent));
+  assert.match(await p.$eval('#page', (x) => x.textContent), /Open an arXiv or Google Scholar page/);
+  const tabId = await p.evaluate(async () => {
+    for (const t of await chrome.tabs.query({})) {
+      try {
+        const r = await chrome.tabs.sendMessage(t.id, { type: 'pageSummary' });
+        if (r && r.authors.length) return t.id;
+      } catch (e) {}
+    }
+    return null;
+  });
+  assert.ok(tabId, 'arXiv tab answers pageSummary');
+  await p.goto(`chrome-extension://${id}/src/popup/popup.html?tabId=${tabId}`);
+  await p.waitForSelector('#page li');
+  const rows = await p.$$eval('#page li', (li) => li.map((x) => [...x.children].map((c) => c.textContent.trim()).join(' ')));
+  // 2609.22753: Delong Li (1st, score 2), Xu Wang (2nd twice, score 1); others below 1
+  assert.deepEqual(rows, ['BanJev Delong Li score 2', 'BanJev Xu Wang score 1']);
+  assert.equal(await p.$$eval('#papers li', (x) => x.length), 0, 'no full paper list in the popup');
+  await p.setViewport({ width: 368, height: 420 });
+  await p.screenshot({ path: new URL('../docs/popup.png', import.meta.url).pathname });
   await p.click('#refresh');
   await p.waitForFunction(() => !document.querySelector('#refresh').disabled, { timeout: 60000 });
   const updated = await p.$eval('#updated', (x) => x.textContent);
-  assert.match(updated, /^Updated/, updated);
-  await p.screenshot({ path: new URL('../docs/popup.png', import.meta.url).pathname });
+  assert.match(updated, /^updated/, updated);
   await p.close();
+  await arxiv.close();
 });
 
 await browser.close();

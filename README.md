@@ -70,6 +70,8 @@ Example: [Dongming Jiang](https://scholar.google.com/citations?user=FZLU_acAAAAJ
 
 Click any badge to see the evidence, the author's score and author positions. Use "Not this person" to hide a false positive; you can undo it in the popup.
 
+The toolbar popup shows who is tagged **on the current page** (with scores), the on/off switches and the update status. The full list lives on the [ranking page](https://ironieser.github.io/banjev/).
+
 ## Install
 
 1. Clone or download this repository
