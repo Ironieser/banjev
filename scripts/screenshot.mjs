@@ -1,5 +1,6 @@
 // Regenerate docs/arxiv.png: a live arXiv search with the extension loaded, with
 // paper titles, author names, IDs and abstracts blurred so only the badges stay readable.
+// Only rerun when the badge/logo look changes; the image doesn't need to track the data.
 // Usage: node scripts/screenshot.mjs
 import puppeteer from 'puppeteer';
 
@@ -27,6 +28,9 @@ await p.evaluate(() => {
         n.replaceWith(s);
       }
     });
+  // the newest search hits may not be in data/papers.json yet; show only results with a badge
+  document.querySelectorAll('li.arxiv-result').forEach((li) => li.querySelector('.banjev-badge') || li.remove());
+  if (!document.querySelector('li.arxiv-result')) throw new Error('no badged results on the page');
   document.querySelectorAll('li.arxiv-result').forEach((li) => {
     blur(li.querySelector('.list-title a'));
     blurText(li.querySelector('p.title'));
