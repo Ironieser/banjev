@@ -6,7 +6,7 @@
   'use strict';
 
   // Jev went public on 2026-09-17 (first awesome-jev commit). Only papers
-  // submitted on or after this date count as "Jev bandwagon" papers.
+  // submitted on or after this date are candidates ("fast-follow" papers).
   const JEV_EPOCH = '2026-09-17';
 
   const ARXIV_QUERY =
@@ -112,7 +112,7 @@
     return [...ids];
   }
 
-  // Keep only bandwagon papers: submitted on/after the Jev epoch.
+  // Keep only fast-follow candidates: submitted on/after the Jev epoch.
   function filterPapers(papers) {
     return papers.filter((p) => p.id && (!p.published || p.published >= JEV_EPOCH));
   }

@@ -21,7 +21,7 @@
     '<line x1="26" y1="26" x2="74" y2="74" stroke="#fff" stroke-width="9"/>' +
     '</svg>';
   const WHY = {
-    paper: 'This paper is on the Jev bandwagon list.',
+    paper: 'Listed: published within weeks of Jev\'s release.',
     confirmed: 'Identity verified: ',
     name: 'Name match only. This may be a different person with the same name. ',
   };
@@ -95,7 +95,7 @@
     const pop = el('div', { class: 'banjev-pop', 'data-banjev': '' });
     const head =
       result.level === 'paper'
-        ? 'Jev bandwagon paper'
+        ? 'Listed paper: published within weeks of Jev\'s release'
         : result.level === 'confirmed'
           ? 'Banned author (' + result.reason + ')'
           : 'Possibly a banned author (' + result.reason + '). This could be someone else with the same name.';

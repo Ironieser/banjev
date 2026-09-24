@@ -1,6 +1,6 @@
 {
   "name": "banjev",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "description": "节约读论文时间，节约读论文的 token / Save time and tokens reading papers",
   "scripts": {

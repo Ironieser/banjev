@@ -8,7 +8,7 @@ English · [中文](README_CN.md) · [Ranking page](https://ironieser.github.io/
 
 ![arXiv search with BanJev badges](docs/arxiv.png)
 
-BanJev is a Chrome extension (Manifest V3) that puts the BanJev logo <img src="icons/16.png" width="14" alt="logo"> as a small badge on **hype-chasing papers** and their authors on **arXiv** and **Google Scholar**, so you can deprioritize them when you triage what to read, or what to feed an LLM.
+BanJev is a Chrome extension (Manifest V3) that puts the BanJev logo <img src="icons/16.png" width="14" alt="logo"> as a small badge on **fast-follow papers** (papers that appear within weeks of a model going viral) and their authors on **arXiv** and **Google Scholar**, so you can deprioritize them when you triage what to read, or what to feed an LLM.
 
 ## Why "BanJev"? This is not about Jev
 
@@ -16,10 +16,10 @@ BanJev is **not** aimed at Jev, TypeSafe AI, or anyone building on Jev. Many sol
 
 1. **2026-09-17**: Jev (TypeSafe AI's System One model) goes viral.
 2. **2 to 5 days later**: a batch of arXiv preprints shows up with "Jev" in the title: "X with Jev", "Jev for Y", "Jev-as-a-Z".
-3. Careful research, with experiments, baselines, ablations and writing, usually takes weeks to months. A paper about a model that was released only days earlier was very likely **written to ride the trend**. The goal is to be early, not to answer a real question.
-4. A reader has limited attention and a limited token budget. How someone behaves in a hype cycle is a cheap, useful signal. If an author rushed out a trend-riding paper, you can reasonably put **their** papers lower in your reading queue.
+3. Careful research, with experiments, baselines, ablations and writing, usually takes weeks to months. A paper about a model released only days earlier has had very little time for that work.
+4. A reader has limited attention and a limited token budget. How soon after a release someone publishes is a cheap, useful signal. If an author put out a paper within days of a release, you can reasonably move **their** papers lower in your reading queue.
 
-So a badge means exactly one thing: **this person rushed a paper onto arXiv to ride the Jev wave.** It says nothing about Jev, and it is not a verdict on any specific paper. It is a reading-priority filter.
+So a badge means exactly one thing: **this person published a Jev-titled paper on arXiv within weeks of Jev's release.** It says nothing about Jev, and it is not a verdict on any specific paper. It is a reading-priority filter.
 
 Why the first author carries the most weight: the first author is usually the one who decided to write the paper and did the work. A 5th author may have simply lent their name. That's why the score weights author position (below).
 
@@ -133,7 +133,7 @@ v0.0.1 has the basics. Planned next (PRs welcome):
 
 - [ ] **More hype keywords**: configure several trend waves (keyword + start date) instead of one hard-coded "Jev" search, so the same pipeline can follow the next viral model
 - [ ] **Easier author and paper submissions**: an issue form that turns "add this paper / this author / this Scholar profile" into a `manual.json` PR automatically
-- [ ] **Filtering with Jev**: ask Jev a `Noul` ("Is this paper mainly riding the launch hype rather than answering a research question?") per candidate paper, and use the probability to filter keyword hits and cut false positives
+- [ ] **Filtering with Jev**: ask Jev a `Noul` ("Is this paper mainly a quick response to the launch rather than an answer to a research question?") per candidate paper, and use the probability to filter keyword hits and cut false positives
 - [ ] **Better author identity**: use ORCID / Semantic Scholar / DBLP author IDs where available, and discover Scholar profiles automatically instead of by hand
 - [ ] **More sites**: Semantic Scholar, OpenReview, Hugging Face Papers, alphaXiv
 - [x] **Configurable scoring**: time decay, position weights and threshold are editable in the popup
