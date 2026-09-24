@@ -97,8 +97,8 @@
       result.level === 'paper'
         ? 'Listed paper: published within weeks of Jev\'s release'
         : result.level === 'confirmed'
-          ? 'Banned author (' + result.reason + ')'
-          : 'Possibly a banned author (' + result.reason + '). This could be someone else with the same name.';
+          ? 'Tagged author (' + result.reason + ')'
+          : 'Possibly a tagged author (' + result.reason + '). This could be someone else with the same name.';
     pop.append(el('div', { class: 'banjev-pop-head' }, head));
     const r = result.author;
     if (r) {

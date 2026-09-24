@@ -121,12 +121,12 @@ const I18N = {
     rule: '<b>Not about Jev.</b> Jev is where we noticed the pattern: within days of a model going viral, a batch of papers named after it appears on arXiv. A badge means "published a paper within weeks of the release". It is a reading-priority signal, not a judgment of Jev or of any single paper.<br><br>Papers: arXiv submissions since <b>2026-09-17</b> (the day Jev went viral) that mention Jev, plus <a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">manual curation</a>. ' +
       'Score: each paper adds <b>author-position weight × time weight</b>. Position: 1st <b>1</b>, 2nd <b>0.5</b>, 3rd <b>0.25</b>, halving after that. ' +
       'Time (weeks after the release to the arXiv submission): week 1 <b>×2</b>, week 2 <b>×1</b>, week 3 <b>×0.5</b>, week 4 <b>×0.25</b>, later <b>×0</b>, since about a month is a normal research pace. ' +
-      'Authors with a total of <b>≥ 1</b> are banned. Updated every 6 hours. <a href="https://github.com/Ironieser/banjev#why-time-decay">Why time decay?</a>',
-    banned: 'banned authors', authors: 'authors in total', papers: 'papers', updated: 'last updated',
-    tabBanned: 'Banned', tabAll: 'All authors', tabPapers: 'Papers', search: 'Search author or paper…',
+      'Authors with a total of <b>≥ 1</b> are tagged. Updated every 6 hours. <a href="https://github.com/Ironieser/banjev#why-time-decay">Why time decay?</a>',
+    banned: 'tagged authors', authors: 'authors in total', papers: 'papers', updated: 'last updated',
+    tabBanned: 'Tagged', tabAll: 'All authors', tabPapers: 'Papers', search: 'Search author or paper…',
     rank: '#', author: 'Author', score: 'Score', paperList: 'Papers (position · week · points)', latest: 'Latest',
     title: 'Title', authorsCol: 'Authors', date: 'Submitted', week: 'Week', none: 'No results',
-    scholar: 'Scholar', arxiv: 'arXiv', forced: 'manual', allowed: 'exempt', ban: 'BAN',
+    scholar: 'Scholar', arxiv: 'arXiv', forced: 'manual', allowed: 'exempt', ban: 'TAGGED',
     footer: 'The badge means "published a Jev-titled paper after Jev went viral". It is a reading filter, not a judgment of any individual paper. ' +
       'Wrong person or wrong paper? <a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">Open a PR against manual.json</a>. · <a href="https://github.com/Ironieser/banjev">Chrome extension &amp; source</a>',
   },
@@ -135,12 +135,12 @@ const I18N = {
     rule: '<b>这不是针对 Jev。</b>Jev 只是我们观察到这种现象的地方：一个模型爆火后没几天，arXiv 上就冒出一批以它命名的论文。标记的意思是“在发布后几周内发了论文”，是阅读优先级信号，不评价 Jev，也不评价任何一篇具体论文。<br><br>论文来源：2026-09-17（Jev 爆火之日）之后提交到 arXiv、提到 Jev 的论文，加上<a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">人工维护名单</a>。' +
       '计分：每篇论文记 <b>作者位次权重 × 时间权重</b>。位次：一作 <b>1</b>，二作 <b>0.5</b>，三作 <b>0.25</b>，之后依次减半。' +
       '时间（从模型发布到论文提交 arXiv 隔了几周）：第 1 周 <b>×2</b>，第 2 周 <b>×1</b>，第 3 周 <b>×0.5</b>，第 4 周 <b>×0.25</b>，之后 <b>×0</b>，因为一个月左右是正常的研究节奏。' +
-      '总分 <b>≥ 1</b> 即 ban。每 6 小时自动更新。<a href="https://github.com/Ironieser/banjev/blob/main/README_CN.md#为什么要按时间衰减">为什么按时间衰减？</a>',
-    banned: '被 ban 作者', authors: '作者总数', papers: '论文数', updated: '最后更新',
-    tabBanned: '已 ban', tabAll: '全部作者', tabPapers: '论文', search: '搜索作者或论文…',
+      '总分 <b>≥ 1</b> 即标记。每 6 小时自动更新。<a href="https://github.com/Ironieser/banjev/blob/main/README_CN.md#为什么要按时间衰减">为什么按时间衰减？</a>',
+    banned: '已标记作者', authors: '作者总数', papers: '论文数', updated: '最后更新',
+    tabBanned: 'Tagged', tabAll: '全部作者', tabPapers: '论文', search: '搜索作者或论文…',
     rank: '#', author: '作者', score: '分数', paperList: '论文（位次 · 第几周 · 得分）', latest: '最近',
     title: '标题', authorsCol: '作者', date: '提交日期', week: '第几周', none: '没有结果',
-    scholar: 'Scholar', arxiv: 'arXiv', forced: '人工', allowed: '豁免', ban: 'BAN',
+    scholar: 'Scholar', arxiv: 'arXiv', forced: '人工', allowed: '豁免', ban: 'Tagged',
     footer: '标记只表示“此人在 Jev 爆火后发表过以 Jev 为题的论文”，是阅读过滤器，不评价具体论文。' +
       '标错了人或论文？<a href="https://github.com/Ironieser/banjev/blob/main/data/manual.json">给 manual.json 提 PR</a>。 · <a href="https://github.com/Ironieser/banjev">Chrome 插件与源码</a>',
   },

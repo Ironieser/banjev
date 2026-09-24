@@ -19,12 +19,12 @@
 
   <section class="opts">
     <label><input type="checkbox" id="enabled"> Enabled</label>
-    <label title="On arXiv, also tag banned names without extra evidence (dashed BanJev?). Google Scholar always requires evidence."><input type="checkbox" id="showNameMatches"> arXiv: show name-only matches (faded logo)</label>
+    <label title="On arXiv, also tag listed names without extra evidence (dashed BanJev?). Google Scholar always requires evidence."><input type="checkbox" id="showNameMatches"> arXiv: show name-only matches (faded logo)</label>
   </section>
 
   <details id="scoring">
     <summary>Scoring <span id="scState" class="muted"></span></summary>
-    <p class="muted">Each paper adds (author-position weight) × (weight of the week it was submitted, counted from the model's release). Banned when the total reaches the threshold.</p>
+    <p class="muted">Each paper adds (author-position weight) × (weight of the week it was submitted, counted from the model's release). Tagged when the total reaches the threshold.</p>
     <div class="grid">
       <span>Week 1–4</span>
       <input id="w1" type="number" min="0" step="0.05"><input id="w2" type="number" min="0" step="0.05"><input id="w3" type="number" min="0" step="0.05"><input id="w4" type="number" min="0" step="0.05">

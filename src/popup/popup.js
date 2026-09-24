@@ -54,7 +54,7 @@ function render() {
   for (const k of ['enabled', 'showNameMatches']) $(k).checked = !!s[k];
   const banned = BanJev.scoreAuthors(state.papers, state.curation, s.scoring).filter((a) => a.banned).length;
   renderScoring(BanJev.scoringOf(s.scoring), !!s.scoring);
-  $('stats').textContent = `${banned} banned · ${state.papers.length} papers`;
+  $('stats').textContent = `${banned} tagged · ${state.papers.length} papers`;
   $('updated').textContent = state.lastError ? 'update failed' : 'updated ' + new Date(state.updatedAt).toLocaleDateString();
   $('updated').title = state.lastError || new Date(state.updatedAt).toLocaleString();
 
