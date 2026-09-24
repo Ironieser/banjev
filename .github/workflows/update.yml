@@ -11,6 +11,7 @@ on:
       - data/manual.json
       - site/**
       - scripts/**
+      - '!scripts/screenshot.mjs'
       - src/lib/core.js
       - docs/logo.png
       - .github/workflows/update.yml
@@ -38,7 +39,8 @@ jobs:
       - name: Unit tests
         run: npm test
       - name: Update list
-        run: node scripts/update-data.mjs
+        # if arXiv is down, keep the current list and still publish the site; the next run catches up
+        run: node scripts/update-data.mjs || echo "::warning::arXiv unavailable, list not updated this run"
       - name: Commit changes
         run: |
           if git diff --quiet -- data/; then

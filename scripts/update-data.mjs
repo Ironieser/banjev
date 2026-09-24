@@ -15,8 +15,9 @@ async function text(url) {
   for (let i = 0; ; i++) {
     const res = await fetch(url, { headers: { 'User-Agent': 'BanJev-updater (github.com/Ironieser/banjev)' } });
     if (res.ok) return res.text();
-    if (i >= 3) throw new Error(`${url}: HTTP ${res.status}`);
-    await new Promise((r) => setTimeout(r, 5000 * (i + 1)));
+    if (i >= 4) throw new Error(`${url}: HTTP ${res.status}`);
+    // arXiv's API returns 503 for minutes at a time; back off 30s, 60s, 120s, 240s
+    await new Promise((r) => setTimeout(r, 30000 * 2 ** i));
   }
 }
 const byIds = async (ids) =>

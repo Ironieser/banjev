@@ -2,7 +2,7 @@
 importScripts('lib/core.js');
 const core = self.BanJev;
 
-const REFRESH_MINUTES = 6 * 60;
+const REFRESH_MINUTES = 30;
 
 const DEFAULT_SETTINGS = {
   enabled: true,
@@ -51,6 +51,13 @@ async function refresh() {
   }
 }
 
+let refreshing = null;
+async function maybeRefresh() {
+  const { checkedAt } = await chrome.storage.local.get('checkedAt');
+  if (refreshing || (checkedAt && Date.now() - Date.parse(checkedAt) < REFRESH_MINUTES * 60000)) return;
+  refreshing = refresh().finally(() => (refreshing = null));
+}
+
 // Serialized so concurrent messages (e.g. learnProfile + notThem) never clobber each other.
 let settingsQueue = Promise.resolve();
 function updateSettings(fn) {
@@ -76,7 +83,8 @@ chrome.alarms.onAlarm.addListener((a) => a.name === 'refresh' && refresh());
 chrome.runtime.onMessage.addListener((msg, _sender, reply) => {
   (async () => {
     switch (msg.type) {
-      case 'getState':
+      case 'getState': // opening an arXiv/Scholar page or the popup also refreshes a stale list
+        maybeRefresh();
         return getState();
       case 'refresh':
         return refresh();
