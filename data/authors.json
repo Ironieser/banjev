@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-23T19:27:15.969Z",
+  "updatedAt": "2026-09-24T01:19:38.547Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "rule": "paper weight = position weight (1st 1, 2nd 0.5, 3rd 0.25, then halving) x time weight (weeks after 2026-09-17: week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0); banned when the total >= 1 (or listed in manual.json banAuthors)",
   "epoch": "2026-09-17",
@@ -44,6 +44,78 @@
       "allowed": false,
       "banned": true,
       "latest": "2026-09-19"
+    },
+    {
+      "name": "Fan Zhang",
+      "score": 2,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 1,
+          "week": 1,
+          "weight": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Hengyu Li",
+      "score": 2,
+      "papers": [
+        {
+          "id": "2609.27535",
+          "title": "KITE: Scaling Jev Population Experiments with Sparse Flagship Calibration",
+          "published": "2026-09-23",
+          "position": 1,
+          "week": 1,
+          "weight": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Jiaju Huang",
+      "score": 2,
+      "papers": [
+        {
+          "id": "2609.27607",
+          "title": "Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality",
+          "published": "2026-09-23",
+          "position": 1,
+          "week": 1,
+          "weight": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Weiyu Ma",
+      "score": 2,
+      "papers": [
+        {
+          "id": "2609.27331",
+          "title": "JEV-Star: Fast, Low-Cost StarCraft II Control with Language-Model Planning",
+          "published": "2026-09-23",
+          "position": 1,
+          "week": 1,
+          "weight": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-23"
     },
     {
       "name": "Guanxu Yu",
@@ -255,6 +327,60 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Hao Yang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.27607",
+          "title": "Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality",
+          "published": "2026-09-23",
+          "position": 2,
+          "week": 1,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Liangbing Zhao",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.27331",
+          "title": "JEV-Star: Fast, Low-Cost StarCraft II Control with Language-Model Planning",
+          "published": "2026-09-23",
+          "position": 2,
+          "week": 1,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Yankai Chen",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 2,
+          "week": 1,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-23"
+    },
+    {
       "name": "Junhao Xu",
       "score": 1,
       "papers": [
@@ -443,6 +569,60 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Xinyu Ma",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.27607",
+          "title": "Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality",
+          "published": "2026-09-23",
+          "position": 3,
+          "week": 1,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Yongcheng Zeng",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.27331",
+          "title": "JEV-Star: Fast, Low-Cost StarCraft II Control with Language-Model Planning",
+          "published": "2026-09-23",
+          "position": 3,
+          "week": 1,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Zhuohan Xie",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 3,
+          "week": 1,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
       "name": "Ramayya Krishnan",
       "score": 0.5,
       "papers": [
@@ -559,6 +739,60 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Jian Zhao",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.27331",
+          "title": "JEV-Star: Fast, Low-Cost StarCraft II Control with Language-Model Planning",
+          "published": "2026-09-23",
+          "position": 4,
+          "week": 1,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Xinglong Liang",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.27607",
+          "title": "Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality",
+          "published": "2026-09-23",
+          "position": 4,
+          "week": 1,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Yixi Zhou",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 4,
+          "week": 1,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
       "name": "Rema Padman",
       "score": 0.25,
       "papers": [
@@ -639,6 +873,42 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Kunyan Cai",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.27607",
+          "title": "Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality",
+          "published": "2026-09-23",
+          "position": 5,
+          "week": 1,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Sijia Peng",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 5,
+          "week": 1,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
       "name": "Dennis Ng",
       "score": 0.125,
       "papers": [
@@ -655,6 +925,42 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Junqiang Ma",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.27607",
+          "title": "Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality",
+          "published": "2026-09-23",
+          "position": 6,
+          "week": 1,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Lei Fan",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 6,
+          "week": 1,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
     },
     {
       "name": "Ankit Raj",
@@ -675,6 +981,42 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Shaobin Chen",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.27607",
+          "title": "Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality",
+          "published": "2026-09-23",
+          "position": 7,
+          "week": 1,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Xinhua Ji",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 7,
+          "week": 1,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
       "name": "Tommy Duong",
       "score": 0.031,
       "papers": [
@@ -691,6 +1033,42 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Cunyuan Zheng",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 8,
+          "week": 1,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Yue Sun",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2609.27607",
+          "title": "Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality",
+          "published": "2026-09-23",
+          "position": 8,
+          "week": 1,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
     },
     {
       "name": "Yuxin Zhang",
@@ -711,6 +1089,42 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Huangyong Shan",
+      "score": 0.008,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 9,
+          "week": 1,
+          "weight": 0.008
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Tao Tan",
+      "score": 0.008,
+      "papers": [
+        {
+          "id": "2609.27607",
+          "title": "Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality",
+          "published": "2026-09-23",
+          "position": 9,
+          "week": 1,
+          "weight": 0.008
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
       "name": "Neo Tiangratanakul",
       "score": 0.008,
       "papers": [
@@ -727,6 +1141,96 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Philip S. Yu",
+      "score": 0.004,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 10,
+          "week": 1,
+          "weight": 0.004
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Xue Liu",
+      "score": 0.002,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 11,
+          "week": 1,
+          "weight": 0.002
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Yu Chen",
+      "score": 0.001,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 12,
+          "week": 1,
+          "weight": 0.001
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Preslav Nakov",
+      "score": 0,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 13,
+          "week": 1,
+          "weight": 0
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Songwei He",
+      "score": 0,
+      "papers": [
+        {
+          "id": "2609.27678",
+          "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+          "published": "2026-09-23",
+          "position": 14,
+          "week": 1,
+          "weight": 0
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
     }
   ]
 }

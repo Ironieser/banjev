@@ -1,7 +1,63 @@
 {
-  "updatedAt": "2026-09-23T19:27:15.969Z",
+  "updatedAt": "2026-09-24T01:19:38.547Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "papers": [
+    {
+      "id": "2609.27678",
+      "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
+      "authors": [
+        "Fan Zhang",
+        "Yankai Chen",
+        "Zhuohan Xie",
+        "Yixi Zhou",
+        "Sijia Peng",
+        "Lei Fan",
+        "Xinhua Ji",
+        "Cunyuan Zheng",
+        "Huangyong Shan",
+        "Philip S. Yu",
+        "Xue Liu",
+        "Yu Chen",
+        "Preslav Nakov",
+        "Songwei He"
+      ],
+      "published": "2026-09-23"
+    },
+    {
+      "id": "2609.27607",
+      "title": "Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality",
+      "authors": [
+        "Jiaju Huang",
+        "Hao Yang",
+        "Xinyu Ma",
+        "Xinglong Liang",
+        "Kunyan Cai",
+        "Junqiang Ma",
+        "Shaobin Chen",
+        "Yue Sun",
+        "Tao Tan"
+      ],
+      "published": "2026-09-23"
+    },
+    {
+      "id": "2609.27535",
+      "title": "KITE: Scaling Jev Population Experiments with Sparse Flagship Calibration",
+      "authors": [
+        "Hengyu Li"
+      ],
+      "published": "2026-09-23"
+    },
+    {
+      "id": "2609.27331",
+      "title": "JEV-Star: Fast, Low-Cost StarCraft II Control with Language-Model Planning",
+      "authors": [
+        "Weiyu Ma",
+        "Liangbing Zhao",
+        "Yongcheng Zeng",
+        "Jian Zhao"
+      ],
+      "published": "2026-09-23"
+    },
     {
       "id": "2609.26758",
       "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It",
