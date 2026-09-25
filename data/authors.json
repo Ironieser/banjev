@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-24T01:19:38.547Z",
+  "updatedAt": "2026-09-25T05:04:08.945Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "rule": "paper weight = position weight (1st 1, 2nd 0.5, 3rd 0.25, then halving) x time weight (weeks after 2026-09-17: week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0); banned when the total >= 1 (or listed in manual.json banAuthors)",
   "epoch": "2026-09-17",
@@ -19,6 +19,32 @@
   },
   "threshold": 1,
   "authors": [
+    {
+      "name": "Tiantong Wu",
+      "score": 4,
+      "papers": [
+        {
+          "id": "2609.28613",
+          "title": "Decision Hijacking: Prompt Injection Attacks on Jev's Typed Probabilistic Decisions",
+          "published": "2026-09-23",
+          "position": 1,
+          "week": 1,
+          "weight": 2
+        },
+        {
+          "id": "2609.26532",
+          "title": "REFLEX with Jev for Efficient Selective Control in LLM Agents",
+          "published": "2026-09-22",
+          "position": 1,
+          "week": 1,
+          "weight": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-23"
+    },
     {
       "name": "Delong Li",
       "score": 4,
@@ -100,6 +126,50 @@
       "latest": "2026-09-23"
     },
     {
+      "name": "Wei Yang Bryan Lim",
+      "score": 2,
+      "papers": [
+        {
+          "id": "2609.28613",
+          "title": "Decision Hijacking: Prompt Injection Attacks on Jev's Typed Probabilistic Decisions",
+          "published": "2026-09-23",
+          "position": 2,
+          "week": 1,
+          "weight": 1
+        },
+        {
+          "id": "2609.26532",
+          "title": "REFLEX with Jev for Efficient Selective Control in LLM Agents",
+          "published": "2026-09-22",
+          "position": 2,
+          "week": 1,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-23"
+    },
+    {
+      "name": "Weiwei Ye",
+      "score": 2,
+      "papers": [
+        {
+          "id": "2609.28587",
+          "title": "NumericJev: Jev-like LLM Numerical Decoding with Multiway Decision Trees",
+          "published": "2026-09-23",
+          "position": 1,
+          "week": 1,
+          "weight": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-23"
+    },
+    {
       "name": "Weiyu Ma",
       "score": 2,
       "papers": [
@@ -124,24 +194,6 @@
         {
           "id": "2609.25845",
           "title": "Visual Jev: Accurate and Efficient Decisions from Shared Visual Context",
-          "published": "2026-09-22",
-          "position": 1,
-          "week": 1,
-          "weight": 2
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": true,
-      "latest": "2026-09-22"
-    },
-    {
-      "name": "Tiantong Wu",
-      "score": 2,
-      "papers": [
-        {
-          "id": "2609.26532",
-          "title": "REFLEX with Jev for Efficient Selective Control in LLM Agents",
           "published": "2026-09-22",
           "position": 1,
           "week": 1,
@@ -327,6 +379,168 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Arian Abbasi",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.28919",
+          "title": "Control the Harness, Control the Cost: Routing and Governing AI Coding Agents in the Enterprise",
+          "published": "2026-09-24",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Delip Rao",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.29769",
+          "title": "JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places",
+          "published": "2026-09-24",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Guoming Ling",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.30216",
+          "title": "Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem",
+          "published": "2026-09-24",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Joas Antonio dos Santos Barbosa",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.28940",
+          "title": "Calibrated Decision Models for Autonomous Penetration-Testing Harnesses: JEV and Laya as System One Decision Layers for LLM-Driven Pentest Agents",
+          "published": "2026-09-24",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Linghua Zhang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.30186",
+          "title": "Jev-Mobile: Jev as an Executor for Mobile GUI Agents",
+          "published": "2026-09-24",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Ruoqi Guo",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.29429",
+          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Xunlan Zhou",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.29283",
+          "title": "From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model",
+          "published": "2026-09-24",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Zixiang Xu",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.30243",
+          "title": "JevOut: Natural Context Can Flip Decision Models",
+          "published": "2026-09-24",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Hangchen Liu",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.28587",
+          "title": "NumericJev: Jev-like LLM Numerical Decoding with Multiway Decision Trees",
+          "published": "2026-09-23",
+          "position": 2,
+          "week": 1,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-23"
+    },
+    {
       "name": "Hao Yang",
       "score": 1,
       "papers": [
@@ -387,24 +601,6 @@
         {
           "id": "2609.26758",
           "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It",
-          "published": "2026-09-22",
-          "position": 2,
-          "week": 1,
-          "weight": 1
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": true,
-      "latest": "2026-09-22"
-    },
-    {
-      "name": "Wei Yang Bryan Lim",
-      "score": 1,
-      "papers": [
-        {
-          "id": "2609.26532",
-          "title": "REFLEX with Jev for Efficient Selective Control in LLM Agents",
           "published": "2026-09-22",
           "position": 2,
           "week": 1,
@@ -569,6 +765,114 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Alan Aqrawi",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.28919",
+          "title": "Control the Harness, Control the Cost: Routing and Governing AI Coding Agents in the Enterprise",
+          "published": "2026-09-24",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Chris Callison-Burch",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.29769",
+          "title": "JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places",
+          "published": "2026-09-24",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Muen Xue",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.30216",
+          "title": "Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem",
+          "published": "2026-09-24",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Xianliang Yang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.29283",
+          "title": "From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model",
+          "published": "2026-09-24",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Yi Liu",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.29429",
+          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Renhe Jiang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.28587",
+          "title": "NumericJev: Jev-like LLM Numerical Decoding with Multiway Decision Trees",
+          "published": "2026-09-23",
+          "position": 3,
+          "week": 1,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-23"
+    },
+    {
       "name": "Xinyu Ma",
       "score": 0.5,
       "papers": [
@@ -621,6 +925,24 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-23"
+    },
+    {
+      "name": "Jiajia Shi",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.26758",
+          "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It",
+          "published": "2026-09-22",
+          "position": 3,
+          "week": 1,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-22"
     },
     {
       "name": "Ramayya Krishnan",
@@ -739,6 +1061,78 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Gelei Deng",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.29429",
+          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Li Zhao",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.29283",
+          "title": "From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model",
+          "published": "2026-09-24",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Ted Kwartler",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.28919",
+          "title": "Control the Harness, Control the Cost: Routing and Governing AI Coding Agents in the Enterprise",
+          "published": "2026-09-24",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Zijian Ye",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.30216",
+          "title": "Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem",
+          "published": "2026-09-24",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
       "name": "Jian Zhao",
       "score": 0.25,
       "papers": [
@@ -799,6 +1193,24 @@
         {
           "id": "2609.26550",
           "title": "JEV-as-a-Judge: Accept When Confident, Escalate When Unsure",
+          "published": "2026-09-22",
+          "position": 4,
+          "week": 1,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-22"
+    },
+    {
+      "name": "Zijin Yang",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.26758",
+          "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It",
           "published": "2026-09-22",
           "position": 4,
           "week": 1,
@@ -873,6 +1285,24 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Yuekang Li",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.29429",
+          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 4,
+          "week": 2,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
       "name": "Kunyan Cai",
       "score": 0.125,
       "papers": [
@@ -925,6 +1355,24 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Lida Zhao",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.29429",
+          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 5,
+          "week": 2,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
     },
     {
       "name": "Junqiang Ma",
@@ -981,6 +1429,24 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Yutao Wu",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.29429",
+          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 6,
+          "week": 2,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
       "name": "Shaobin Chen",
       "score": 0.031,
       "papers": [
@@ -1033,6 +1499,24 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Simin Chen",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2609.29429",
+          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 7,
+          "week": 2,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
     },
     {
       "name": "Cunyuan Zheng",
@@ -1089,6 +1573,24 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Ying Zhang",
+      "score": 0.008,
+      "papers": [
+        {
+          "id": "2609.29429",
+          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 8,
+          "week": 2,
+          "weight": 0.008
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
       "name": "Huangyong Shan",
       "score": 0.008,
       "papers": [
@@ -1141,6 +1643,24 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Leo Yu Zhang",
+      "score": 0.004,
+      "papers": [
+        {
+          "id": "2609.29429",
+          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 9,
+          "week": 2,
+          "weight": 0.004
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
     },
     {
       "name": "Philip S. Yu",

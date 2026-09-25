@@ -1,7 +1,105 @@
 {
-  "updatedAt": "2026-09-24T01:19:38.547Z",
+  "updatedAt": "2026-09-25T05:04:08.945Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "papers": [
+    {
+      "id": "2609.30243",
+      "title": "JevOut: Natural Context Can Flip Decision Models",
+      "authors": [
+        "Zixiang Xu"
+      ],
+      "published": "2026-09-24"
+    },
+    {
+      "id": "2609.30216",
+      "title": "Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem",
+      "authors": [
+        "Guoming Ling",
+        "Muen Xue",
+        "Zijian Ye"
+      ],
+      "published": "2026-09-24"
+    },
+    {
+      "id": "2609.30186",
+      "title": "Jev-Mobile: Jev as an Executor for Mobile GUI Agents",
+      "authors": [
+        "Linghua Zhang"
+      ],
+      "published": "2026-09-24"
+    },
+    {
+      "id": "2609.29769",
+      "title": "JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places",
+      "authors": [
+        "Delip Rao",
+        "Chris Callison-Burch"
+      ],
+      "published": "2026-09-24"
+    },
+    {
+      "id": "2609.29429",
+      "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+      "authors": [
+        "Ruoqi Guo",
+        "Yi Liu",
+        "Gelei Deng",
+        "Yuekang Li",
+        "Lida Zhao",
+        "Yutao Wu",
+        "Simin Chen",
+        "Ying Zhang",
+        "Leo Yu Zhang"
+      ],
+      "published": "2026-09-24"
+    },
+    {
+      "id": "2609.29283",
+      "title": "From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model",
+      "authors": [
+        "Xunlan Zhou",
+        "Xianliang Yang",
+        "Li Zhao"
+      ],
+      "published": "2026-09-24"
+    },
+    {
+      "id": "2609.28940",
+      "title": "Calibrated Decision Models for Autonomous Penetration-Testing Harnesses: JEV and Laya as System One Decision Layers for LLM-Driven Pentest Agents",
+      "authors": [
+        "Joas Antonio dos Santos Barbosa"
+      ],
+      "published": "2026-09-24"
+    },
+    {
+      "id": "2609.28919",
+      "title": "Control the Harness, Control the Cost: Routing and Governing AI Coding Agents in the Enterprise",
+      "authors": [
+        "Arian Abbasi",
+        "Alan Aqrawi",
+        "Ted Kwartler"
+      ],
+      "published": "2026-09-24"
+    },
+    {
+      "id": "2609.28613",
+      "title": "Decision Hijacking: Prompt Injection Attacks on Jev's Typed Probabilistic Decisions",
+      "authors": [
+        "Tiantong Wu",
+        "Wei Yang Bryan Lim"
+      ],
+      "published": "2026-09-23"
+    },
+    {
+      "id": "2609.28587",
+      "title": "NumericJev: Jev-like LLM Numerical Decoding with Multiway Decision Trees",
+      "authors": [
+        "Weiwei Ye",
+        "Hangchen Liu",
+        "Renhe Jiang"
+      ],
+      "published": "2026-09-23"
+    },
     {
       "id": "2609.27678",
       "title": "Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding",
@@ -63,7 +161,9 @@
       "title": "Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It",
       "authors": [
         "Yu Sun",
-        "Junhao Xu"
+        "Junhao Xu",
+        "Jiajia Shi",
+        "Zijin Yang"
       ],
       "published": "2026-09-22"
     },
