@@ -1,7 +1,46 @@
 {
-  "updatedAt": "2026-09-25T05:04:08.945Z",
+  "updatedAt": "2026-09-28T05:32:11.397Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "papers": [
+    {
+      "id": "2609.31142",
+      "title": "JevAdvBench: A Benchmark and Black-Box Attacks for Reinforcement Learning for Calibrated Decisions Models",
+      "authors": [
+        "Jianyi Hu",
+        "Hangtao Zhang",
+        "Yi Liu",
+        "Yeqi Zeng",
+        "Li Zeng",
+        "Xianlong Wang",
+        "Rui Wang",
+        "Leo Yu Zhang"
+      ],
+      "published": "2026-09-25"
+    },
+    {
+      "id": "2609.30922",
+      "title": "JevSoup: System-One Routing for Training-Free LoRA Composition",
+      "authors": [
+        "Xiuying Wang",
+        "Jiahua Cheng",
+        "Shuotian Li",
+        "Yufan Cheng",
+        "Bowen Deng",
+        "Zhexuan Bai",
+        "Yichen Li"
+      ],
+      "published": "2026-09-25"
+    },
+    {
+      "id": "2609.30706",
+      "title": "LAVOIR: Teaching a Single-Pass Decision Encoder When and What to Ask with Amortized Value of Information",
+      "authors": [
+        "Furkan Yilmaz",
+        "Habibe Aleyna Tasdemir",
+        "Muhammed Faruk Gozay"
+      ],
+      "published": "2026-09-25"
+    },
     {
       "id": "2609.30243",
       "title": "JevOut: Natural Context Can Flip Decision Models",

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-25T05:04:08.945Z",
+  "updatedAt": "2026-09-28T05:32:11.397Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "rule": "paper weight = position weight (1st 1, 2nd 0.5, 3rd 0.25, then halving) x time weight (weeks after 2026-09-17: week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0); banned when the total >= 1 (or listed in manual.json banAuthors)",
   "epoch": "2026-09-17",
@@ -377,6 +377,60 @@
       "allowed": false,
       "banned": true,
       "latest": "2026-09-19"
+    },
+    {
+      "name": "Furkan Yilmaz",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.30706",
+          "title": "LAVOIR: Teaching a Single-Pass Decision Encoder When and What to Ask with Amortized Value of Information",
+          "published": "2026-09-25",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-25"
+    },
+    {
+      "name": "Jianyi Hu",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.31142",
+          "title": "JevAdvBench: A Benchmark and Black-Box Attacks for Reinforcement Learning for Calibrated Decisions Models",
+          "published": "2026-09-25",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-25"
+    },
+    {
+      "name": "Xiuying Wang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.30922",
+          "title": "JevSoup: System-One Routing for Training-Free LoRA Composition",
+          "published": "2026-09-25",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-25"
     },
     {
       "name": "Arian Abbasi",
@@ -765,6 +819,86 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Yi Liu",
+      "score": 0.75,
+      "papers": [
+        {
+          "id": "2609.31142",
+          "title": "JevAdvBench: A Benchmark and Black-Box Attacks for Reinforcement Learning for Calibrated Decisions Models",
+          "published": "2026-09-25",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        },
+        {
+          "id": "2609.29429",
+          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
+      "name": "Habibe Aleyna Tasdemir",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.30706",
+          "title": "LAVOIR: Teaching a Single-Pass Decision Encoder When and What to Ask with Amortized Value of Information",
+          "published": "2026-09-25",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
+      "name": "Hangtao Zhang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.31142",
+          "title": "JevAdvBench: A Benchmark and Black-Box Attacks for Reinforcement Learning for Calibrated Decisions Models",
+          "published": "2026-09-25",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
+      "name": "Jiahua Cheng",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.30922",
+          "title": "JevSoup: System-One Routing for Training-Free LoRA Composition",
+          "published": "2026-09-25",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
       "name": "Alan Aqrawi",
       "score": 0.5,
       "papers": [
@@ -825,24 +959,6 @@
         {
           "id": "2609.29283",
           "title": "From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model",
-          "published": "2026-09-24",
-          "position": 2,
-          "week": 2,
-          "weight": 0.5
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": false,
-      "latest": "2026-09-24"
-    },
-    {
-      "name": "Yi Liu",
-      "score": 0.5,
-      "papers": [
-        {
-          "id": "2609.29429",
-          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
           "published": "2026-09-24",
           "position": 2,
           "week": 2,
@@ -1059,6 +1175,42 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-19"
+    },
+    {
+      "name": "Muhammed Faruk Gozay",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.30706",
+          "title": "LAVOIR: Teaching a Single-Pass Decision Encoder When and What to Ask with Amortized Value of Information",
+          "published": "2026-09-25",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
+      "name": "Shuotian Li",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.30922",
+          "title": "JevSoup: System-One Routing for Training-Free LoRA Composition",
+          "published": "2026-09-25",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
     },
     {
       "name": "Gelei Deng",
@@ -1285,6 +1437,42 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Yeqi Zeng",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.31142",
+          "title": "JevAdvBench: A Benchmark and Black-Box Attacks for Reinforcement Learning for Calibrated Decisions Models",
+          "published": "2026-09-25",
+          "position": 4,
+          "week": 2,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
+      "name": "Yufan Cheng",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.30922",
+          "title": "JevSoup: System-One Routing for Training-Free LoRA Composition",
+          "published": "2026-09-25",
+          "position": 4,
+          "week": 2,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
       "name": "Yuekang Li",
       "score": 0.125,
       "papers": [
@@ -1355,6 +1543,42 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Bowen Deng",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.30922",
+          "title": "JevSoup: System-One Routing for Training-Free LoRA Composition",
+          "published": "2026-09-25",
+          "position": 5,
+          "week": 2,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
+      "name": "Li Zeng",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.31142",
+          "title": "JevAdvBench: A Benchmark and Black-Box Attacks for Reinforcement Learning for Calibrated Decisions Models",
+          "published": "2026-09-25",
+          "position": 5,
+          "week": 2,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
     },
     {
       "name": "Lida Zhao",
@@ -1429,6 +1653,42 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Xianlong Wang",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.31142",
+          "title": "JevAdvBench: A Benchmark and Black-Box Attacks for Reinforcement Learning for Calibrated Decisions Models",
+          "published": "2026-09-25",
+          "position": 6,
+          "week": 2,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
+      "name": "Zhexuan Bai",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.30922",
+          "title": "JevSoup: System-One Routing for Training-Free LoRA Composition",
+          "published": "2026-09-25",
+          "position": 6,
+          "week": 2,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
       "name": "Yutao Wu",
       "score": 0.031,
       "papers": [
@@ -1499,6 +1759,42 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Rui Wang",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2609.31142",
+          "title": "JevAdvBench: A Benchmark and Black-Box Attacks for Reinforcement Learning for Calibrated Decisions Models",
+          "published": "2026-09-25",
+          "position": 7,
+          "week": 2,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
+      "name": "Yichen Li",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2609.30922",
+          "title": "JevSoup: System-One Routing for Training-Free LoRA Composition",
+          "published": "2026-09-25",
+          "position": 7,
+          "week": 2,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
     },
     {
       "name": "Simin Chen",
@@ -1573,6 +1869,32 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Leo Yu Zhang",
+      "score": 0.012,
+      "papers": [
+        {
+          "id": "2609.31142",
+          "title": "JevAdvBench: A Benchmark and Black-Box Attacks for Reinforcement Learning for Calibrated Decisions Models",
+          "published": "2026-09-25",
+          "position": 8,
+          "week": 2,
+          "weight": 0.008
+        },
+        {
+          "id": "2609.29429",
+          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 9,
+          "week": 2,
+          "weight": 0.004
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-25"
+    },
+    {
       "name": "Ying Zhang",
       "score": 0.008,
       "papers": [
@@ -1643,24 +1965,6 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
-    },
-    {
-      "name": "Leo Yu Zhang",
-      "score": 0.004,
-      "papers": [
-        {
-          "id": "2609.29429",
-          "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
-          "published": "2026-09-24",
-          "position": 9,
-          "week": 2,
-          "weight": 0.004
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": false,
-      "latest": "2026-09-24"
     },
     {
       "name": "Philip S. Yu",
