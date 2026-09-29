@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-28T05:32:11.397Z",
+  "updatedAt": "2026-09-29T05:50:28.834Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "rule": "paper weight = position weight (1st 1, 2nd 0.5, 3rd 0.25, then halving) x time weight (weeks after 2026-09-17: week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0); banned when the total >= 1 (or listed in manual.json banAuthors)",
   "epoch": "2026-09-17",
@@ -379,6 +379,330 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Arshak Rezvani",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.34963",
+          "title": "JevVibe: Efficient Classification-Guided Secure Code Generation",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Fangcheng Liu",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.34261",
+          "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Kai Sheng",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.34969",
+          "title": "NavJev: Efficient Vision-Language Navigation via Action-Centric Visual Compression and Discriminative Action-Semantic Memory",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Michele Loi",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.35286",
+          "title": "The Argument and the Letterhead: Source-Position Coherence in AI Evaluation",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Riccardo Porcedda",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.35342",
+          "title": "Jev thinks \"I don't know'', but doesn't say it: Introducing Sys1Cal-v1 Dataset for Probability Calibration",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Rishabh Sharma",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.34227",
+          "title": "When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Xukui Qin",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.34180",
+          "title": "Decision Readouts for Text-Mediated Video Anomaly Detection: An Exploratory Evaluation of Jev and Qwen",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Yiqun Zhang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.35293",
+          "title": "Decide, Don't Generate: Competitive Dimensional ABSA with Jev's Typed Decisions",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Zhiqiang Wang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.34862",
+          "title": "JEV as a Judge for Agent Trace Security: An Empirical Comparison with Generative LLM Judges",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Alfredo Madrid-García",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.34024",
+          "title": "Jev in Medicine: A Benchmark Evaluation. Preliminary Results",
+          "published": "2026-09-27",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Gabriele Cinà",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.33538",
+          "title": "Jev Matches 7B Language Models for Speech-Neuroprosthesis Rescoring",
+          "published": "2026-09-27",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Jiarong Wen",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.33609",
+          "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+          "published": "2026-09-27",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Keyi Li",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.33209",
+          "title": "Beyond Calibration: Do a Typed-Decision Model's Probabilities Obey the Probability Axioms?",
+          "published": "2026-09-27",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Michail-Alexandros Kourtis",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.33689",
+          "title": "Type-Safe Decision Frameworks for Agentic 5G Control: A Theory-Driven Testbed Characterization of Where They Can Be Applied",
+          "published": "2026-09-27",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Saman Sarker Joy",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.33971",
+          "title": "Do System One Decisions Add Up? A Study of Probabilistic Coherence",
+          "published": "2026-09-27",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Shenghao Ding",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.33874",
+          "title": "JET: Justification Evaluation in Transformer",
+          "published": "2026-09-27",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Yixuan Liu",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.33401",
+          "title": "Evaluating System One Models for Agent Security Decisions: Reliability, Calibration, and Selective Automation",
+          "published": "2026-09-27",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Lijuan Tang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.32160",
+          "title": "Typed Decision Models: An Early Evidence Audit and Evaluation Checklist",
+          "published": "2026-09-26",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-26"
+    },
+    {
       "name": "Furkan Yilmaz",
       "score": 1,
       "papers": [
@@ -431,24 +755,6 @@
       "allowed": false,
       "banned": true,
       "latest": "2026-09-25"
-    },
-    {
-      "name": "Arian Abbasi",
-      "score": 1,
-      "papers": [
-        {
-          "id": "2609.28919",
-          "title": "Control the Harness, Control the Cost: Routing and Governing AI Coding Agents in the Enterprise",
-          "published": "2026-09-24",
-          "position": 1,
-          "week": 2,
-          "weight": 1
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": true,
-      "latest": "2026-09-24"
     },
     {
       "name": "Delip Rao",
@@ -529,6 +835,24 @@
         {
           "id": "2609.29429",
           "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+          "published": "2026-09-24",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-24"
+    },
+    {
+      "name": "Ted Kwartler",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.28919",
+          "title": "Harness Tokenomics: A Router for the Enterprise Agentic Control Plane",
           "published": "2026-09-24",
           "position": 1,
           "week": 2,
@@ -845,6 +1169,222 @@
       "latest": "2026-09-25"
     },
     {
+      "name": "Liuyi Wang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.34969",
+          "title": "NavJev: Efficient Vision-Language Navigation via Action-Centric Visual Compression and Discriminative Action-Semantic Memory",
+          "published": "2026-09-28",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Peidong Wang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.35293",
+          "title": "Decide, Don't Generate: Competitive Dimensional ABSA with Jev's Typed Decisions",
+          "published": "2026-09-28",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Rishika Lall",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.34227",
+          "title": "When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model",
+          "published": "2026-09-28",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Sasha Behrouzi",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.34963",
+          "title": "JevVibe: Efficient Classification-Guided Secure Code Generation",
+          "published": "2026-09-28",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Yeqing Shen",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.34261",
+          "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Yichao Gao",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.34862",
+          "title": "JEV as a Judge for Agent Trace Security: An Empirical Comparison with Generative LLM Judges",
+          "published": "2026-09-28",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Youting Wang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.34180",
+          "title": "Decision Readouts for Text-Mediated Video Anomaly Detection: An Exploratory Evaluation of Jev and Qwen",
+          "published": "2026-09-28",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Beatriz Merino-Barbancho",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.34024",
+          "title": "Jev in Medicine: A Benchmark Evaluation. Preliminary Results",
+          "published": "2026-09-27",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "George Xilouris",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.33689",
+          "title": "Type-Safe Decision Frameworks for Agentic 5G Control: A Theory-Driven Testbed Characterization of Where They Can Be Applied",
+          "published": "2026-09-27",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Qi Wang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.33609",
+          "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+          "published": "2026-09-27",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Yihao He",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.33209",
+          "title": "Beyond Calibration: Do a Typed-Decision Model's Probabilities Obey the Probability Axioms?",
+          "published": "2026-09-27",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Yuemeng Zheng",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.32160",
+          "title": "Typed Decision Models: An Early Evidence Audit and Evaluation Checklist",
+          "published": "2026-09-26",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-26"
+    },
+    {
       "name": "Habibe Aleyna Tasdemir",
       "score": 0.5,
       "papers": [
@@ -904,7 +1444,7 @@
       "papers": [
         {
           "id": "2609.28919",
-          "title": "Control the Harness, Control the Cost: Routing and Governing AI Coding Agents in the Enterprise",
+          "title": "Harness Tokenomics: A Router for the Enterprise Agentic Control Plane",
           "published": "2026-09-24",
           "position": 2,
           "week": 2,
@@ -1177,6 +1717,132 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Ahmad-Reza Sadeghi",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.34963",
+          "title": "JevVibe: Efficient Classification-Guided Secure Code Generation",
+          "published": "2026-09-28",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Anda Cheng",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.34261",
+          "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Jinlong Li",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.34969",
+          "title": "NavJev: Efficient Vision-Language Navigation via Action-Centric Visual Compression and Discriminative Action-Semantic Memory",
+          "published": "2026-09-28",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Xinjie He",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.34180",
+          "title": "Decision Readouts for Text-Mediated Video Anomaly Detection: An Exploratory Evaluation of Jev and Qwen",
+          "published": "2026-09-28",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Zihan Wang",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.35293",
+          "title": "Decide, Don't Generate: Competitive Dimensional ABSA with Jev's Typed Decisions",
+          "published": "2026-09-28",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Quanyi Li",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.33209",
+          "title": "Beyond Calibration: Do a Typed-Decision Model's Probabilities Obey the Probability Axioms?",
+          "published": "2026-09-27",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Yun Qu",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.33609",
+          "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+          "published": "2026-09-27",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
       "name": "Muhammed Faruk Gozay",
       "score": 0.25,
       "papers": [
@@ -1213,6 +1879,24 @@
       "latest": "2026-09-25"
     },
     {
+      "name": "Arian Abbasi",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.28919",
+          "title": "Harness Tokenomics: A Router for the Enterprise Agentic Control Plane",
+          "published": "2026-09-24",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-24"
+    },
+    {
       "name": "Gelei Deng",
       "score": 0.25,
       "papers": [
@@ -1237,24 +1921,6 @@
         {
           "id": "2609.29283",
           "title": "From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model",
-          "published": "2026-09-24",
-          "position": 3,
-          "week": 2,
-          "weight": 0.25
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": false,
-      "latest": "2026-09-24"
-    },
-    {
-      "name": "Ted Kwartler",
-      "score": 0.25,
-      "papers": [
-        {
-          "id": "2609.28919",
-          "title": "Control the Harness, Control the Cost: Routing and Governing AI Coding Agents in the Enterprise",
           "published": "2026-09-24",
           "position": 3,
           "week": 2,
@@ -1437,6 +2103,96 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Haojie Dai",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.34969",
+          "title": "NavJev: Efficient Vision-Language Navigation via Action-Centric Visual Compression and Discriminative Action-Semantic Memory",
+          "published": "2026-09-28",
+          "position": 4,
+          "week": 2,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Shi Feng",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.35293",
+          "title": "Decide, Don't Generate: Competitive Dimensional ABSA with Jev's Typed Decisions",
+          "published": "2026-09-28",
+          "position": 4,
+          "week": 2,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Weishi Mi",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.34261",
+          "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 4,
+          "week": 2,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Ziyang Luo",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.34180",
+          "title": "Decision Readouts for Text-Mediated Video Anomaly Detection: An Exploratory Evaluation of Jev and Qwen",
+          "published": "2026-09-28",
+          "position": 4,
+          "week": 2,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Yixiu Mao",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.33609",
+          "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+          "published": "2026-09-27",
+          "position": 4,
+          "week": 2,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
       "name": "Yeqi Zeng",
       "score": 0.125,
       "papers": [
@@ -1543,6 +2299,78 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Chao Tang",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.34261",
+          "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 5,
+          "week": 2,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Chengju Liu",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.34969",
+          "title": "NavJev: Efficient Vision-Language Navigation via Action-Centric Visual Compression and Discriminative Action-Semantic Memory",
+          "published": "2026-09-28",
+          "position": 5,
+          "week": 2,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Runxiong Wu",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.34180",
+          "title": "Decision Readouts for Text-Mediated Video Anomaly Detection: An Exploratory Evaluation of Jev and Qwen",
+          "published": "2026-09-28",
+          "position": 5,
+          "week": 2,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Heming Zou",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.33609",
+          "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+          "published": "2026-09-27",
+          "position": 5,
+          "week": 2,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
     },
     {
       "name": "Bowen Deng",
@@ -1653,6 +2481,78 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Chenyuan Liu",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.34261",
+          "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 6,
+          "week": 2,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Qijun Chen",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.34969",
+          "title": "NavJev: Efficient Vision-Language Navigation via Action-Centric Visual Compression and Discriminative Action-Semantic Memory",
+          "published": "2026-09-28",
+          "position": 6,
+          "week": 2,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Yan-Syuan Chen",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.34180",
+          "title": "Decision Readouts for Text-Mediated Video Anomaly Detection: An Exploratory Evaluation of Jev and Qwen",
+          "published": "2026-09-28",
+          "position": 6,
+          "week": 2,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Haoang Chi",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.33609",
+          "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+          "published": "2026-09-27",
+          "position": 6,
+          "week": 2,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
       "name": "Xianlong Wang",
       "score": 0.031,
       "papers": [
@@ -1759,6 +2659,60 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Yushun Xiang",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2609.34261",
+          "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 7,
+          "week": 2,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Zhongyao Chu",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2609.34180",
+          "title": "Decision Readouts for Text-Mediated Video Anomaly Detection: An Exploratory Evaluation of Jev and Qwen",
+          "published": "2026-09-28",
+          "position": 7,
+          "week": 2,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Lizhou Cai",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2609.33609",
+          "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+          "published": "2026-09-27",
+          "position": 7,
+          "week": 2,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
     },
     {
       "name": "Rui Wang",
@@ -1895,6 +2849,42 @@
       "latest": "2026-09-25"
     },
     {
+      "name": "Tingguang Li",
+      "score": 0.008,
+      "papers": [
+        {
+          "id": "2609.34261",
+          "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 8,
+          "week": 2,
+          "weight": 0.008
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Yiqin Lv",
+      "score": 0.008,
+      "papers": [
+        {
+          "id": "2609.33609",
+          "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+          "published": "2026-09-27",
+          "position": 8,
+          "week": 2,
+          "weight": 0.008
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
       "name": "Ying Zhang",
       "score": 0.008,
       "papers": [
@@ -1967,6 +2957,42 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Yong-Lu Li",
+      "score": 0.004,
+      "papers": [
+        {
+          "id": "2609.34261",
+          "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 9,
+          "week": 2,
+          "weight": 0.004
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Kaiyu Zhang",
+      "score": 0.004,
+      "papers": [
+        {
+          "id": "2609.33609",
+          "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+          "published": "2026-09-27",
+          "position": 9,
+          "week": 2,
+          "weight": 0.004
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
       "name": "Philip S. Yu",
       "score": 0.004,
       "papers": [
@@ -1985,6 +3011,42 @@
       "latest": "2026-09-23"
     },
     {
+      "name": "Yehui Tang",
+      "score": 0.002,
+      "papers": [
+        {
+          "id": "2609.34261",
+          "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 10,
+          "week": 2,
+          "weight": 0.002
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Yuhang Jiang",
+      "score": 0.002,
+      "papers": [
+        {
+          "id": "2609.33609",
+          "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+          "published": "2026-09-27",
+          "position": 10,
+          "week": 2,
+          "weight": 0.002
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
       "name": "Xue Liu",
       "score": 0.002,
       "papers": [
@@ -2001,6 +3063,24 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-23"
+    },
+    {
+      "name": "Xiangyang Ji",
+      "score": 0.001,
+      "papers": [
+        {
+          "id": "2609.33609",
+          "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+          "published": "2026-09-27",
+          "position": 11,
+          "week": 2,
+          "weight": 0.001
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
     },
     {
       "name": "Yu Chen",

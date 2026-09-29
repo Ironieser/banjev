@@ -1,7 +1,193 @@
 {
-  "updatedAt": "2026-09-28T05:32:11.397Z",
+  "updatedAt": "2026-09-29T05:50:28.834Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "papers": [
+    {
+      "id": "2609.35342",
+      "title": "Jev thinks \"I don't know'', but doesn't say it: Introducing Sys1Cal-v1 Dataset for Probability Calibration",
+      "authors": [
+        "Riccardo Porcedda"
+      ],
+      "published": "2026-09-28"
+    },
+    {
+      "id": "2609.35293",
+      "title": "Decide, Don't Generate: Competitive Dimensional ABSA with Jev's Typed Decisions",
+      "authors": [
+        "Yiqun Zhang",
+        "Peidong Wang",
+        "Zihan Wang",
+        "Shi Feng"
+      ],
+      "published": "2026-09-28"
+    },
+    {
+      "id": "2609.35286",
+      "title": "The Argument and the Letterhead: Source-Position Coherence in AI Evaluation",
+      "authors": [
+        "Michele Loi"
+      ],
+      "published": "2026-09-28"
+    },
+    {
+      "id": "2609.34969",
+      "title": "NavJev: Efficient Vision-Language Navigation via Action-Centric Visual Compression and Discriminative Action-Semantic Memory",
+      "authors": [
+        "Kai Sheng",
+        "Liuyi Wang",
+        "Jinlong Li",
+        "Haojie Dai",
+        "Chengju Liu",
+        "Qijun Chen"
+      ],
+      "published": "2026-09-28"
+    },
+    {
+      "id": "2609.34963",
+      "title": "JevVibe: Efficient Classification-Guided Secure Code Generation",
+      "authors": [
+        "Arshak Rezvani",
+        "Sasha Behrouzi",
+        "Ahmad-Reza Sadeghi"
+      ],
+      "published": "2026-09-28"
+    },
+    {
+      "id": "2609.34862",
+      "title": "JEV as a Judge for Agent Trace Security: An Empirical Comparison with Generative LLM Judges",
+      "authors": [
+        "Zhiqiang Wang",
+        "Yichao Gao"
+      ],
+      "published": "2026-09-28"
+    },
+    {
+      "id": "2609.34261",
+      "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+      "authors": [
+        "Fangcheng Liu",
+        "Yeqing Shen",
+        "Anda Cheng",
+        "Weishi Mi",
+        "Chao Tang",
+        "Chenyuan Liu",
+        "Yushun Xiang",
+        "Tingguang Li",
+        "Yong-Lu Li",
+        "Yehui Tang"
+      ],
+      "published": "2026-09-28"
+    },
+    {
+      "id": "2609.34227",
+      "title": "When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model",
+      "authors": [
+        "Rishabh Sharma",
+        "Rishika Lall"
+      ],
+      "published": "2026-09-28"
+    },
+    {
+      "id": "2609.34180",
+      "title": "Decision Readouts for Text-Mediated Video Anomaly Detection: An Exploratory Evaluation of Jev and Qwen",
+      "authors": [
+        "Xukui Qin",
+        "Youting Wang",
+        "Xinjie He",
+        "Ziyang Luo",
+        "Runxiong Wu",
+        "Yan-Syuan Chen",
+        "Zhongyao Chu"
+      ],
+      "published": "2026-09-28"
+    },
+    {
+      "id": "2609.34024",
+      "title": "Jev in Medicine: A Benchmark Evaluation. Preliminary Results",
+      "authors": [
+        "Alfredo Madrid-García",
+        "Beatriz Merino-Barbancho"
+      ],
+      "published": "2026-09-27"
+    },
+    {
+      "id": "2609.33971",
+      "title": "Do System One Decisions Add Up? A Study of Probabilistic Coherence",
+      "authors": [
+        "Saman Sarker Joy"
+      ],
+      "published": "2026-09-27"
+    },
+    {
+      "id": "2609.33874",
+      "title": "JET: Justification Evaluation in Transformer",
+      "authors": [
+        "Shenghao Ding"
+      ],
+      "published": "2026-09-27"
+    },
+    {
+      "id": "2609.33689",
+      "title": "Type-Safe Decision Frameworks for Agentic 5G Control: A Theory-Driven Testbed Characterization of Where They Can Be Applied",
+      "authors": [
+        "Michail-Alexandros Kourtis",
+        "George Xilouris"
+      ],
+      "published": "2026-09-27"
+    },
+    {
+      "id": "2609.33609",
+      "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+      "authors": [
+        "Jiarong Wen",
+        "Qi Wang",
+        "Yun Qu",
+        "Yixiu Mao",
+        "Heming Zou",
+        "Haoang Chi",
+        "Lizhou Cai",
+        "Yiqin Lv",
+        "Kaiyu Zhang",
+        "Yuhang Jiang",
+        "Xiangyang Ji"
+      ],
+      "published": "2026-09-27"
+    },
+    {
+      "id": "2609.33538",
+      "title": "Jev Matches 7B Language Models for Speech-Neuroprosthesis Rescoring",
+      "authors": [
+        "Gabriele Cinà"
+      ],
+      "published": "2026-09-27"
+    },
+    {
+      "id": "2609.33401",
+      "title": "Evaluating System One Models for Agent Security Decisions: Reliability, Calibration, and Selective Automation",
+      "authors": [
+        "Yixuan Liu"
+      ],
+      "published": "2026-09-27"
+    },
+    {
+      "id": "2609.33209",
+      "title": "Beyond Calibration: Do a Typed-Decision Model's Probabilities Obey the Probability Axioms?",
+      "authors": [
+        "Keyi Li",
+        "Yihao He",
+        "Quanyi Li"
+      ],
+      "published": "2026-09-27"
+    },
+    {
+      "id": "2609.32160",
+      "title": "Typed Decision Models: An Early Evidence Audit and Evaluation Checklist",
+      "authors": [
+        "Lijuan Tang",
+        "Yuemeng Zheng"
+      ],
+      "published": "2026-09-26"
+    },
     {
       "id": "2609.31142",
       "title": "JevAdvBench: A Benchmark and Black-Box Attacks for Reinforcement Learning for Calibrated Decisions Models",
@@ -112,11 +298,11 @@
     },
     {
       "id": "2609.28919",
-      "title": "Control the Harness, Control the Cost: Routing and Governing AI Coding Agents in the Enterprise",
+      "title": "Harness Tokenomics: A Router for the Enterprise Agentic Control Plane",
       "authors": [
-        "Arian Abbasi",
+        "Ted Kwartler",
         "Alan Aqrawi",
-        "Ted Kwartler"
+        "Arian Abbasi"
       ],
       "published": "2026-09-24"
     },
