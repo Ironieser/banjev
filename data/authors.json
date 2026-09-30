@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-29T05:50:28.834Z",
+  "updatedAt": "2026-09-30T05:40:11.934Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "rule": "paper weight = position weight (1st 1, 2nd 0.5, 3rd 0.25, then halving) x time weight (weeks after 2026-09-17: week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0); banned when the total >= 1 (or listed in manual.json banAuthors)",
   "epoch": "2026-09-17",
@@ -379,6 +379,42 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Tobias Deußer",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.37647",
+          "title": "Evaluating and Benchmarking the System One Model Jev",
+          "published": "2026-09-29",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-29"
+    },
+    {
+      "name": "Zexiao Wang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.36965",
+          "title": "Chinese-Jev: Bringing System One Model to Chinese-Language Tasks",
+          "published": "2026-09-29",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-29"
+    },
+    {
       "name": "Arshak Rezvani",
       "score": 1,
       "papers": [
@@ -397,12 +433,48 @@
       "latest": "2026-09-28"
     },
     {
+      "name": "Bushra Asseri",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.36399",
+          "title": "Calibrated to Whom? Persona and Language Effects on Cultural Values in JEV",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
       "name": "Fangcheng Liu",
       "score": 1,
       "papers": [
         {
           "id": "2609.34261",
           "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Guangren Wang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.36059",
+          "title": "Mnemon: Raw Records, Fast Judgments, Slow Thoughts",
           "published": "2026-09-28",
           "position": 1,
           "week": 2,
@@ -451,6 +523,24 @@
       "latest": "2026-09-28"
     },
     {
+      "name": "Orhan Konak",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.36154",
+          "title": "More Features Are Not More Evidence: Limits of Training-Free Human Activity Recognition with Jev",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
       "name": "Riccardo Porcedda",
       "score": 1,
       "papers": [
@@ -475,6 +565,24 @@
         {
           "id": "2609.34227",
           "title": "When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model",
+          "published": "2026-09-28",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Shenghong Dai",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.36115",
+          "title": "Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs",
           "published": "2026-09-28",
           "position": 1,
           "week": 2,
@@ -565,6 +673,24 @@
         {
           "id": "2609.33538",
           "title": "Jev Matches 7B Language Models for Speech-Neuroprosthesis Rescoring",
+          "published": "2026-09-27",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Han Chen",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.37470",
+          "title": "Probability Contracts: Accuracy, Coherence, and Decisions Across LLM Interfaces",
           "published": "2026-09-27",
           "position": 1,
           "week": 2,
@@ -1169,6 +1295,60 @@
       "latest": "2026-09-25"
     },
     {
+      "name": "Lorenz Sparrenberg",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.37647",
+          "title": "Evaluating and Benchmarking the System One Model Jev",
+          "published": "2026-09-29",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-29"
+    },
+    {
+      "name": "Zihao Zhang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.36965",
+          "title": "Chinese-Jev: Bringing System One Model to Chinese-Language Tasks",
+          "published": "2026-09-29",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-29"
+    },
+    {
+      "name": "Abdulaziz Asseri",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.36399",
+          "title": "Calibrated to Whom? Persona and Language Effects on Cultural Values in JEV",
+          "published": "2026-09-28",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
       "name": "Liuyi Wang",
       "score": 0.5,
       "papers": [
@@ -1229,6 +1409,24 @@
         {
           "id": "2609.34963",
           "title": "JevVibe: Efficient Classification-Guided Secure Code Generation",
+          "published": "2026-09-28",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Shiva Kumar Pentyala",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.36115",
+          "title": "Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs",
           "published": "2026-09-28",
           "position": 2,
           "week": 2,
@@ -1355,6 +1553,24 @@
         {
           "id": "2609.33209",
           "title": "Beyond Calibration: Do a Typed-Decision Model's Probabilities Obey the Probability Axioms?",
+          "published": "2026-09-27",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-27"
+    },
+    {
+      "name": "Yingrui Li",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.37470",
+          "title": "Probability Contracts: Accuracy, Coherence, and Decisions Across LLM Interfaces",
           "published": "2026-09-27",
           "position": 2,
           "week": 2,
@@ -1717,6 +1933,42 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Rafet Sifa",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.37647",
+          "title": "Evaluating and Benchmarking the System One Model Jev",
+          "published": "2026-09-29",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-29"
+    },
+    {
+      "name": "Xudong Wang",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.36965",
+          "title": "Chinese-Jev: Bringing System One Model to Chinese-Language Tasks",
+          "published": "2026-09-29",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-29"
+    },
+    {
       "name": "Ahmad-Reza Sadeghi",
       "score": 0.25,
       "papers": [
@@ -1777,6 +2029,24 @@
         {
           "id": "2609.34180",
           "title": "Decision Readouts for Text-Mediated Video Anomaly Detection: An Exploratory Evaluation of Jev and Qwen",
+          "published": "2026-09-28",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Yingchi Liu",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.36115",
+          "title": "Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs",
           "published": "2026-09-28",
           "position": 3,
           "week": 2,
@@ -2103,6 +2373,24 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Pan Wang",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.36965",
+          "title": "Chinese-Jev: Bringing System One Model to Chinese-Language Tasks",
+          "published": "2026-09-29",
+          "position": 4,
+          "week": 2,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-29"
+    },
+    {
       "name": "Haojie Dai",
       "score": 0.125,
       "papers": [
@@ -2127,6 +2415,24 @@
         {
           "id": "2609.35293",
           "title": "Decide, Don't Generate: Competitive Dimensional ABSA with Jev's Typed Decisions",
+          "published": "2026-09-28",
+          "position": 4,
+          "week": 2,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Shubham Mehrotra",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.36115",
+          "title": "Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs",
           "published": "2026-09-28",
           "position": 4,
           "week": 2,
@@ -2301,6 +2607,24 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Ziyi Ye",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.36965",
+          "title": "Chinese-Jev: Bringing System One Model to Chinese-Language Tasks",
+          "published": "2026-09-29",
+          "position": 5,
+          "week": 2,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-29"
+    },
+    {
       "name": "Chao Tang",
       "score": 0.063,
       "papers": [
@@ -2343,6 +2667,24 @@
         {
           "id": "2609.34180",
           "title": "Decision Readouts for Text-Mediated Video Anomaly Detection: An Exploratory Evaluation of Jev and Qwen",
+          "published": "2026-09-28",
+          "position": 5,
+          "week": 2,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "Suman Banerjee",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.36115",
+          "title": "Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs",
           "published": "2026-09-28",
           "position": 5,
           "week": 2,
@@ -2481,12 +2823,48 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Haoyu Zhao",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.36965",
+          "title": "Chinese-Jev: Bringing System One Model to Chinese-Language Tasks",
+          "published": "2026-09-29",
+          "position": 6,
+          "week": 2,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-29"
+    },
+    {
       "name": "Chenyuan Liu",
       "score": 0.031,
       "papers": [
         {
           "id": "2609.34261",
           "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+          "published": "2026-09-28",
+          "position": 6,
+          "week": 2,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
+      "name": "James Zhu",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2609.36115",
+          "title": "Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs",
           "published": "2026-09-28",
           "position": 6,
           "week": 2,
@@ -2659,6 +3037,42 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Zuxuan Wu",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2609.36965",
+          "title": "Chinese-Jev: Bringing System One Model to Chinese-Language Tasks",
+          "published": "2026-09-29",
+          "position": 7,
+          "week": 2,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-29"
+    },
+    {
+      "name": "Bin Bi",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2609.36115",
+          "title": "Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs",
+          "published": "2026-09-28",
+          "position": 7,
+          "week": 2,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
     },
     {
       "name": "Yushun Xiang",
@@ -2849,6 +3263,42 @@
       "latest": "2026-09-25"
     },
     {
+      "name": "Shuicheng Yan",
+      "score": 0.008,
+      "papers": [
+        {
+          "id": "2609.36965",
+          "title": "Chinese-Jev: Bringing System One Model to Chinese-Language Tasks",
+          "published": "2026-09-29",
+          "position": 8,
+          "week": 2,
+          "weight": 0.008
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-29"
+    },
+    {
+      "name": "Sitaram Asur",
+      "score": 0.008,
+      "papers": [
+        {
+          "id": "2609.36115",
+          "title": "Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs",
+          "published": "2026-09-28",
+          "position": 8,
+          "week": 2,
+          "weight": 0.008
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
+    },
+    {
       "name": "Tingguang Li",
       "score": 0.008,
       "papers": [
@@ -2955,6 +3405,24 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Phil Mui",
+      "score": 0.004,
+      "papers": [
+        {
+          "id": "2609.36115",
+          "title": "Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs",
+          "published": "2026-09-28",
+          "position": 9,
+          "week": 2,
+          "weight": 0.004
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-28"
     },
     {
       "name": "Yong-Lu Li",
