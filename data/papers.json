@@ -1,7 +1,47 @@
 {
-  "updatedAt": "2026-09-30T05:40:11.934Z",
+  "updatedAt": "2026-10-01T06:05:45.778Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "papers": [
+    {
+      "id": "2609.40241",
+      "title": "Decision-Oriented Recommendation Reranking: An Empirical Study of Jev",
+      "authors": [
+        "Hanjia Lyu",
+        "Yinglong Xia"
+      ],
+      "published": "2026-09-30"
+    },
+    {
+      "id": "2609.39496",
+      "title": "When the Right Answer Is Missing: An Arithmetic-Dependent Rejection Bottleneck in Jev",
+      "authors": [
+        "Jike Zhong",
+        "Ming Li",
+        "Yuxiang Lai"
+      ],
+      "published": "2026-09-30"
+    },
+    {
+      "id": "2609.38850",
+      "title": "OpenJev-RLCD: A Working RLCD Implementation",
+      "authors": [
+        "Zhimin Gao",
+        "Pichao Wang"
+      ],
+      "published": "2026-09-30"
+    },
+    {
+      "id": "2609.38827",
+      "title": "More Choices, Fewer Decisions: Ordinal-Scale Bias in JEV-like Direct-Decision Models",
+      "authors": [
+        "Tianxiang Gao",
+        "Jinzhe Li",
+        "Zhiyuan Li",
+        "Yi Chang",
+        "Yuan Wu"
+      ],
+      "published": "2026-09-30"
+    },
     {
       "id": "2609.37647",
       "title": "Evaluating and Benchmarking the System One Model Jev",

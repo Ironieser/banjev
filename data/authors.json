@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-30T05:40:11.934Z",
+  "updatedAt": "2026-10-01T06:05:45.778Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "rule": "paper weight = position weight (1st 1, 2nd 0.5, 3rd 0.25, then halving) x time weight (weeks after 2026-09-17: week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0); banned when the total >= 1 (or listed in manual.json banAuthors)",
   "epoch": "2026-09-17",
@@ -377,6 +377,78 @@
       "allowed": false,
       "banned": true,
       "latest": "2026-09-19"
+    },
+    {
+      "name": "Hanjia Lyu",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.40241",
+          "title": "Decision-Oriented Recommendation Reranking: An Empirical Study of Jev",
+          "published": "2026-09-30",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-30"
+    },
+    {
+      "name": "Jike Zhong",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.39496",
+          "title": "When the Right Answer Is Missing: An Arithmetic-Dependent Rejection Bottleneck in Jev",
+          "published": "2026-09-30",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-30"
+    },
+    {
+      "name": "Tianxiang Gao",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.38827",
+          "title": "More Choices, Fewer Decisions: Ordinal-Scale Bias in JEV-like Direct-Decision Models",
+          "published": "2026-09-30",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-30"
+    },
+    {
+      "name": "Zhimin Gao",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2609.38850",
+          "title": "OpenJev-RLCD: A Working RLCD Implementation",
+          "published": "2026-09-30",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-30"
     },
     {
       "name": "Tobias Deußer",
@@ -1295,6 +1367,78 @@
       "latest": "2026-09-25"
     },
     {
+      "name": "Jinzhe Li",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.38827",
+          "title": "More Choices, Fewer Decisions: Ordinal-Scale Bias in JEV-like Direct-Decision Models",
+          "published": "2026-09-30",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-30"
+    },
+    {
+      "name": "Ming Li",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.39496",
+          "title": "When the Right Answer Is Missing: An Arithmetic-Dependent Rejection Bottleneck in Jev",
+          "published": "2026-09-30",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-30"
+    },
+    {
+      "name": "Pichao Wang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.38850",
+          "title": "OpenJev-RLCD: A Working RLCD Implementation",
+          "published": "2026-09-30",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-30"
+    },
+    {
+      "name": "Yinglong Xia",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2609.40241",
+          "title": "Decision-Oriented Recommendation Reranking: An Empirical Study of Jev",
+          "published": "2026-09-30",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-30"
+    },
+    {
       "name": "Lorenz Sparrenberg",
       "score": 0.5,
       "papers": [
@@ -1933,6 +2077,42 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Yuxiang Lai",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.39496",
+          "title": "When the Right Answer Is Missing: An Arithmetic-Dependent Rejection Bottleneck in Jev",
+          "published": "2026-09-30",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-30"
+    },
+    {
+      "name": "Zhiyuan Li",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2609.38827",
+          "title": "More Choices, Fewer Decisions: Ordinal-Scale Bias in JEV-like Direct-Decision Models",
+          "published": "2026-09-30",
+          "position": 3,
+          "week": 2,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-30"
+    },
+    {
       "name": "Rafet Sifa",
       "score": 0.25,
       "papers": [
@@ -2373,6 +2553,24 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Yi Chang",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2609.38827",
+          "title": "More Choices, Fewer Decisions: Ordinal-Scale Bias in JEV-like Direct-Decision Models",
+          "published": "2026-09-30",
+          "position": 4,
+          "week": 2,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-30"
+    },
+    {
       "name": "Pan Wang",
       "score": 0.125,
       "papers": [
@@ -2605,6 +2803,24 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Yuan Wu",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2609.38827",
+          "title": "More Choices, Fewer Decisions: Ordinal-Scale Bias in JEV-like Direct-Decision Models",
+          "published": "2026-09-30",
+          "position": 5,
+          "week": 2,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-30"
     },
     {
       "name": "Ziyi Ye",
