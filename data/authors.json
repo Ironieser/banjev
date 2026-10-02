@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-01T06:05:45.778Z",
+  "updatedAt": "2026-10-02T05:48:24.745Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "rule": "paper weight = position weight (1st 1, 2nd 0.5, 3rd 0.25, then halving) x time weight (weeks after 2026-09-17: week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0); banned when the total >= 1 (or listed in manual.json banAuthors)",
   "epoch": "2026-09-17",
@@ -19,6 +19,40 @@
   },
   "threshold": 1,
   "authors": [
+    {
+      "name": "Amir Rafe",
+      "score": 5,
+      "papers": [
+        {
+          "id": "2610.00346",
+          "title": "Benchmarking System One decision models against trained classifiers and language models for automated decision gates",
+          "published": "2026-09-29",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        },
+        {
+          "id": "2610.00213",
+          "title": "Counting the Uncounted: Population-Level Surveillance of Documented Pregnancy and Fetal Harm in Police Crash Narratives with a System One Model (Jev)",
+          "published": "2026-09-21",
+          "position": 1,
+          "week": 1,
+          "weight": 2
+        },
+        {
+          "id": "2609.24052",
+          "title": "Calibrated Decisions at Scale: Converting Police Crash Narratives into Probabilistic Crash Variables with a System One Model (Jev)",
+          "published": "2026-09-21",
+          "position": 1,
+          "week": 1,
+          "weight": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-29"
+    },
     {
       "name": "Tiantong Wu",
       "score": 4,
@@ -70,6 +104,40 @@
       "allowed": false,
       "banned": true,
       "latest": "2026-09-19"
+    },
+    {
+      "name": "Subasish Das",
+      "score": 2.5,
+      "papers": [
+        {
+          "id": "2610.00346",
+          "title": "Benchmarking System One decision models against trained classifiers and language models for automated decision gates",
+          "published": "2026-09-29",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        },
+        {
+          "id": "2610.00213",
+          "title": "Counting the Uncounted: Population-Level Surveillance of Documented Pregnancy and Fetal Harm in Police Crash Narratives with a System One Model (Jev)",
+          "published": "2026-09-21",
+          "position": 2,
+          "week": 1,
+          "weight": 1
+        },
+        {
+          "id": "2609.24052",
+          "title": "Calibrated Decisions at Scale: Converting Police Crash Narratives into Probabilistic Crash Variables with a System One Model (Jev)",
+          "published": "2026-09-21",
+          "position": 2,
+          "week": 1,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-29"
     },
     {
       "name": "Fan Zhang",
@@ -242,24 +310,6 @@
       "latest": "2026-09-22"
     },
     {
-      "name": "Amir Rafe",
-      "score": 2,
-      "papers": [
-        {
-          "id": "2609.24052",
-          "title": "Calibrated Decisions at Scale: Converting Police Crash Narratives into Probabilistic Crash Variables with a System One Model (Jev)",
-          "published": "2026-09-21",
-          "position": 1,
-          "week": 1,
-          "weight": 2
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": true,
-      "latest": "2026-09-21"
-    },
-    {
       "name": "Boyuan Deng",
       "score": 2,
       "papers": [
@@ -397,12 +447,66 @@
       "latest": "2026-09-30"
     },
     {
+      "name": "Haoyang Su",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2610.00437",
+          "title": "JevSpawn: Adaptive Agentic Inference through Compositional Action Spaces",
+          "published": "2026-09-30",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-30"
+    },
+    {
       "name": "Jike Zhong",
       "score": 1,
       "papers": [
         {
           "id": "2609.39496",
           "title": "When the Right Answer Is Missing: An Arithmetic-Dependent Rejection Bottleneck in Jev",
+          "published": "2026-09-30",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-30"
+    },
+    {
+      "name": "Luyao Tang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2610.00381",
+          "title": "OmniMed-Jev: Calibrating LVLM Confidence for Trustworthy Medical Multimodal Decisions via System One",
+          "published": "2026-09-30",
+          "position": 1,
+          "week": 2,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-09-30"
+    },
+    {
+      "name": "Shenghe Xu",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2610.00376",
+          "title": "A First Glance at Jev for Network Traffic Classification: Accuracy, Processing Time, and Cost",
           "published": "2026-09-30",
           "position": 1,
           "week": 2,
@@ -726,7 +830,7 @@
       "papers": [
         {
           "id": "2609.34024",
-          "title": "Jev in Medicine: A Benchmark Evaluation. Preliminary Results",
+          "title": "Jev in Medicine: A Benchmark Evaluation",
           "published": "2026-09-27",
           "position": 1,
           "week": 2,
@@ -1261,24 +1365,6 @@
       "latest": "2026-09-21"
     },
     {
-      "name": "Subasish Das",
-      "score": 1,
-      "papers": [
-        {
-          "id": "2609.24052",
-          "title": "Calibrated Decisions at Scale: Converting Police Crash Narratives into Probabilistic Crash Variables with a System One Model (Jev)",
-          "published": "2026-09-21",
-          "position": 2,
-          "week": 1,
-          "weight": 1
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": true,
-      "latest": "2026-09-21"
-    },
-    {
       "name": "Yi Li",
       "score": 1,
       "papers": [
@@ -1367,12 +1453,156 @@
       "latest": "2026-09-25"
     },
     {
+      "name": "Paulo Severo",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.01079",
+          "title": "Jev-IDS: System One Models for Network Intrusion Detection",
+          "published": "2026-10-01",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Richard Hill",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.01231",
+          "title": "Judgement in the Age of Jev: From Evaluation Scarcity to Evaluation Abundance",
+          "published": "2026-10-01",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Sharath M Shankaranarayana",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.01006",
+          "title": "Beyond Answer Confidence: A Controlled Audit of Self-Knowledge in a Black-Box Decision Model",
+          "published": "2026-10-01",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Tianwei Mu",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.02048",
+          "title": "HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks",
+          "published": "2026-10-01",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Yaodong Yang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.01834",
+          "title": "Code Owns the Simulation, Jev Owns the Evaluation",
+          "published": "2026-10-01",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Yinheng Li",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.02076",
+          "title": "LLM2Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
+          "published": "2026-10-01",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Cheng Chen",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.00381",
+          "title": "OmniMed-Jev: Calibrating LVLM Confidence for Trustworthy Medical Multimodal Decisions via System One",
+          "published": "2026-09-30",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-30"
+    },
+    {
       "name": "Jinzhe Li",
       "score": 0.5,
       "papers": [
         {
           "id": "2609.38827",
           "title": "More Choices, Fewer Decisions: Ordinal-Scale Bias in JEV-like Direct-Decision Models",
+          "published": "2026-09-30",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-30"
+    },
+    {
+      "name": "Lifan Mei",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.00376",
+          "title": "A First Glance at Jev for Network Traffic Classification: Accuracy, Processing Time, and Cost",
           "published": "2026-09-30",
           "position": 2,
           "week": 2,
@@ -1409,6 +1639,24 @@
         {
           "id": "2609.38850",
           "title": "OpenJev-RLCD: A Working RLCD Implementation",
+          "published": "2026-09-30",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-09-30"
+    },
+    {
+      "name": "Weiran Huang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.00437",
+          "title": "JevSpawn: Adaptive Agentic Inference through Compositional Action Spaces",
           "published": "2026-09-30",
           "position": 2,
           "week": 2,
@@ -1642,7 +1890,7 @@
       "papers": [
         {
           "id": "2609.34024",
-          "title": "Jev in Medicine: A Benchmark Evaluation. Preliminary Results",
+          "title": "Jev in Medicine: A Benchmark Evaluation",
           "published": "2026-09-27",
           "position": 2,
           "week": 2,
@@ -2075,6 +2323,96 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-19"
+    },
+    {
+      "name": "Davor Runje",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.01006",
+          "title": "Beyond Answer Confidence: A Controlled Audit of Self-Knowledge in a Black-Box Decision Model",
+          "published": "2026-10-01",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Hongyao Tang",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.01834",
+          "title": "Code Owns the Simulation, Jev Owns the Evaluation",
+          "published": "2026-10-01",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Justin Wagle",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.02076",
+          "title": "LLM2Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
+          "published": "2026-10-01",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Shengyan Jiang",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.02048",
+          "title": "HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks",
+          "published": "2026-10-01",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Silvio E. Quincozes",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.01079",
+          "title": "Jev-IDS: System One Models for Network Intrusion Detection",
+          "published": "2026-10-01",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
     },
     {
       "name": "Yuxiang Lai",
@@ -2553,6 +2891,78 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Amanda Dias",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2610.01079",
+          "title": "Jev-IDS: System One Models for Network Intrusion Detection",
+          "published": "2026-10-01",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Jan Jannink",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2610.01006",
+          "title": "Beyond Answer Confidence: A Controlled Audit of Self-Knowledge in a Black-Box Decision Model",
+          "published": "2026-10-01",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Mingzhe Yuan",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2610.02048",
+          "title": "HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks",
+          "published": "2026-10-01",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Yi Ma",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2610.01834",
+          "title": "Code Owns the Simulation, Jev Owns the Evaluation",
+          "published": "2026-10-01",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
       "name": "Yi Chang",
       "score": 0.125,
       "papers": [
@@ -2805,6 +3215,42 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Qing Luo",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2610.02048",
+          "title": "HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks",
+          "published": "2026-10-01",
+          "position": 4,
+          "week": 3,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Xingyu Fan",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2610.01834",
+          "title": "Code Owns the Simulation, Jev Owns the Evaluation",
+          "published": "2026-10-01",
+          "position": 4,
+          "week": 3,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
       "name": "Yuan Wu",
       "score": 0.063,
       "papers": [
@@ -3039,6 +3485,42 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Min Xiao",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2610.02048",
+          "title": "HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks",
+          "published": "2026-10-01",
+          "position": 5,
+          "week": 3,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Weixun Wang",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2610.01834",
+          "title": "Code Owns the Simulation, Jev Owns the Evaluation",
+          "published": "2026-10-01",
+          "position": 5,
+          "week": 3,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
       "name": "Haoyu Zhao",
       "score": 0.031,
       "papers": [
@@ -3253,6 +3735,42 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Jinpeng Li",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2610.01834",
+          "title": "Code Owns the Simulation, Jev Owns the Evaluation",
+          "published": "2026-10-01",
+          "position": 6,
+          "week": 3,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Wenhong Wang",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2610.02048",
+          "title": "HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks",
+          "published": "2026-10-01",
+          "position": 6,
+          "week": 3,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
     },
     {
       "name": "Zuxuan Wu",
@@ -3479,6 +3997,42 @@
       "latest": "2026-09-25"
     },
     {
+      "name": "Jun Li",
+      "score": 0.008,
+      "papers": [
+        {
+          "id": "2610.02048",
+          "title": "HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks",
+          "published": "2026-10-01",
+          "position": 7,
+          "week": 3,
+          "weight": 0.008
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Tianpei Yang",
+      "score": 0.008,
+      "papers": [
+        {
+          "id": "2610.01834",
+          "title": "Code Owns the Simulation, Jev Owns the Evaluation",
+          "published": "2026-10-01",
+          "position": 7,
+          "week": 3,
+          "weight": 0.008
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
       "name": "Shuicheng Yan",
       "score": 0.008,
       "papers": [
@@ -3621,6 +4175,24 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-21"
+    },
+    {
+      "name": "Manhong Huang",
+      "score": 0.004,
+      "papers": [
+        {
+          "id": "2610.02048",
+          "title": "HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks",
+          "published": "2026-10-01",
+          "position": 8,
+          "week": 3,
+          "weight": 0.004
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
     },
     {
       "name": "Phil Mui",

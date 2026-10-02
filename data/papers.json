@@ -1,7 +1,100 @@
 {
-  "updatedAt": "2026-10-01T06:05:45.778Z",
+  "updatedAt": "2026-10-02T05:48:24.745Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "papers": [
+    {
+      "id": "2610.02076",
+      "title": "LLM2Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
+      "authors": [
+        "Yinheng Li",
+        "Justin Wagle"
+      ],
+      "published": "2026-10-01"
+    },
+    {
+      "id": "2610.02048",
+      "title": "HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks",
+      "authors": [
+        "Tianwei Mu",
+        "Shengyan Jiang",
+        "Mingzhe Yuan",
+        "Qing Luo",
+        "Min Xiao",
+        "Wenhong Wang",
+        "Jun Li",
+        "Manhong Huang"
+      ],
+      "published": "2026-10-01"
+    },
+    {
+      "id": "2610.01834",
+      "title": "Code Owns the Simulation, Jev Owns the Evaluation",
+      "authors": [
+        "Yaodong Yang",
+        "Hongyao Tang",
+        "Yi Ma",
+        "Xingyu Fan",
+        "Weixun Wang",
+        "Jinpeng Li",
+        "Tianpei Yang"
+      ],
+      "published": "2026-10-01"
+    },
+    {
+      "id": "2610.01231",
+      "title": "Judgement in the Age of Jev: From Evaluation Scarcity to Evaluation Abundance",
+      "authors": [
+        "Richard Hill"
+      ],
+      "published": "2026-10-01"
+    },
+    {
+      "id": "2610.01079",
+      "title": "Jev-IDS: System One Models for Network Intrusion Detection",
+      "authors": [
+        "Paulo Severo",
+        "Silvio E. Quincozes",
+        "Amanda Dias"
+      ],
+      "published": "2026-10-01"
+    },
+    {
+      "id": "2610.01006",
+      "title": "Beyond Answer Confidence: A Controlled Audit of Self-Knowledge in a Black-Box Decision Model",
+      "authors": [
+        "Sharath M Shankaranarayana",
+        "Davor Runje",
+        "Jan Jannink"
+      ],
+      "published": "2026-10-01"
+    },
+    {
+      "id": "2610.00437",
+      "title": "JevSpawn: Adaptive Agentic Inference through Compositional Action Spaces",
+      "authors": [
+        "Haoyang Su",
+        "Weiran Huang"
+      ],
+      "published": "2026-09-30"
+    },
+    {
+      "id": "2610.00381",
+      "title": "OmniMed-Jev: Calibrating LVLM Confidence for Trustworthy Medical Multimodal Decisions via System One",
+      "authors": [
+        "Luyao Tang",
+        "Cheng Chen"
+      ],
+      "published": "2026-09-30"
+    },
+    {
+      "id": "2610.00376",
+      "title": "A First Glance at Jev for Network Traffic Classification: Accuracy, Processing Time, and Cost",
+      "authors": [
+        "Shenghe Xu",
+        "Lifan Mei"
+      ],
+      "published": "2026-09-30"
+    },
     {
       "id": "2609.40241",
       "title": "Decision-Oriented Recommendation Reranking: An Empirical Study of Jev",
@@ -41,6 +134,15 @@
         "Yuan Wu"
       ],
       "published": "2026-09-30"
+    },
+    {
+      "id": "2610.00346",
+      "title": "Benchmarking System One decision models against trained classifiers and language models for automated decision gates",
+      "authors": [
+        "Amir Rafe",
+        "Subasish Das"
+      ],
+      "published": "2026-09-29"
     },
     {
       "id": "2609.37647",
@@ -218,7 +320,7 @@
     },
     {
       "id": "2609.34024",
-      "title": "Jev in Medicine: A Benchmark Evaluation. Preliminary Results",
+      "title": "Jev in Medicine: A Benchmark Evaluation",
       "authors": [
         "Alfredo Madrid-García",
         "Beatriz Merino-Barbancho"
@@ -535,6 +637,15 @@
         "Yuhang Yao"
       ],
       "published": "2026-09-22"
+    },
+    {
+      "id": "2610.00213",
+      "title": "Counting the Uncounted: Population-Level Surveillance of Documented Pregnancy and Fetal Harm in Police Crash Narratives with a System One Model (Jev)",
+      "authors": [
+        "Amir Rafe",
+        "Subasish Das"
+      ],
+      "published": "2026-09-21"
     },
     {
       "id": "2609.24965",
