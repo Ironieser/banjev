@@ -1,7 +1,70 @@
 {
-  "updatedAt": "2026-10-02T05:48:24.745Z",
+  "updatedAt": "2026-10-05T05:50:31.353Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "papers": [
+    {
+      "id": "2610.03387",
+      "title": "Benchmarking Candidate Coverage in Typed Decision Models",
+      "authors": [
+        "Jiawen Lu",
+        "Tongtong Wu"
+      ],
+      "published": "2026-10-02"
+    },
+    {
+      "id": "2610.03324",
+      "title": "To Jev or Not? Evaluating the Accuracy and Efficiency of Structured Decision Models for Hate-Speech Moderation",
+      "authors": [
+        "Demetris Paschalides",
+        "George Pallis",
+        "Marios D. Dikaiakos"
+      ],
+      "published": "2026-10-02"
+    },
+    {
+      "id": "2610.03073",
+      "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+      "authors": [
+        "Zheng Chen",
+        "Fei Yu",
+        "Haohao Huang",
+        "Yang Li",
+        "Anlong Chen",
+        "Lei Chen"
+      ],
+      "published": "2026-10-02"
+    },
+    {
+      "id": "2610.02586",
+      "title": "Labels Override Definitions in Jev-Style Typed Decision Models",
+      "authors": [
+        "Seyedarmin Azizi",
+        "Erfan Baghaei Potraghloo",
+        "Massoud Pedram"
+      ],
+      "published": "2026-10-01"
+    },
+    {
+      "id": "2610.02516",
+      "title": "Student-Guided Teacher Distillation for Efficient LLM Task Routing: Positioning Against Jev-Style System-1 Classifiers",
+      "authors": [
+        "Haifeng Wu",
+        "Srinivasan Manoharan",
+        "Jian Wan",
+        "Fangbo Tu",
+        "Junhua Zhao",
+        "Xin Chen"
+      ],
+      "published": "2026-10-01"
+    },
+    {
+      "id": "2610.02267",
+      "title": "Fast Models, Slow Evidence: A Paired and Self-Audited Evaluation of System-1 Decision Models for LLM Agent Harnesses",
+      "authors": [
+        "Jiawei Li"
+      ],
+      "published": "2026-10-01"
+    },
     {
       "id": "2610.02076",
       "title": "LLM2Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",

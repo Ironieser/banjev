@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-02T05:48:24.745Z",
+  "updatedAt": "2026-10-05T05:50:31.353Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "rule": "paper weight = position weight (1st 1, 2nd 0.5, 3rd 0.25, then halving) x time weight (weeks after 2026-09-17: week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0); banned when the total >= 1 (or listed in manual.json banAuthors)",
   "epoch": "2026-09-17",
@@ -1453,6 +1453,96 @@
       "latest": "2026-09-25"
     },
     {
+      "name": "Demetris Paschalides",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.03324",
+          "title": "To Jev or Not? Evaluating the Accuracy and Efficiency of Structured Decision Models for Hate-Speech Moderation",
+          "published": "2026-10-02",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Jiawen Lu",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.03387",
+          "title": "Benchmarking Candidate Coverage in Typed Decision Models",
+          "published": "2026-10-02",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Zheng Chen",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.03073",
+          "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+          "published": "2026-10-02",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Haifeng Wu",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.02516",
+          "title": "Student-Guided Teacher Distillation for Efficient LLM Task Routing: Positioning Against Jev-Style System-1 Classifiers",
+          "published": "2026-10-01",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Jiawei Li",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.02267",
+          "title": "Fast Models, Slow Evidence: A Paired and Self-Audited Evaluation of System-1 Decision Models for LLM Agent Harnesses",
+          "published": "2026-10-01",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
       "name": "Paulo Severo",
       "score": 0.5,
       "papers": [
@@ -1477,6 +1567,24 @@
         {
           "id": "2610.01231",
           "title": "Judgement in the Age of Jev: From Evaluation Scarcity to Evaluation Abundance",
+          "published": "2026-10-01",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Seyedarmin Azizi",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.02586",
+          "title": "Labels Override Definitions in Jev-Style Typed Decision Models",
           "published": "2026-10-01",
           "position": 1,
           "week": 3,
@@ -2325,12 +2433,84 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Fei Yu",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.03073",
+          "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+          "published": "2026-10-02",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "George Pallis",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.03324",
+          "title": "To Jev or Not? Evaluating the Accuracy and Efficiency of Structured Decision Models for Hate-Speech Moderation",
+          "published": "2026-10-02",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Tongtong Wu",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.03387",
+          "title": "Benchmarking Candidate Coverage in Typed Decision Models",
+          "published": "2026-10-02",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
       "name": "Davor Runje",
       "score": 0.25,
       "papers": [
         {
           "id": "2610.01006",
           "title": "Beyond Answer Confidence: A Controlled Audit of Self-Knowledge in a Black-Box Decision Model",
+          "published": "2026-10-01",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Erfan Baghaei Potraghloo",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.02586",
+          "title": "Labels Override Definitions in Jev-Style Typed Decision Models",
           "published": "2026-10-01",
           "position": 2,
           "week": 3,
@@ -2403,6 +2583,24 @@
         {
           "id": "2610.01079",
           "title": "Jev-IDS: System One Models for Network Intrusion Detection",
+          "published": "2026-10-01",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Srinivasan Manoharan",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.02516",
+          "title": "Student-Guided Teacher Distillation for Efficient LLM Task Routing: Positioning Against Jev-Style System-1 Classifiers",
           "published": "2026-10-01",
           "position": 2,
           "week": 3,
@@ -2891,6 +3089,42 @@
       "latest": "2026-09-19"
     },
     {
+      "name": "Haohao Huang",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2610.03073",
+          "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+          "published": "2026-10-02",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Marios D. Dikaiakos",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2610.03324",
+          "title": "To Jev or Not? Evaluating the Accuracy and Efficiency of Structured Decision Models for Hate-Speech Moderation",
+          "published": "2026-10-02",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
       "name": "Amanda Dias",
       "score": 0.125,
       "papers": [
@@ -2915,6 +3149,42 @@
         {
           "id": "2610.01006",
           "title": "Beyond Answer Confidence: A Controlled Audit of Self-Knowledge in a Black-Box Decision Model",
+          "published": "2026-10-01",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Jian Wan",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2610.02516",
+          "title": "Student-Guided Teacher Distillation for Efficient LLM Task Routing: Positioning Against Jev-Style System-1 Classifiers",
+          "published": "2026-10-01",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Massoud Pedram",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2610.02586",
+          "title": "Labels Override Definitions in Jev-Style Typed Decision Models",
           "published": "2026-10-01",
           "position": 3,
           "week": 3,
@@ -3215,6 +3485,42 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Yang Li",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2610.03073",
+          "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+          "published": "2026-10-02",
+          "position": 4,
+          "week": 3,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Fangbo Tu",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2610.02516",
+          "title": "Student-Guided Teacher Distillation for Efficient LLM Task Routing: Positioning Against Jev-Style System-1 Classifiers",
+          "published": "2026-10-01",
+          "position": 4,
+          "week": 3,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
       "name": "Qing Luo",
       "score": 0.063,
       "papers": [
@@ -3485,6 +3791,42 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Anlong Chen",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2610.03073",
+          "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+          "published": "2026-10-02",
+          "position": 5,
+          "week": 3,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Junhua Zhao",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2610.02516",
+          "title": "Student-Guided Teacher Distillation for Efficient LLM Task Routing: Positioning Against Jev-Style System-1 Classifiers",
+          "published": "2026-10-01",
+          "position": 5,
+          "week": 3,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
       "name": "Min Xiao",
       "score": 0.031,
       "papers": [
@@ -3737,6 +4079,24 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Lei Chen",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2610.03073",
+          "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+          "published": "2026-10-02",
+          "position": 6,
+          "week": 3,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
       "name": "Jinpeng Li",
       "score": 0.016,
       "papers": [
@@ -3761,6 +4121,24 @@
         {
           "id": "2610.02048",
           "title": "HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks",
+          "published": "2026-10-01",
+          "position": 6,
+          "week": 3,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-01"
+    },
+    {
+      "name": "Xin Chen",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2610.02516",
+          "title": "Student-Guided Teacher Distillation for Efficient LLM Task Routing: Positioning Against Jev-Style System-1 Classifiers",
           "published": "2026-10-01",
           "position": 6,
           "week": 3,
