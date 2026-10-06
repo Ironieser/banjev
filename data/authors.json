@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T05:50:31.353Z",
+  "updatedAt": "2026-10-06T06:29:30.822Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "rule": "paper weight = position weight (1st 1, 2nd 0.5, 3rd 0.25, then halving) x time weight (weeks after 2026-09-17: week 1 x2, week 2 x1, week 3 x0.5, week 4 x0.25, later x0); banned when the total >= 1 (or listed in manual.json banAuthors)",
   "epoch": "2026-09-17",
@@ -54,6 +54,40 @@
       "latest": "2026-09-29"
     },
     {
+      "name": "Delong Li",
+      "score": 4.5,
+      "papers": [
+        {
+          "id": "2610.06425",
+          "title": "SoK: Semantic Decision Engines in Network Control Loops",
+          "published": "2026-10-05",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        },
+        {
+          "id": "2609.23136",
+          "title": "Intent Interpretation at RIC Timescales: Jev Decision Models versus Large Language Models in 6G Open RAN",
+          "published": "2026-09-19",
+          "position": 1,
+          "week": 1,
+          "weight": 2
+        },
+        {
+          "id": "2609.22753",
+          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+          "published": "2026-09-19",
+          "position": 1,
+          "week": 1,
+          "weight": 2
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-10-05"
+    },
+    {
       "name": "Tiantong Wu",
       "score": 4,
       "papers": [
@@ -78,32 +112,6 @@
       "allowed": false,
       "banned": true,
       "latest": "2026-09-23"
-    },
-    {
-      "name": "Delong Li",
-      "score": 4,
-      "papers": [
-        {
-          "id": "2609.23136",
-          "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
-          "published": "2026-09-19",
-          "position": 1,
-          "week": 1,
-          "weight": 2
-        },
-        {
-          "id": "2609.22753",
-          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
-          "published": "2026-09-19",
-          "position": 1,
-          "week": 1,
-          "weight": 2
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": true,
-      "latest": "2026-09-19"
     },
     {
       "name": "Subasish Das",
@@ -138,6 +146,40 @@
       "allowed": false,
       "banned": true,
       "latest": "2026-09-29"
+    },
+    {
+      "name": "Xu Wang",
+      "score": 2.125,
+      "papers": [
+        {
+          "id": "2610.06425",
+          "title": "SoK: Semantic Decision Engines in Network Control Loops",
+          "published": "2026-10-05",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
+        },
+        {
+          "id": "2609.23136",
+          "title": "Intent Interpretation at RIC Timescales: Jev Decision Models versus Large Language Models in 6G Open RAN",
+          "published": "2026-09-19",
+          "position": 2,
+          "week": 1,
+          "weight": 1
+        },
+        {
+          "id": "2609.22753",
+          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+          "published": "2026-09-19",
+          "position": 2,
+          "week": 1,
+          "weight": 1
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-10-05"
     },
     {
       "name": "Fan Zhang",
@@ -403,30 +445,64 @@
       "latest": "2026-09-20"
     },
     {
-      "name": "Xu Wang",
-      "score": 2,
+      "name": "Haochen Gong",
+      "score": 1.063,
       "papers": [
         {
+          "id": "2610.06425",
+          "title": "SoK: Semantic Decision Engines in Network Control Loops",
+          "published": "2026-10-05",
+          "position": 4,
+          "week": 3,
+          "weight": 0.063
+        },
+        {
           "id": "2609.23136",
-          "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
+          "title": "Intent Interpretation at RIC Timescales: Jev Decision Models versus Large Language Models in 6G Open RAN",
           "published": "2026-09-19",
-          "position": 2,
+          "position": 3,
           "week": 1,
-          "weight": 1
+          "weight": 0.5
         },
         {
           "id": "2609.22753",
           "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
           "published": "2026-09-19",
-          "position": 2,
+          "position": 3,
           "week": 1,
-          "weight": 1
+          "weight": 0.5
         }
       ],
       "forced": false,
       "allowed": false,
       "banned": true,
-      "latest": "2026-09-19"
+      "latest": "2026-10-05"
+    },
+    {
+      "name": "Xianliang Yang",
+      "score": 1,
+      "papers": [
+        {
+          "id": "2610.06354",
+          "title": "GraphDecide: Benchmarking System One Models on Graph Tasks",
+          "published": "2026-10-05",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        },
+        {
+          "id": "2609.29283",
+          "title": "From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model",
+          "published": "2026-09-24",
+          "position": 2,
+          "week": 2,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": true,
+      "latest": "2026-10-05"
     },
     {
       "name": "Hanjia Lyu",
@@ -1401,32 +1477,6 @@
       "latest": "2026-09-20"
     },
     {
-      "name": "Haochen Gong",
-      "score": 1,
-      "papers": [
-        {
-          "id": "2609.23136",
-          "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
-          "published": "2026-09-19",
-          "position": 3,
-          "week": 1,
-          "weight": 0.5
-        },
-        {
-          "id": "2609.22753",
-          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
-          "published": "2026-09-19",
-          "position": 3,
-          "week": 1,
-          "weight": 0.5
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": true,
-      "latest": "2026-09-19"
-    },
-    {
       "name": "Yi Liu",
       "score": 0.75,
       "papers": [
@@ -1453,12 +1503,118 @@
       "latest": "2026-09-25"
     },
     {
+      "name": "Rui Lang",
+      "score": 0.531,
+      "papers": [
+        {
+          "id": "2610.06425",
+          "title": "SoK: Semantic Decision Engines in Network Control Loops",
+          "published": "2026-10-05",
+          "position": 5,
+          "week": 3,
+          "weight": 0.031
+        },
+        {
+          "id": "2609.23136",
+          "title": "Intent Interpretation at RIC Timescales: Jev Decision Models versus Large Language Models in 6G Open RAN",
+          "published": "2026-09-19",
+          "position": 4,
+          "week": 1,
+          "weight": 0.25
+        },
+        {
+          "id": "2609.22753",
+          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+          "published": "2026-09-19",
+          "position": 4,
+          "week": 1,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-05"
+    },
+    {
+      "name": "Matthew DiGiuseppe",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.06625",
+          "title": "JEV versus LLMs: Accuracy, Cost and Calibration on Seven Political Science Replications",
+          "published": "2026-10-05",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-05"
+    },
+    {
+      "name": "Shang Wang",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.04985",
+          "title": "Hidden Risks of Jev: An Empirical Study of Security, Privacy, and Dual Use",
+          "published": "2026-10-04",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-04"
+    },
+    {
+      "name": "Masoud Rahimi",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.04345",
+          "title": "System One Models for Wireless Decision-Making:Applications and Performance Evaluation",
+          "published": "2026-10-03",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-03"
+    },
+    {
       "name": "Demetris Paschalides",
       "score": 0.5,
       "papers": [
         {
           "id": "2610.03324",
           "title": "To Jev or Not? Evaluating the Accuracy and Efficiency of Structured Decision Models for Hate-Speech Moderation",
+          "published": "2026-10-02",
+          "position": 1,
+          "week": 3,
+          "weight": 0.5
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Feiyu Duan",
+      "score": 0.5,
+      "papers": [
+        {
+          "id": "2610.03935",
+          "title": "General Decision Models: Benchmarking and Insights Beyond Jev",
           "published": "2026-10-02",
           "position": 1,
           "week": 3,
@@ -1656,7 +1812,7 @@
       "papers": [
         {
           "id": "2610.02076",
-          "title": "LLM2Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
+          "title": "LLM-as-Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
           "published": "2026-10-01",
           "position": 1,
           "week": 3,
@@ -2209,24 +2365,6 @@
       "latest": "2026-09-24"
     },
     {
-      "name": "Xianliang Yang",
-      "score": 0.5,
-      "papers": [
-        {
-          "id": "2609.29283",
-          "title": "From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model",
-          "published": "2026-09-24",
-          "position": 2,
-          "week": 2,
-          "weight": 0.5
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": false,
-      "latest": "2026-09-24"
-    },
-    {
       "name": "Renhe Jiang",
       "score": 0.5,
       "papers": [
@@ -2407,30 +2545,154 @@
       "latest": "2026-09-20"
     },
     {
-      "name": "Rui Lang",
-      "score": 0.5,
+      "name": "Li Zhao",
+      "score": 0.375,
       "papers": [
         {
-          "id": "2609.23136",
-          "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
-          "published": "2026-09-19",
-          "position": 4,
-          "week": 1,
-          "weight": 0.25
+          "id": "2610.06354",
+          "title": "GraphDecide: Benchmarking System One Models on Graph Tasks",
+          "published": "2026-10-05",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
         },
         {
-          "id": "2609.22753",
-          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
-          "published": "2026-09-19",
-          "position": 4,
-          "week": 1,
+          "id": "2609.29283",
+          "title": "From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model",
+          "published": "2026-09-24",
+          "position": 3,
+          "week": 2,
           "weight": 0.25
         }
       ],
       "forced": false,
       "allowed": false,
       "banned": false,
-      "latest": "2026-09-19"
+      "latest": "2026-10-05"
+    },
+    {
+      "name": "Guangsheng Yu",
+      "score": 0.266,
+      "papers": [
+        {
+          "id": "2610.06425",
+          "title": "SoK: Semantic Decision Engines in Network Control Loops",
+          "published": "2026-10-05",
+          "position": 6,
+          "week": 3,
+          "weight": 0.016
+        },
+        {
+          "id": "2609.23136",
+          "title": "Intent Interpretation at RIC Timescales: Jev Decision Models versus Large Language Models in 6G Open RAN",
+          "published": "2026-09-19",
+          "position": 5,
+          "week": 1,
+          "weight": 0.125
+        },
+        {
+          "id": "2609.22753",
+          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
+          "published": "2026-09-19",
+          "position": 5,
+          "week": 1,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-05"
+    },
+    {
+      "name": "Chen Li",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.06425",
+          "title": "SoK: Semantic Decision Engines in Network Control Loops",
+          "published": "2026-10-05",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-05"
+    },
+    {
+      "name": "Steven Denney",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.06625",
+          "title": "JEV versus LLMs: Accuracy, Cost and Calibration on Seven Political Science Replications",
+          "published": "2026-10-05",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-05"
+    },
+    {
+      "name": "Yapu Zhang",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.06354",
+          "title": "GraphDecide: Benchmarking System One Models on Graph Tasks",
+          "published": "2026-10-05",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-05"
+    },
+    {
+      "name": "Tianqing Zhu",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.04985",
+          "title": "Hidden Risks of Jev: An Empirical Study of Security, Privacy, and Dual Use",
+          "published": "2026-10-04",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-04"
+    },
+    {
+      "name": "S. M. Matin Alemohammad",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.04345",
+          "title": "System One Models for Wireless Decision-Making:Applications and Performance Evaluation",
+          "published": "2026-10-03",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-03"
     },
     {
       "name": "Fei Yu",
@@ -2457,6 +2719,24 @@
         {
           "id": "2610.03324",
           "title": "To Jev or Not? Evaluating the Accuracy and Efficiency of Structured Decision Models for Hate-Speech Moderation",
+          "published": "2026-10-02",
+          "position": 2,
+          "week": 3,
+          "weight": 0.25
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Jiayu Lin",
+      "score": 0.25,
+      "papers": [
+        {
+          "id": "2610.03935",
+          "title": "General Decision Models: Benchmarking and Insights Beyond Jev",
           "published": "2026-10-02",
           "position": 2,
           "week": 3,
@@ -2546,7 +2826,7 @@
       "papers": [
         {
           "id": "2610.02076",
-          "title": "LLM2Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
+          "title": "LLM-as-Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
           "published": "2026-10-01",
           "position": 2,
           "week": 3,
@@ -2901,24 +3181,6 @@
       "latest": "2026-09-24"
     },
     {
-      "name": "Li Zhao",
-      "score": 0.25,
-      "papers": [
-        {
-          "id": "2609.29283",
-          "title": "From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model",
-          "published": "2026-09-24",
-          "position": 3,
-          "week": 2,
-          "weight": 0.25
-        }
-      ],
-      "forced": false,
-      "allowed": false,
-      "banned": false,
-      "latest": "2026-09-24"
-    },
-    {
       "name": "Zijian Ye",
       "score": 0.25,
       "papers": [
@@ -3063,30 +3325,40 @@
       "latest": "2026-09-21"
     },
     {
-      "name": "Guangsheng Yu",
-      "score": 0.25,
+      "name": "Huajie Chen",
+      "score": 0.125,
       "papers": [
         {
-          "id": "2609.23136",
-          "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
-          "published": "2026-09-19",
-          "position": 5,
-          "week": 1,
-          "weight": 0.125
-        },
-        {
-          "id": "2609.22753",
-          "title": "Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration",
-          "published": "2026-09-19",
-          "position": 5,
-          "week": 1,
+          "id": "2610.04985",
+          "title": "Hidden Risks of Jev: An Empirical Study of Security, Privacy, and Dual Use",
+          "published": "2026-10-04",
+          "position": 3,
+          "week": 3,
           "weight": 0.125
         }
       ],
       "forced": false,
       "allowed": false,
       "banned": false,
-      "latest": "2026-09-19"
+      "latest": "2026-10-04"
+    },
+    {
+      "name": "Hamid Behroozi",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2610.04345",
+          "title": "System One Models for Wireless Decision-Making:Applications and Performance Evaluation",
+          "published": "2026-10-03",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-03"
     },
     {
       "name": "Haohao Huang",
@@ -3095,6 +3367,24 @@
         {
           "id": "2610.03073",
           "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+          "published": "2026-10-02",
+          "position": 3,
+          "week": 3,
+          "weight": 0.125
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Jia Wang",
+      "score": 0.125,
+      "papers": [
+        {
+          "id": "2610.03935",
+          "title": "General Decision Models: Benchmarking and Insights Beyond Jev",
           "published": "2026-10-02",
           "position": 3,
           "week": 3,
@@ -3485,6 +3775,60 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Jiayang Li",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2610.04985",
+          "title": "Hidden Risks of Jev: An Empirical Study of Security, Privacy, and Dual Use",
+          "published": "2026-10-04",
+          "position": 4,
+          "week": 3,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-04"
+    },
+    {
+      "name": "Mahdi Nouri",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2610.04345",
+          "title": "System One Models for Wireless Decision-Making:Applications and Performance Evaluation",
+          "published": "2026-10-03",
+          "position": 4,
+          "week": 3,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-03"
+    },
+    {
+      "name": "Jun Xiang",
+      "score": 0.063,
+      "papers": [
+        {
+          "id": "2610.03935",
+          "title": "General Decision Models: Benchmarking and Insights Beyond Jev",
+          "published": "2026-10-02",
+          "position": 4,
+          "week": 3,
+          "weight": 0.063
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
       "name": "Yang Li",
       "score": 0.063,
       "papers": [
@@ -3791,12 +4135,48 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Meng Yang",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2610.04985",
+          "title": "Hidden Risks of Jev: An Empirical Study of Security, Privacy, and Dual Use",
+          "published": "2026-10-04",
+          "position": 5,
+          "week": 3,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-04"
+    },
+    {
       "name": "Anlong Chen",
       "score": 0.031,
       "papers": [
         {
           "id": "2610.03073",
           "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+          "published": "2026-10-02",
+          "position": 5,
+          "week": 3,
+          "weight": 0.031
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Jialiang Wu",
+      "score": 0.031,
+      "papers": [
+        {
+          "id": "2610.03935",
+          "title": "General Decision Models: Benchmarking and Insights Beyond Jev",
           "published": "2026-10-02",
           "position": 5,
           "week": 3,
@@ -4079,12 +4459,48 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Bo Liu",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2610.04985",
+          "title": "Hidden Risks of Jev: An Empirical Study of Security, Privacy, and Dual Use",
+          "published": "2026-10-04",
+          "position": 6,
+          "week": 3,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-04"
+    },
+    {
       "name": "Lei Chen",
       "score": 0.016,
       "papers": [
         {
           "id": "2610.03073",
           "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+          "published": "2026-10-02",
+          "position": 6,
+          "week": 3,
+          "weight": 0.016
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
+      "name": "Xinnong Zhang",
+      "score": 0.016,
+      "papers": [
+        {
+          "id": "2610.03935",
+          "title": "General Decision Models: Benchmarking and Insights Beyond Jev",
           "published": "2026-10-02",
           "position": 6,
           "week": 3,
@@ -4375,6 +4791,24 @@
       "latest": "2026-09-25"
     },
     {
+      "name": "Hanqi Yan",
+      "score": 0.008,
+      "papers": [
+        {
+          "id": "2610.03935",
+          "title": "General Decision Models: Benchmarking and Insights Beyond Jev",
+          "published": "2026-10-02",
+          "position": 7,
+          "week": 3,
+          "weight": 0.008
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
       "name": "Jun Li",
       "score": 0.008,
       "papers": [
@@ -4555,6 +4989,24 @@
       "latest": "2026-09-21"
     },
     {
+      "name": "Siyuan Wang",
+      "score": 0.004,
+      "papers": [
+        {
+          "id": "2610.03935",
+          "title": "General Decision Models: Benchmarking and Insights Beyond Jev",
+          "published": "2026-10-02",
+          "position": 8,
+          "week": 3,
+          "weight": 0.004
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
+    },
+    {
       "name": "Manhong Huang",
       "score": 0.004,
       "papers": [
@@ -4643,6 +5095,24 @@
       "allowed": false,
       "banned": false,
       "latest": "2026-09-23"
+    },
+    {
+      "name": "Zhongyu Wei",
+      "score": 0.002,
+      "papers": [
+        {
+          "id": "2610.03935",
+          "title": "General Decision Models: Benchmarking and Insights Beyond Jev",
+          "published": "2026-10-02",
+          "position": 9,
+          "week": 3,
+          "weight": 0.002
+        }
+      ],
+      "forced": false,
+      "allowed": false,
+      "banned": false,
+      "latest": "2026-10-02"
     },
     {
       "name": "Yehui Tang",

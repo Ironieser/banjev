@@ -1,7 +1,79 @@
 {
-  "updatedAt": "2026-10-05T05:50:31.353Z",
+  "updatedAt": "2026-10-06T06:29:30.822Z",
   "source": "arXiv API + data/manual.json (+ sources/awesome-jev snapshot)",
   "papers": [
+    {
+      "id": "2610.06625",
+      "title": "JEV versus LLMs: Accuracy, Cost and Calibration on Seven Political Science Replications",
+      "authors": [
+        "Matthew DiGiuseppe",
+        "Steven Denney"
+      ],
+      "published": "2026-10-05"
+    },
+    {
+      "id": "2610.06425",
+      "title": "SoK: Semantic Decision Engines in Network Control Loops",
+      "authors": [
+        "Delong Li",
+        "Chen Li",
+        "Xu Wang",
+        "Haochen Gong",
+        "Rui Lang",
+        "Guangsheng Yu"
+      ],
+      "published": "2026-10-05"
+    },
+    {
+      "id": "2610.06354",
+      "title": "GraphDecide: Benchmarking System One Models on Graph Tasks",
+      "authors": [
+        "Xianliang Yang",
+        "Yapu Zhang",
+        "Li Zhao"
+      ],
+      "published": "2026-10-05"
+    },
+    {
+      "id": "2610.04985",
+      "title": "Hidden Risks of Jev: An Empirical Study of Security, Privacy, and Dual Use",
+      "authors": [
+        "Shang Wang",
+        "Tianqing Zhu",
+        "Huajie Chen",
+        "Jiayang Li",
+        "Meng Yang",
+        "Bo Liu"
+      ],
+      "published": "2026-10-04"
+    },
+    {
+      "id": "2610.04345",
+      "title": "System One Models for Wireless Decision-Making:Applications and Performance Evaluation",
+      "authors": [
+        "Masoud Rahimi",
+        "S. M. Matin Alemohammad",
+        "Hamid Behroozi",
+        "Mahdi Nouri"
+      ],
+      "published": "2026-10-03"
+    },
+    {
+      "id": "2610.03935",
+      "title": "General Decision Models: Benchmarking and Insights Beyond Jev",
+      "authors": [
+        "Feiyu Duan",
+        "Jiayu Lin",
+        "Jia Wang",
+        "Jun Xiang",
+        "Jialiang Wu",
+        "Xinnong Zhang",
+        "Hanqi Yan",
+        "Siyuan Wang",
+        "Zhongyu Wei"
+      ],
+      "published": "2026-10-02"
+    },
     {
       "id": "2610.03387",
       "title": "Benchmarking Candidate Coverage in Typed Decision Models",
@@ -67,7 +139,7 @@
     },
     {
       "id": "2610.02076",
-      "title": "LLM2Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
+      "title": "LLM-as-Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
       "authors": [
         "Yinheng Li",
         "Justin Wagle"
@@ -776,7 +848,7 @@
     },
     {
       "id": "2609.23136",
-      "title": "Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks",
+      "title": "Intent Interpretation at RIC Timescales: Jev Decision Models versus Large Language Models in 6G Open RAN",
       "authors": [
         "Delong Li",
         "Xu Wang",
